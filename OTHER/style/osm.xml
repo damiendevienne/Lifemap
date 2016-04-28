@@ -1,0 +1,4745 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE Map [
+<!ENTITY % entities SYSTEM "inc/entities.xml.inc">
+%entities;
+]>
+<Map background-color="black" srs="&srs900913;" minimum-version="2.0.0" buffer-size="1000" maximum-extent="-20037510.34, -20037510.34, 20037510.34, 20037510.34">
+
+<!--MARKER SYMBOLIZER FOR LUCA-->
+<Style name="luca">
+  <Rule>
+   &maxscale_zoom0;
+   &minscale_zoom42;
+   <TextSymbolizer size="13" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full">"   "</TextSymbolizer>
+  </Rule>
+</Style>  
+
+<!--RANK NAMES STYLES (generated with R) -->
+<Style name="ranknames1">
+  <Rule>
+    <Filter>[zoomview] = 0</Filter>
+    &maxscale_zoom2;
+    &minscale_zoom4;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 1</Filter>
+    &maxscale_zoom3;
+    &minscale_zoom5;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 2</Filter>
+    &maxscale_zoom4;
+    &minscale_zoom6;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 3</Filter>
+    &maxscale_zoom5;
+    &minscale_zoom7;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 4</Filter>
+    &maxscale_zoom6;
+    &minscale_zoom8;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 5</Filter>
+    &maxscale_zoom7;
+    &minscale_zoom9;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 6</Filter>
+    &maxscale_zoom8;
+    &minscale_zoom10;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 7</Filter>
+    &maxscale_zoom9;
+    &minscale_zoom11;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 8</Filter>
+    &maxscale_zoom10;
+    &minscale_zoom12;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 9</Filter>
+    &maxscale_zoom11;
+    &minscale_zoom13;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 10</Filter>
+    &maxscale_zoom12;
+    &minscale_zoom14;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 11</Filter>
+    &maxscale_zoom13;
+    &minscale_zoom15;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 12</Filter>
+    &maxscale_zoom14;
+    &minscale_zoom16;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 13</Filter>
+    &maxscale_zoom15;
+    &minscale_zoom17;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 14</Filter>
+    &maxscale_zoom16;
+    &minscale_zoom18;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 15</Filter>
+    &maxscale_zoom17;
+    &minscale_zoom19;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 16</Filter>
+    &maxscale_zoom18;
+    &minscale_zoom20;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 17</Filter>
+    &maxscale_zoom19;
+    &minscale_zoom21;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 18</Filter>
+    &maxscale_zoom20;
+    &minscale_zoom22;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 19</Filter>
+    &maxscale_zoom21;
+    &minscale_zoom23;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 20</Filter>
+    &maxscale_zoom22;
+    &minscale_zoom24;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 21</Filter>
+    &maxscale_zoom23;
+    &minscale_zoom25;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 22</Filter>
+    &maxscale_zoom24;
+    &minscale_zoom26;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 23</Filter>
+    &maxscale_zoom25;
+    &minscale_zoom27;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 24</Filter>
+    &maxscale_zoom26;
+    &minscale_zoom28;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 25</Filter>
+    &maxscale_zoom27;
+    &minscale_zoom29;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 26</Filter>
+    &maxscale_zoom28;
+    &minscale_zoom30;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 27</Filter>
+    &maxscale_zoom29;
+    &minscale_zoom31;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 28</Filter>
+    &maxscale_zoom30;
+    &minscale_zoom32;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 29</Filter>
+    &maxscale_zoom31;
+    &minscale_zoom33;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 30</Filter>
+    &maxscale_zoom32;
+    &minscale_zoom34;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 31</Filter>
+    &maxscale_zoom33;
+    &minscale_zoom35;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 32</Filter>
+    &maxscale_zoom34;
+    &minscale_zoom36;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 33</Filter>
+    &maxscale_zoom35;
+    &minscale_zoom37;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 34</Filter>
+    &maxscale_zoom36;
+    &minscale_zoom38;
+    <TextSymbolizer fill="#aaffee" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.22" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+</Style>
+<Style name="ranknames2">
+  <Rule>
+    <Filter>[zoomview] = 0</Filter>
+    &maxscale_zoom2;
+    &minscale_zoom4;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 1</Filter>
+    &maxscale_zoom3;
+    &minscale_zoom5;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 2</Filter>
+    &maxscale_zoom4;
+    &minscale_zoom6;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 3</Filter>
+    &maxscale_zoom5;
+    &minscale_zoom7;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 4</Filter>
+    &maxscale_zoom6;
+    &minscale_zoom8;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 5</Filter>
+    &maxscale_zoom7;
+    &minscale_zoom9;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 6</Filter>
+    &maxscale_zoom8;
+    &minscale_zoom10;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 7</Filter>
+    &maxscale_zoom9;
+    &minscale_zoom11;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 8</Filter>
+    &maxscale_zoom10;
+    &minscale_zoom12;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 9</Filter>
+    &maxscale_zoom11;
+    &minscale_zoom13;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 10</Filter>
+    &maxscale_zoom12;
+    &minscale_zoom14;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 11</Filter>
+    &maxscale_zoom13;
+    &minscale_zoom15;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 12</Filter>
+    &maxscale_zoom14;
+    &minscale_zoom16;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 13</Filter>
+    &maxscale_zoom15;
+    &minscale_zoom17;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 14</Filter>
+    &maxscale_zoom16;
+    &minscale_zoom18;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 15</Filter>
+    &maxscale_zoom17;
+    &minscale_zoom19;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 16</Filter>
+    &maxscale_zoom18;
+    &minscale_zoom20;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 17</Filter>
+    &maxscale_zoom19;
+    &minscale_zoom21;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 18</Filter>
+    &maxscale_zoom20;
+    &minscale_zoom22;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 19</Filter>
+    &maxscale_zoom21;
+    &minscale_zoom23;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 20</Filter>
+    &maxscale_zoom22;
+    &minscale_zoom24;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 21</Filter>
+    &maxscale_zoom23;
+    &minscale_zoom25;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 22</Filter>
+    &maxscale_zoom24;
+    &minscale_zoom26;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 23</Filter>
+    &maxscale_zoom25;
+    &minscale_zoom27;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 24</Filter>
+    &maxscale_zoom26;
+    &minscale_zoom28;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 25</Filter>
+    &maxscale_zoom27;
+    &minscale_zoom29;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 26</Filter>
+    &maxscale_zoom28;
+    &minscale_zoom30;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 27</Filter>
+    &maxscale_zoom29;
+    &minscale_zoom31;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 28</Filter>
+    &maxscale_zoom30;
+    &minscale_zoom32;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 29</Filter>
+    &maxscale_zoom31;
+    &minscale_zoom33;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 30</Filter>
+    &maxscale_zoom32;
+    &minscale_zoom34;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 31</Filter>
+    &maxscale_zoom33;
+    &minscale_zoom35;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 32</Filter>
+    &maxscale_zoom34;
+    &minscale_zoom36;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 33</Filter>
+    &maxscale_zoom35;
+    &minscale_zoom37;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 34</Filter>
+    &maxscale_zoom36;
+    &minscale_zoom38;
+    <TextSymbolizer fill="#6599ff" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.25" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+</Style>
+<Style name="ranknames3">
+  <Rule>
+    <Filter>[zoomview] = 0</Filter>
+    &maxscale_zoom2;
+    &minscale_zoom4;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 1</Filter>
+    &maxscale_zoom3;
+    &minscale_zoom5;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 2</Filter>
+    &maxscale_zoom4;
+    &minscale_zoom6;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 3</Filter>
+    &maxscale_zoom5;
+    &minscale_zoom7;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 4</Filter>
+    &maxscale_zoom6;
+    &minscale_zoom8;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 5</Filter>
+    &maxscale_zoom7;
+    &minscale_zoom9;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 6</Filter>
+    &maxscale_zoom8;
+    &minscale_zoom10;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 7</Filter>
+    &maxscale_zoom9;
+    &minscale_zoom11;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 8</Filter>
+    &maxscale_zoom10;
+    &minscale_zoom12;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 9</Filter>
+    &maxscale_zoom11;
+    &minscale_zoom13;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 10</Filter>
+    &maxscale_zoom12;
+    &minscale_zoom14;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 11</Filter>
+    &maxscale_zoom13;
+    &minscale_zoom15;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 12</Filter>
+    &maxscale_zoom14;
+    &minscale_zoom16;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 13</Filter>
+    &maxscale_zoom15;
+    &minscale_zoom17;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 14</Filter>
+    &maxscale_zoom16;
+    &minscale_zoom18;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 15</Filter>
+    &maxscale_zoom17;
+    &minscale_zoom19;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 16</Filter>
+    &maxscale_zoom18;
+    &minscale_zoom20;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 17</Filter>
+    &maxscale_zoom19;
+    &minscale_zoom21;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 18</Filter>
+    &maxscale_zoom20;
+    &minscale_zoom22;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 19</Filter>
+    &maxscale_zoom21;
+    &minscale_zoom23;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 20</Filter>
+    &maxscale_zoom22;
+    &minscale_zoom24;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 21</Filter>
+    &maxscale_zoom23;
+    &minscale_zoom25;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 22</Filter>
+    &maxscale_zoom24;
+    &minscale_zoom26;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 23</Filter>
+    &maxscale_zoom25;
+    &minscale_zoom27;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 24</Filter>
+    &maxscale_zoom26;
+    &minscale_zoom28;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 25</Filter>
+    &maxscale_zoom27;
+    &minscale_zoom29;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 26</Filter>
+    &maxscale_zoom28;
+    &minscale_zoom30;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 27</Filter>
+    &maxscale_zoom29;
+    &minscale_zoom31;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 28</Filter>
+    &maxscale_zoom30;
+    &minscale_zoom32;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 29</Filter>
+    &maxscale_zoom31;
+    &minscale_zoom33;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 30</Filter>
+    &maxscale_zoom32;
+    &minscale_zoom34;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 31</Filter>
+    &maxscale_zoom33;
+    &minscale_zoom35;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 32</Filter>
+    &maxscale_zoom34;
+    &minscale_zoom36;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 33</Filter>
+    &maxscale_zoom35;
+    &minscale_zoom37;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 34</Filter>
+    &maxscale_zoom36;
+    &minscale_zoom38;
+    <TextSymbolizer fill="#ff8080" size="9" dy="-5" face-name="Sinkin Sans 600 SemiBold" opacity="0.2" placement="line" >[rank]</TextSymbolizer>
+  </Rule>
+</Style>
+
+<!--CLADES POLYGON STYLE (generated with R) -->
+<Style name="clade1">
+  <Rule>
+    <Filter>[zoomview] = 0</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom4;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 1</Filter>
+    &maxscale_zoom1;
+    &minscale_zoom5;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 2</Filter>
+    &maxscale_zoom2;
+    &minscale_zoom6;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 3</Filter>
+    &maxscale_zoom3;
+    &minscale_zoom7;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 4</Filter>
+    &maxscale_zoom4;
+    &minscale_zoom8;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 5</Filter>
+    &maxscale_zoom5;
+    &minscale_zoom9;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 6</Filter>
+    &maxscale_zoom6;
+    &minscale_zoom10;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 7</Filter>
+    &maxscale_zoom7;
+    &minscale_zoom11;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 8</Filter>
+    &maxscale_zoom8;
+    &minscale_zoom12;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 9</Filter>
+    &maxscale_zoom9;
+    &minscale_zoom13;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 10</Filter>
+    &maxscale_zoom10;
+    &minscale_zoom14;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 11</Filter>
+    &maxscale_zoom11;
+    &minscale_zoom15;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 12</Filter>
+    &maxscale_zoom12;
+    &minscale_zoom16;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 13</Filter>
+    &maxscale_zoom13;
+    &minscale_zoom17;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 14</Filter>
+    &maxscale_zoom14;
+    &minscale_zoom18;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 15</Filter>
+    &maxscale_zoom15;
+    &minscale_zoom19;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 16</Filter>
+    &maxscale_zoom16;
+    &minscale_zoom20;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 17</Filter>
+    &maxscale_zoom17;
+    &minscale_zoom21;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 18</Filter>
+    &maxscale_zoom18;
+    &minscale_zoom22;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 19</Filter>
+    &maxscale_zoom19;
+    &minscale_zoom23;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 20</Filter>
+    &maxscale_zoom20;
+    &minscale_zoom24;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 21</Filter>
+    &maxscale_zoom21;
+    &minscale_zoom25;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 22</Filter>
+    &maxscale_zoom22;
+    &minscale_zoom26;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 23</Filter>
+    &maxscale_zoom23;
+    &minscale_zoom27;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 24</Filter>
+    &maxscale_zoom24;
+    &minscale_zoom28;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 25</Filter>
+    &maxscale_zoom25;
+    &minscale_zoom29;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 26</Filter>
+    &maxscale_zoom26;
+    &minscale_zoom30;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 27</Filter>
+    &maxscale_zoom27;
+    &minscale_zoom31;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 28</Filter>
+    &maxscale_zoom28;
+    &minscale_zoom32;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 29</Filter>
+    &maxscale_zoom29;
+    &minscale_zoom33;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 30</Filter>
+    &maxscale_zoom30;
+    &minscale_zoom34;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 31</Filter>
+    &maxscale_zoom31;
+    &minscale_zoom35;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 32</Filter>
+    &maxscale_zoom32;
+    &minscale_zoom36;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 33</Filter>
+    &maxscale_zoom33;
+    &minscale_zoom37;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 34</Filter>
+    &maxscale_zoom34;
+    &minscale_zoom38;
+    <PolygonSymbolizer fill-opacity="0.12" fill="#aaffee"/>
+  </Rule>
+</Style>
+<Style name="clade2">
+  <Rule>
+    <Filter>[zoomview] = 0</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom4;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 1</Filter>
+    &maxscale_zoom1;
+    &minscale_zoom5;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 2</Filter>
+    &maxscale_zoom2;
+    &minscale_zoom6;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 3</Filter>
+    &maxscale_zoom3;
+    &minscale_zoom7;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 4</Filter>
+    &maxscale_zoom4;
+    &minscale_zoom8;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 5</Filter>
+    &maxscale_zoom5;
+    &minscale_zoom9;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 6</Filter>
+    &maxscale_zoom6;
+    &minscale_zoom10;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 7</Filter>
+    &maxscale_zoom7;
+    &minscale_zoom11;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 8</Filter>
+    &maxscale_zoom8;
+    &minscale_zoom12;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 9</Filter>
+    &maxscale_zoom9;
+    &minscale_zoom13;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 10</Filter>
+    &maxscale_zoom10;
+    &minscale_zoom14;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 11</Filter>
+    &maxscale_zoom11;
+    &minscale_zoom15;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 12</Filter>
+    &maxscale_zoom12;
+    &minscale_zoom16;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 13</Filter>
+    &maxscale_zoom13;
+    &minscale_zoom17;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 14</Filter>
+    &maxscale_zoom14;
+    &minscale_zoom18;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 15</Filter>
+    &maxscale_zoom15;
+    &minscale_zoom19;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 16</Filter>
+    &maxscale_zoom16;
+    &minscale_zoom20;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 17</Filter>
+    &maxscale_zoom17;
+    &minscale_zoom21;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 18</Filter>
+    &maxscale_zoom18;
+    &minscale_zoom22;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 19</Filter>
+    &maxscale_zoom19;
+    &minscale_zoom23;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 20</Filter>
+    &maxscale_zoom20;
+    &minscale_zoom24;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 21</Filter>
+    &maxscale_zoom21;
+    &minscale_zoom25;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 22</Filter>
+    &maxscale_zoom22;
+    &minscale_zoom26;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 23</Filter>
+    &maxscale_zoom23;
+    &minscale_zoom27;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 24</Filter>
+    &maxscale_zoom24;
+    &minscale_zoom28;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 25</Filter>
+    &maxscale_zoom25;
+    &minscale_zoom29;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 26</Filter>
+    &maxscale_zoom26;
+    &minscale_zoom30;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 27</Filter>
+    &maxscale_zoom27;
+    &minscale_zoom31;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 28</Filter>
+    &maxscale_zoom28;
+    &minscale_zoom32;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 29</Filter>
+    &maxscale_zoom29;
+    &minscale_zoom33;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 30</Filter>
+    &maxscale_zoom30;
+    &minscale_zoom34;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 31</Filter>
+    &maxscale_zoom31;
+    &minscale_zoom35;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 32</Filter>
+    &maxscale_zoom32;
+    &minscale_zoom36;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 33</Filter>
+    &maxscale_zoom33;
+    &minscale_zoom37;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 34</Filter>
+    &maxscale_zoom34;
+    &minscale_zoom38;
+    <PolygonSymbolizer fill-opacity="0.15" fill="#6599ff"/>
+  </Rule>
+</Style>
+<Style name="clade3">
+  <Rule>
+    <Filter>[zoomview] = 0</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom4;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 1</Filter>
+    &maxscale_zoom1;
+    &minscale_zoom5;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 2</Filter>
+    &maxscale_zoom2;
+    &minscale_zoom6;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 3</Filter>
+    &maxscale_zoom3;
+    &minscale_zoom7;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 4</Filter>
+    &maxscale_zoom4;
+    &minscale_zoom8;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 5</Filter>
+    &maxscale_zoom5;
+    &minscale_zoom9;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 6</Filter>
+    &maxscale_zoom6;
+    &minscale_zoom10;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 7</Filter>
+    &maxscale_zoom7;
+    &minscale_zoom11;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 8</Filter>
+    &maxscale_zoom8;
+    &minscale_zoom12;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 9</Filter>
+    &maxscale_zoom9;
+    &minscale_zoom13;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 10</Filter>
+    &maxscale_zoom10;
+    &minscale_zoom14;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 11</Filter>
+    &maxscale_zoom11;
+    &minscale_zoom15;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 12</Filter>
+    &maxscale_zoom12;
+    &minscale_zoom16;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 13</Filter>
+    &maxscale_zoom13;
+    &minscale_zoom17;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 14</Filter>
+    &maxscale_zoom14;
+    &minscale_zoom18;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 15</Filter>
+    &maxscale_zoom15;
+    &minscale_zoom19;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 16</Filter>
+    &maxscale_zoom16;
+    &minscale_zoom20;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 17</Filter>
+    &maxscale_zoom17;
+    &minscale_zoom21;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 18</Filter>
+    &maxscale_zoom18;
+    &minscale_zoom22;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 19</Filter>
+    &maxscale_zoom19;
+    &minscale_zoom23;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 20</Filter>
+    &maxscale_zoom20;
+    &minscale_zoom24;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 21</Filter>
+    &maxscale_zoom21;
+    &minscale_zoom25;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 22</Filter>
+    &maxscale_zoom22;
+    &minscale_zoom26;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 23</Filter>
+    &maxscale_zoom23;
+    &minscale_zoom27;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 24</Filter>
+    &maxscale_zoom24;
+    &minscale_zoom28;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 25</Filter>
+    &maxscale_zoom25;
+    &minscale_zoom29;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 26</Filter>
+    &maxscale_zoom26;
+    &minscale_zoom30;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 27</Filter>
+    &maxscale_zoom27;
+    &minscale_zoom31;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 28</Filter>
+    &maxscale_zoom28;
+    &minscale_zoom32;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 29</Filter>
+    &maxscale_zoom29;
+    &minscale_zoom33;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 30</Filter>
+    &maxscale_zoom30;
+    &minscale_zoom34;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 31</Filter>
+    &maxscale_zoom31;
+    &minscale_zoom35;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 32</Filter>
+    &maxscale_zoom32;
+    &minscale_zoom36;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 33</Filter>
+    &maxscale_zoom33;
+    &minscale_zoom37;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 34</Filter>
+    &maxscale_zoom34;
+    &minscale_zoom38;
+    <PolygonSymbolizer fill-opacity="0.1" fill="#ff8080"/>
+  </Rule>
+</Style>
+
+<!--CLADE NAMES (generated with R) -->
+<Style name="Clade_names">
+  <Rule>
+    <Filter>[zoomview] = 0</Filter>
+    &maxscale_zoom1;
+    &minscale_zoom1;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 0</Filter>
+    &maxscale_zoom2;
+    &minscale_zoom2;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 0</Filter>
+    &maxscale_zoom3;
+    &minscale_zoom3;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 1</Filter>
+    &maxscale_zoom2;
+    &minscale_zoom2;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 1</Filter>
+    &maxscale_zoom3;
+    &minscale_zoom3;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 1</Filter>
+    &maxscale_zoom4;
+    &minscale_zoom4;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 2</Filter>
+    &maxscale_zoom3;
+    &minscale_zoom3;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 2</Filter>
+    &maxscale_zoom4;
+    &minscale_zoom4;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 2</Filter>
+    &maxscale_zoom5;
+    &minscale_zoom5;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 3</Filter>
+    &maxscale_zoom4;
+    &minscale_zoom4;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 3</Filter>
+    &maxscale_zoom5;
+    &minscale_zoom5;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 3</Filter>
+    &maxscale_zoom6;
+    &minscale_zoom6;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 4</Filter>
+    &maxscale_zoom5;
+    &minscale_zoom5;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 4</Filter>
+    &maxscale_zoom6;
+    &minscale_zoom6;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 4</Filter>
+    &maxscale_zoom7;
+    &minscale_zoom7;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 5</Filter>
+    &maxscale_zoom6;
+    &minscale_zoom6;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 5</Filter>
+    &maxscale_zoom7;
+    &minscale_zoom7;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 5</Filter>
+    &maxscale_zoom8;
+    &minscale_zoom8;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 6</Filter>
+    &maxscale_zoom7;
+    &minscale_zoom7;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 6</Filter>
+    &maxscale_zoom8;
+    &minscale_zoom8;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 6</Filter>
+    &maxscale_zoom9;
+    &minscale_zoom9;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 7</Filter>
+    &maxscale_zoom8;
+    &minscale_zoom8;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 7</Filter>
+    &maxscale_zoom9;
+    &minscale_zoom9;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 7</Filter>
+    &maxscale_zoom10;
+    &minscale_zoom10;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 8</Filter>
+    &maxscale_zoom9;
+    &minscale_zoom9;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 8</Filter>
+    &maxscale_zoom10;
+    &minscale_zoom10;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 8</Filter>
+    &maxscale_zoom11;
+    &minscale_zoom11;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 9</Filter>
+    &maxscale_zoom10;
+    &minscale_zoom10;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 9</Filter>
+    &maxscale_zoom11;
+    &minscale_zoom11;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 9</Filter>
+    &maxscale_zoom12;
+    &minscale_zoom12;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 10</Filter>
+    &maxscale_zoom11;
+    &minscale_zoom11;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 10</Filter>
+    &maxscale_zoom12;
+    &minscale_zoom12;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 10</Filter>
+    &maxscale_zoom13;
+    &minscale_zoom13;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 11</Filter>
+    &maxscale_zoom12;
+    &minscale_zoom12;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 11</Filter>
+    &maxscale_zoom13;
+    &minscale_zoom13;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 11</Filter>
+    &maxscale_zoom14;
+    &minscale_zoom14;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 12</Filter>
+    &maxscale_zoom13;
+    &minscale_zoom13;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 12</Filter>
+    &maxscale_zoom14;
+    &minscale_zoom14;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 12</Filter>
+    &maxscale_zoom15;
+    &minscale_zoom15;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 13</Filter>
+    &maxscale_zoom14;
+    &minscale_zoom14;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 13</Filter>
+    &maxscale_zoom15;
+    &minscale_zoom15;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 13</Filter>
+    &maxscale_zoom16;
+    &minscale_zoom16;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 14</Filter>
+    &maxscale_zoom15;
+    &minscale_zoom15;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 14</Filter>
+    &maxscale_zoom16;
+    &minscale_zoom16;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 14</Filter>
+    &maxscale_zoom17;
+    &minscale_zoom17;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 15</Filter>
+    &maxscale_zoom16;
+    &minscale_zoom16;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 15</Filter>
+    &maxscale_zoom17;
+    &minscale_zoom17;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 15</Filter>
+    &maxscale_zoom18;
+    &minscale_zoom18;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 16</Filter>
+    &maxscale_zoom17;
+    &minscale_zoom17;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 16</Filter>
+    &maxscale_zoom18;
+    &minscale_zoom18;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 16</Filter>
+    &maxscale_zoom19;
+    &minscale_zoom19;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 17</Filter>
+    &maxscale_zoom18;
+    &minscale_zoom18;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 17</Filter>
+    &maxscale_zoom19;
+    &minscale_zoom19;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 17</Filter>
+    &maxscale_zoom20;
+    &minscale_zoom20;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 18</Filter>
+    &maxscale_zoom19;
+    &minscale_zoom19;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 18</Filter>
+    &maxscale_zoom20;
+    &minscale_zoom20;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 18</Filter>
+    &maxscale_zoom21;
+    &minscale_zoom21;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 19</Filter>
+    &maxscale_zoom20;
+    &minscale_zoom20;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 19</Filter>
+    &maxscale_zoom21;
+    &minscale_zoom21;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 19</Filter>
+    &maxscale_zoom22;
+    &minscale_zoom22;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 20</Filter>
+    &maxscale_zoom21;
+    &minscale_zoom21;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 20</Filter>
+    &maxscale_zoom22;
+    &minscale_zoom22;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 20</Filter>
+    &maxscale_zoom23;
+    &minscale_zoom23;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 21</Filter>
+    &maxscale_zoom22;
+    &minscale_zoom22;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 21</Filter>
+    &maxscale_zoom23;
+    &minscale_zoom23;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 21</Filter>
+    &maxscale_zoom24;
+    &minscale_zoom24;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 22</Filter>
+    &maxscale_zoom23;
+    &minscale_zoom23;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 22</Filter>
+    &maxscale_zoom24;
+    &minscale_zoom24;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 22</Filter>
+    &maxscale_zoom25;
+    &minscale_zoom25;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 23</Filter>
+    &maxscale_zoom24;
+    &minscale_zoom24;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 23</Filter>
+    &maxscale_zoom25;
+    &minscale_zoom25;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 23</Filter>
+    &maxscale_zoom26;
+    &minscale_zoom26;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 24</Filter>
+    &maxscale_zoom25;
+    &minscale_zoom25;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 24</Filter>
+    &maxscale_zoom26;
+    &minscale_zoom26;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 24</Filter>
+    &maxscale_zoom27;
+    &minscale_zoom27;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 25</Filter>
+    &maxscale_zoom26;
+    &minscale_zoom26;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 25</Filter>
+    &maxscale_zoom27;
+    &minscale_zoom27;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 25</Filter>
+    &maxscale_zoom28;
+    &minscale_zoom28;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 26</Filter>
+    &maxscale_zoom27;
+    &minscale_zoom27;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 26</Filter>
+    &maxscale_zoom28;
+    &minscale_zoom28;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 26</Filter>
+    &maxscale_zoom29;
+    &minscale_zoom29;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 27</Filter>
+    &maxscale_zoom28;
+    &minscale_zoom28;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 27</Filter>
+    &maxscale_zoom29;
+    &minscale_zoom29;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 27</Filter>
+    &maxscale_zoom30;
+    &minscale_zoom30;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 28</Filter>
+    &maxscale_zoom29;
+    &minscale_zoom29;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 28</Filter>
+    &maxscale_zoom30;
+    &minscale_zoom30;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 28</Filter>
+    &maxscale_zoom31;
+    &minscale_zoom31;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 29</Filter>
+    &maxscale_zoom30;
+    &minscale_zoom30;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 29</Filter>
+    &maxscale_zoom31;
+    &minscale_zoom31;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 29</Filter>
+    &maxscale_zoom32;
+    &minscale_zoom32;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 30</Filter>
+    &maxscale_zoom31;
+    &minscale_zoom31;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 30</Filter>
+    &maxscale_zoom32;
+    &minscale_zoom32;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 30</Filter>
+    &maxscale_zoom33;
+    &minscale_zoom33;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 31</Filter>
+    &maxscale_zoom32;
+    &minscale_zoom32;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 31</Filter>
+    &maxscale_zoom33;
+    &minscale_zoom33;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 31</Filter>
+    &maxscale_zoom34;
+    &minscale_zoom34;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 32</Filter>
+    &maxscale_zoom33;
+    &minscale_zoom33;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 32</Filter>
+    &maxscale_zoom34;
+    &minscale_zoom34;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 32</Filter>
+    &maxscale_zoom35;
+    &minscale_zoom35;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 33</Filter>
+    &maxscale_zoom34;
+    &minscale_zoom34;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 33</Filter>
+    &maxscale_zoom35;
+    &minscale_zoom35;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 33</Filter>
+    &maxscale_zoom36;
+    &minscale_zoom36;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 34</Filter>
+    &maxscale_zoom35;
+    &minscale_zoom35;
+    <TextSymbolizer line-spacing="5" size="10" fill="white" face-name="Sinkin Sans 600 SemiBold" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="8">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 34</Filter>
+    &maxscale_zoom36;
+    &minscale_zoom36;
+    <TextSymbolizer line-spacing="5" size="18" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="12">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 34</Filter>
+    &maxscale_zoom37;
+    &minscale_zoom37;
+    <TextSymbolizer line-spacing="5" size="30" fill="white" face-name="Sinkin Sans 500 Medium" halo-fill="#000000" halo-radius="0.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="18">[common_name]</Format></TextSymbolizer>
+  </Rule>
+</Style>
+
+<!--NODE NAMES (generated with R) -->
+<Style name="Node_names">
+  <Rule>
+    <Filter>[zoomview] = 0</Filter>
+    &maxscale_zoom4;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 1</Filter>
+    &maxscale_zoom5;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 2</Filter>
+    &maxscale_zoom6;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 3</Filter>
+    &maxscale_zoom7;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 4</Filter>
+    &maxscale_zoom8;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 5</Filter>
+    &maxscale_zoom9;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 6</Filter>
+    &maxscale_zoom10;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 7</Filter>
+    &maxscale_zoom11;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 8</Filter>
+    &maxscale_zoom12;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 9</Filter>
+    &maxscale_zoom13;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 10</Filter>
+    &maxscale_zoom14;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 11</Filter>
+    &maxscale_zoom15;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 12</Filter>
+    &maxscale_zoom16;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 13</Filter>
+    &maxscale_zoom17;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 14</Filter>
+    &maxscale_zoom18;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 15</Filter>
+    &maxscale_zoom19;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 16</Filter>
+    &maxscale_zoom20;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 17</Filter>
+    &maxscale_zoom21;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 18</Filter>
+    &maxscale_zoom22;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 19</Filter>
+    &maxscale_zoom23;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 20</Filter>
+    &maxscale_zoom24;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 21</Filter>
+    &maxscale_zoom25;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 22</Filter>
+    &maxscale_zoom26;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 23</Filter>
+    &maxscale_zoom27;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 24</Filter>
+    &maxscale_zoom28;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 25</Filter>
+    &maxscale_zoom29;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 26</Filter>
+    &maxscale_zoom30;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 27</Filter>
+    &maxscale_zoom31;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 28</Filter>
+    &maxscale_zoom32;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 29</Filter>
+    &maxscale_zoom33;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 30</Filter>
+    &maxscale_zoom34;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 31</Filter>
+    &maxscale_zoom35;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 32</Filter>
+    &maxscale_zoom36;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 33</Filter>
+    &maxscale_zoom37;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 34</Filter>
+    &maxscale_zoom38;
+    <TextSymbolizer line-spacing="5" size="15" fill="white" face-name="Sinkin Sans 300 Light" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10">[common_name]</Format></TextSymbolizer>
+  </Rule>
+</Style>
+
+<!--TIP NAMES (generated with R) -->
+<Style name="tip_names">
+  <Rule>
+    <Filter>[zoomview] = 0</Filter>
+    &maxscale_zoom0;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 1</Filter>
+    &maxscale_zoom1;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 2</Filter>
+    &maxscale_zoom2;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 3</Filter>
+    &maxscale_zoom3;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 4</Filter>
+    &maxscale_zoom4;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 5</Filter>
+    &maxscale_zoom5;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 6</Filter>
+    &maxscale_zoom6;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 7</Filter>
+    &maxscale_zoom7;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 8</Filter>
+    &maxscale_zoom8;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 9</Filter>
+    &maxscale_zoom9;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 10</Filter>
+    &maxscale_zoom10;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 11</Filter>
+    &maxscale_zoom11;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 12</Filter>
+    &maxscale_zoom12;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 13</Filter>
+    &maxscale_zoom13;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 14</Filter>
+    &maxscale_zoom14;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 15</Filter>
+    &maxscale_zoom15;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 16</Filter>
+    &maxscale_zoom16;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 17</Filter>
+    &maxscale_zoom17;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 18</Filter>
+    &maxscale_zoom18;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 19</Filter>
+    &maxscale_zoom19;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 20</Filter>
+    &maxscale_zoom20;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 21</Filter>
+    &maxscale_zoom21;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 22</Filter>
+    &maxscale_zoom22;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 23</Filter>
+    &maxscale_zoom23;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 24</Filter>
+    &maxscale_zoom24;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 25</Filter>
+    &maxscale_zoom25;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 26</Filter>
+    &maxscale_zoom26;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 27</Filter>
+    &maxscale_zoom27;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 28</Filter>
+    &maxscale_zoom28;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 29</Filter>
+    &maxscale_zoom29;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 30</Filter>
+    &maxscale_zoom30;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 31</Filter>
+    &maxscale_zoom31;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 32</Filter>
+    &maxscale_zoom32;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 33</Filter>
+    &maxscale_zoom33;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 34</Filter>
+    &maxscale_zoom34;
+    <TextSymbolizer line-spacing="5" size="12" fill="white" face-name="Sinkin Sans 300 Light Italic" halo-fill="#000000" halo-radius="1.5" halo-rasterizer="full" >[sci_name] + "\n"<Format size="10" face-name="Sinkin Sans 300 Light">[common_name]</Format></TextSymbolizer>
+  </Rule>
+</Style>
+
+<!--BRANCHES STYLE (style 2) (generated with R) -->
+<Style name="branches1">
+  <Rule>
+    <Filter>[zoomview] = 0</Filter>
+    &maxscale_zoom0;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 0</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom0;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 0</Filter>
+    &maxscale_zoom1;
+    &minscale_zoom1;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 0</Filter>
+    &maxscale_zoom2;
+    &minscale_zoom2;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 0</Filter>
+    &maxscale_zoom3;
+    &minscale_zoom3;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 0</Filter>
+    &maxscale_zoom4;
+    &minscale_zoom4;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 0</Filter>
+    &maxscale_zoom5;
+    &minscale_zoom5;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 0</Filter>
+    &maxscale_zoom6;
+    &minscale_zoom6;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 0</Filter>
+    &maxscale_zoom7;
+    &minscale_zoom7;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 0</Filter>
+    &maxscale_zoom8;
+    &minscale_zoom11;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 1</Filter>
+    &maxscale_zoom0;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 1</Filter>
+    &maxscale_zoom1;
+    &minscale_zoom1;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 1</Filter>
+    &maxscale_zoom2;
+    &minscale_zoom2;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 1</Filter>
+    &maxscale_zoom3;
+    &minscale_zoom3;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 1</Filter>
+    &maxscale_zoom4;
+    &minscale_zoom4;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 1</Filter>
+    &maxscale_zoom5;
+    &minscale_zoom5;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 1</Filter>
+    &maxscale_zoom6;
+    &minscale_zoom6;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 1</Filter>
+    &maxscale_zoom7;
+    &minscale_zoom7;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 1</Filter>
+    &maxscale_zoom8;
+    &minscale_zoom8;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 1</Filter>
+    &maxscale_zoom9;
+    &minscale_zoom12;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 2</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom1;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 2</Filter>
+    &maxscale_zoom2;
+    &minscale_zoom2;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 2</Filter>
+    &maxscale_zoom3;
+    &minscale_zoom3;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 2</Filter>
+    &maxscale_zoom4;
+    &minscale_zoom4;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 2</Filter>
+    &maxscale_zoom5;
+    &minscale_zoom5;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 2</Filter>
+    &maxscale_zoom6;
+    &minscale_zoom6;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 2</Filter>
+    &maxscale_zoom7;
+    &minscale_zoom7;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 2</Filter>
+    &maxscale_zoom8;
+    &minscale_zoom8;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 2</Filter>
+    &maxscale_zoom9;
+    &minscale_zoom9;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 2</Filter>
+    &maxscale_zoom10;
+    &minscale_zoom13;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 3</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom2;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 3</Filter>
+    &maxscale_zoom3;
+    &minscale_zoom3;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 3</Filter>
+    &maxscale_zoom4;
+    &minscale_zoom4;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 3</Filter>
+    &maxscale_zoom5;
+    &minscale_zoom5;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 3</Filter>
+    &maxscale_zoom6;
+    &minscale_zoom6;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 3</Filter>
+    &maxscale_zoom7;
+    &minscale_zoom7;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 3</Filter>
+    &maxscale_zoom8;
+    &minscale_zoom8;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 3</Filter>
+    &maxscale_zoom9;
+    &minscale_zoom9;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 3</Filter>
+    &maxscale_zoom10;
+    &minscale_zoom10;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 3</Filter>
+    &maxscale_zoom11;
+    &minscale_zoom14;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 4</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom3;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 4</Filter>
+    &maxscale_zoom4;
+    &minscale_zoom4;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 4</Filter>
+    &maxscale_zoom5;
+    &minscale_zoom5;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 4</Filter>
+    &maxscale_zoom6;
+    &minscale_zoom6;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 4</Filter>
+    &maxscale_zoom7;
+    &minscale_zoom7;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 4</Filter>
+    &maxscale_zoom8;
+    &minscale_zoom8;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 4</Filter>
+    &maxscale_zoom9;
+    &minscale_zoom9;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 4</Filter>
+    &maxscale_zoom10;
+    &minscale_zoom10;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 4</Filter>
+    &maxscale_zoom11;
+    &minscale_zoom11;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 4</Filter>
+    &maxscale_zoom12;
+    &minscale_zoom15;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 5</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom4;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 5</Filter>
+    &maxscale_zoom5;
+    &minscale_zoom5;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 5</Filter>
+    &maxscale_zoom6;
+    &minscale_zoom6;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 5</Filter>
+    &maxscale_zoom7;
+    &minscale_zoom7;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 5</Filter>
+    &maxscale_zoom8;
+    &minscale_zoom8;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 5</Filter>
+    &maxscale_zoom9;
+    &minscale_zoom9;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 5</Filter>
+    &maxscale_zoom10;
+    &minscale_zoom10;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 5</Filter>
+    &maxscale_zoom11;
+    &minscale_zoom11;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 5</Filter>
+    &maxscale_zoom12;
+    &minscale_zoom12;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 5</Filter>
+    &maxscale_zoom13;
+    &minscale_zoom16;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 6</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom5;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 6</Filter>
+    &maxscale_zoom6;
+    &minscale_zoom6;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 6</Filter>
+    &maxscale_zoom7;
+    &minscale_zoom7;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 6</Filter>
+    &maxscale_zoom8;
+    &minscale_zoom8;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 6</Filter>
+    &maxscale_zoom9;
+    &minscale_zoom9;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 6</Filter>
+    &maxscale_zoom10;
+    &minscale_zoom10;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 6</Filter>
+    &maxscale_zoom11;
+    &minscale_zoom11;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 6</Filter>
+    &maxscale_zoom12;
+    &minscale_zoom12;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 6</Filter>
+    &maxscale_zoom13;
+    &minscale_zoom13;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 6</Filter>
+    &maxscale_zoom14;
+    &minscale_zoom17;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 7</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom6;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 7</Filter>
+    &maxscale_zoom7;
+    &minscale_zoom7;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 7</Filter>
+    &maxscale_zoom8;
+    &minscale_zoom8;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 7</Filter>
+    &maxscale_zoom9;
+    &minscale_zoom9;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 7</Filter>
+    &maxscale_zoom10;
+    &minscale_zoom10;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 7</Filter>
+    &maxscale_zoom11;
+    &minscale_zoom11;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 7</Filter>
+    &maxscale_zoom12;
+    &minscale_zoom12;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 7</Filter>
+    &maxscale_zoom13;
+    &minscale_zoom13;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 7</Filter>
+    &maxscale_zoom14;
+    &minscale_zoom14;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 7</Filter>
+    &maxscale_zoom15;
+    &minscale_zoom18;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 8</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom7;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 8</Filter>
+    &maxscale_zoom8;
+    &minscale_zoom8;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 8</Filter>
+    &maxscale_zoom9;
+    &minscale_zoom9;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 8</Filter>
+    &maxscale_zoom10;
+    &minscale_zoom10;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 8</Filter>
+    &maxscale_zoom11;
+    &minscale_zoom11;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 8</Filter>
+    &maxscale_zoom12;
+    &minscale_zoom12;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 8</Filter>
+    &maxscale_zoom13;
+    &minscale_zoom13;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 8</Filter>
+    &maxscale_zoom14;
+    &minscale_zoom14;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 8</Filter>
+    &maxscale_zoom15;
+    &minscale_zoom15;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 8</Filter>
+    &maxscale_zoom16;
+    &minscale_zoom19;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 9</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom8;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 9</Filter>
+    &maxscale_zoom9;
+    &minscale_zoom9;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 9</Filter>
+    &maxscale_zoom10;
+    &minscale_zoom10;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 9</Filter>
+    &maxscale_zoom11;
+    &minscale_zoom11;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 9</Filter>
+    &maxscale_zoom12;
+    &minscale_zoom12;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 9</Filter>
+    &maxscale_zoom13;
+    &minscale_zoom13;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 9</Filter>
+    &maxscale_zoom14;
+    &minscale_zoom14;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 9</Filter>
+    &maxscale_zoom15;
+    &minscale_zoom15;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 9</Filter>
+    &maxscale_zoom16;
+    &minscale_zoom16;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 9</Filter>
+    &maxscale_zoom17;
+    &minscale_zoom20;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 10</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom9;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 10</Filter>
+    &maxscale_zoom10;
+    &minscale_zoom10;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 10</Filter>
+    &maxscale_zoom11;
+    &minscale_zoom11;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 10</Filter>
+    &maxscale_zoom12;
+    &minscale_zoom12;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 10</Filter>
+    &maxscale_zoom13;
+    &minscale_zoom13;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 10</Filter>
+    &maxscale_zoom14;
+    &minscale_zoom14;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 10</Filter>
+    &maxscale_zoom15;
+    &minscale_zoom15;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 10</Filter>
+    &maxscale_zoom16;
+    &minscale_zoom16;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 10</Filter>
+    &maxscale_zoom17;
+    &minscale_zoom17;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 10</Filter>
+    &maxscale_zoom18;
+    &minscale_zoom21;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 11</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom10;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 11</Filter>
+    &maxscale_zoom11;
+    &minscale_zoom11;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 11</Filter>
+    &maxscale_zoom12;
+    &minscale_zoom12;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 11</Filter>
+    &maxscale_zoom13;
+    &minscale_zoom13;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 11</Filter>
+    &maxscale_zoom14;
+    &minscale_zoom14;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 11</Filter>
+    &maxscale_zoom15;
+    &minscale_zoom15;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 11</Filter>
+    &maxscale_zoom16;
+    &minscale_zoom16;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 11</Filter>
+    &maxscale_zoom17;
+    &minscale_zoom17;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 11</Filter>
+    &maxscale_zoom18;
+    &minscale_zoom18;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 11</Filter>
+    &maxscale_zoom19;
+    &minscale_zoom22;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 12</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom11;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 12</Filter>
+    &maxscale_zoom12;
+    &minscale_zoom12;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 12</Filter>
+    &maxscale_zoom13;
+    &minscale_zoom13;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 12</Filter>
+    &maxscale_zoom14;
+    &minscale_zoom14;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 12</Filter>
+    &maxscale_zoom15;
+    &minscale_zoom15;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 12</Filter>
+    &maxscale_zoom16;
+    &minscale_zoom16;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 12</Filter>
+    &maxscale_zoom17;
+    &minscale_zoom17;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 12</Filter>
+    &maxscale_zoom18;
+    &minscale_zoom18;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 12</Filter>
+    &maxscale_zoom19;
+    &minscale_zoom19;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 12</Filter>
+    &maxscale_zoom20;
+    &minscale_zoom23;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 13</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom12;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 13</Filter>
+    &maxscale_zoom13;
+    &minscale_zoom13;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 13</Filter>
+    &maxscale_zoom14;
+    &minscale_zoom14;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 13</Filter>
+    &maxscale_zoom15;
+    &minscale_zoom15;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 13</Filter>
+    &maxscale_zoom16;
+    &minscale_zoom16;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 13</Filter>
+    &maxscale_zoom17;
+    &minscale_zoom17;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 13</Filter>
+    &maxscale_zoom18;
+    &minscale_zoom18;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 13</Filter>
+    &maxscale_zoom19;
+    &minscale_zoom19;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 13</Filter>
+    &maxscale_zoom20;
+    &minscale_zoom20;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 13</Filter>
+    &maxscale_zoom21;
+    &minscale_zoom24;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 14</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom13;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 14</Filter>
+    &maxscale_zoom14;
+    &minscale_zoom14;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 14</Filter>
+    &maxscale_zoom15;
+    &minscale_zoom15;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 14</Filter>
+    &maxscale_zoom16;
+    &minscale_zoom16;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 14</Filter>
+    &maxscale_zoom17;
+    &minscale_zoom17;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 14</Filter>
+    &maxscale_zoom18;
+    &minscale_zoom18;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 14</Filter>
+    &maxscale_zoom19;
+    &minscale_zoom19;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 14</Filter>
+    &maxscale_zoom20;
+    &minscale_zoom20;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 14</Filter>
+    &maxscale_zoom21;
+    &minscale_zoom21;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 14</Filter>
+    &maxscale_zoom22;
+    &minscale_zoom25;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 15</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom14;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 15</Filter>
+    &maxscale_zoom15;
+    &minscale_zoom15;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 15</Filter>
+    &maxscale_zoom16;
+    &minscale_zoom16;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 15</Filter>
+    &maxscale_zoom17;
+    &minscale_zoom17;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 15</Filter>
+    &maxscale_zoom18;
+    &minscale_zoom18;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 15</Filter>
+    &maxscale_zoom19;
+    &minscale_zoom19;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 15</Filter>
+    &maxscale_zoom20;
+    &minscale_zoom20;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 15</Filter>
+    &maxscale_zoom21;
+    &minscale_zoom21;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 15</Filter>
+    &maxscale_zoom22;
+    &minscale_zoom22;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 15</Filter>
+    &maxscale_zoom23;
+    &minscale_zoom26;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 16</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom15;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 16</Filter>
+    &maxscale_zoom16;
+    &minscale_zoom16;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 16</Filter>
+    &maxscale_zoom17;
+    &minscale_zoom17;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 16</Filter>
+    &maxscale_zoom18;
+    &minscale_zoom18;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 16</Filter>
+    &maxscale_zoom19;
+    &minscale_zoom19;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 16</Filter>
+    &maxscale_zoom20;
+    &minscale_zoom20;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 16</Filter>
+    &maxscale_zoom21;
+    &minscale_zoom21;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 16</Filter>
+    &maxscale_zoom22;
+    &minscale_zoom22;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 16</Filter>
+    &maxscale_zoom23;
+    &minscale_zoom23;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 16</Filter>
+    &maxscale_zoom24;
+    &minscale_zoom27;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 17</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom16;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 17</Filter>
+    &maxscale_zoom17;
+    &minscale_zoom17;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 17</Filter>
+    &maxscale_zoom18;
+    &minscale_zoom18;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 17</Filter>
+    &maxscale_zoom19;
+    &minscale_zoom19;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 17</Filter>
+    &maxscale_zoom20;
+    &minscale_zoom20;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 17</Filter>
+    &maxscale_zoom21;
+    &minscale_zoom21;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 17</Filter>
+    &maxscale_zoom22;
+    &minscale_zoom22;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 17</Filter>
+    &maxscale_zoom23;
+    &minscale_zoom23;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 17</Filter>
+    &maxscale_zoom24;
+    &minscale_zoom24;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 17</Filter>
+    &maxscale_zoom25;
+    &minscale_zoom28;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 18</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom17;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 18</Filter>
+    &maxscale_zoom18;
+    &minscale_zoom18;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 18</Filter>
+    &maxscale_zoom19;
+    &minscale_zoom19;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 18</Filter>
+    &maxscale_zoom20;
+    &minscale_zoom20;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 18</Filter>
+    &maxscale_zoom21;
+    &minscale_zoom21;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 18</Filter>
+    &maxscale_zoom22;
+    &minscale_zoom22;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 18</Filter>
+    &maxscale_zoom23;
+    &minscale_zoom23;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 18</Filter>
+    &maxscale_zoom24;
+    &minscale_zoom24;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 18</Filter>
+    &maxscale_zoom25;
+    &minscale_zoom25;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 18</Filter>
+    &maxscale_zoom26;
+    &minscale_zoom29;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 19</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom18;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 19</Filter>
+    &maxscale_zoom19;
+    &minscale_zoom19;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 19</Filter>
+    &maxscale_zoom20;
+    &minscale_zoom20;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 19</Filter>
+    &maxscale_zoom21;
+    &minscale_zoom21;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 19</Filter>
+    &maxscale_zoom22;
+    &minscale_zoom22;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 19</Filter>
+    &maxscale_zoom23;
+    &minscale_zoom23;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 19</Filter>
+    &maxscale_zoom24;
+    &minscale_zoom24;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 19</Filter>
+    &maxscale_zoom25;
+    &minscale_zoom25;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 19</Filter>
+    &maxscale_zoom26;
+    &minscale_zoom26;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 19</Filter>
+    &maxscale_zoom27;
+    &minscale_zoom30;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 20</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom19;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 20</Filter>
+    &maxscale_zoom20;
+    &minscale_zoom20;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 20</Filter>
+    &maxscale_zoom21;
+    &minscale_zoom21;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 20</Filter>
+    &maxscale_zoom22;
+    &minscale_zoom22;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 20</Filter>
+    &maxscale_zoom23;
+    &minscale_zoom23;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 20</Filter>
+    &maxscale_zoom24;
+    &minscale_zoom24;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 20</Filter>
+    &maxscale_zoom25;
+    &minscale_zoom25;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 20</Filter>
+    &maxscale_zoom26;
+    &minscale_zoom26;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 20</Filter>
+    &maxscale_zoom27;
+    &minscale_zoom27;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 20</Filter>
+    &maxscale_zoom28;
+    &minscale_zoom31;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 21</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom20;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 21</Filter>
+    &maxscale_zoom21;
+    &minscale_zoom21;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 21</Filter>
+    &maxscale_zoom22;
+    &minscale_zoom22;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 21</Filter>
+    &maxscale_zoom23;
+    &minscale_zoom23;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 21</Filter>
+    &maxscale_zoom24;
+    &minscale_zoom24;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 21</Filter>
+    &maxscale_zoom25;
+    &minscale_zoom25;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 21</Filter>
+    &maxscale_zoom26;
+    &minscale_zoom26;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 21</Filter>
+    &maxscale_zoom27;
+    &minscale_zoom27;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 21</Filter>
+    &maxscale_zoom28;
+    &minscale_zoom28;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 21</Filter>
+    &maxscale_zoom29;
+    &minscale_zoom32;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 22</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom21;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 22</Filter>
+    &maxscale_zoom22;
+    &minscale_zoom22;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 22</Filter>
+    &maxscale_zoom23;
+    &minscale_zoom23;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 22</Filter>
+    &maxscale_zoom24;
+    &minscale_zoom24;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 22</Filter>
+    &maxscale_zoom25;
+    &minscale_zoom25;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 22</Filter>
+    &maxscale_zoom26;
+    &minscale_zoom26;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 22</Filter>
+    &maxscale_zoom27;
+    &minscale_zoom27;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 22</Filter>
+    &maxscale_zoom28;
+    &minscale_zoom28;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 22</Filter>
+    &maxscale_zoom29;
+    &minscale_zoom29;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 22</Filter>
+    &maxscale_zoom30;
+    &minscale_zoom33;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 23</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom22;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 23</Filter>
+    &maxscale_zoom23;
+    &minscale_zoom23;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 23</Filter>
+    &maxscale_zoom24;
+    &minscale_zoom24;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 23</Filter>
+    &maxscale_zoom25;
+    &minscale_zoom25;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 23</Filter>
+    &maxscale_zoom26;
+    &minscale_zoom26;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 23</Filter>
+    &maxscale_zoom27;
+    &minscale_zoom27;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 23</Filter>
+    &maxscale_zoom28;
+    &minscale_zoom28;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 23</Filter>
+    &maxscale_zoom29;
+    &minscale_zoom29;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 23</Filter>
+    &maxscale_zoom30;
+    &minscale_zoom30;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 23</Filter>
+    &maxscale_zoom31;
+    &minscale_zoom34;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 24</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom23;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 24</Filter>
+    &maxscale_zoom24;
+    &minscale_zoom24;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 24</Filter>
+    &maxscale_zoom25;
+    &minscale_zoom25;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 24</Filter>
+    &maxscale_zoom26;
+    &minscale_zoom26;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 24</Filter>
+    &maxscale_zoom27;
+    &minscale_zoom27;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 24</Filter>
+    &maxscale_zoom28;
+    &minscale_zoom28;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 24</Filter>
+    &maxscale_zoom29;
+    &minscale_zoom29;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 24</Filter>
+    &maxscale_zoom30;
+    &minscale_zoom30;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 24</Filter>
+    &maxscale_zoom31;
+    &minscale_zoom31;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 24</Filter>
+    &maxscale_zoom32;
+    &minscale_zoom35;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 25</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom24;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 25</Filter>
+    &maxscale_zoom25;
+    &minscale_zoom25;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 25</Filter>
+    &maxscale_zoom26;
+    &minscale_zoom26;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 25</Filter>
+    &maxscale_zoom27;
+    &minscale_zoom27;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 25</Filter>
+    &maxscale_zoom28;
+    &minscale_zoom28;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 25</Filter>
+    &maxscale_zoom29;
+    &minscale_zoom29;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 25</Filter>
+    &maxscale_zoom30;
+    &minscale_zoom30;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 25</Filter>
+    &maxscale_zoom31;
+    &minscale_zoom31;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 25</Filter>
+    &maxscale_zoom32;
+    &minscale_zoom32;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 25</Filter>
+    &maxscale_zoom33;
+    &minscale_zoom36;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 26</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom25;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 26</Filter>
+    &maxscale_zoom26;
+    &minscale_zoom26;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 26</Filter>
+    &maxscale_zoom27;
+    &minscale_zoom27;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 26</Filter>
+    &maxscale_zoom28;
+    &minscale_zoom28;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 26</Filter>
+    &maxscale_zoom29;
+    &minscale_zoom29;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 26</Filter>
+    &maxscale_zoom30;
+    &minscale_zoom30;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 26</Filter>
+    &maxscale_zoom31;
+    &minscale_zoom31;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 26</Filter>
+    &maxscale_zoom32;
+    &minscale_zoom32;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 26</Filter>
+    &maxscale_zoom33;
+    &minscale_zoom33;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 26</Filter>
+    &maxscale_zoom34;
+    &minscale_zoom37;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 27</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom26;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 27</Filter>
+    &maxscale_zoom27;
+    &minscale_zoom27;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 27</Filter>
+    &maxscale_zoom28;
+    &minscale_zoom28;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 27</Filter>
+    &maxscale_zoom29;
+    &minscale_zoom29;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 27</Filter>
+    &maxscale_zoom30;
+    &minscale_zoom30;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 27</Filter>
+    &maxscale_zoom31;
+    &minscale_zoom31;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 27</Filter>
+    &maxscale_zoom32;
+    &minscale_zoom32;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 27</Filter>
+    &maxscale_zoom33;
+    &minscale_zoom33;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 27</Filter>
+    &maxscale_zoom34;
+    &minscale_zoom34;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 27</Filter>
+    &maxscale_zoom35;
+    &minscale_zoom38;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 28</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom27;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 28</Filter>
+    &maxscale_zoom28;
+    &minscale_zoom28;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 28</Filter>
+    &maxscale_zoom29;
+    &minscale_zoom29;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 28</Filter>
+    &maxscale_zoom30;
+    &minscale_zoom30;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 28</Filter>
+    &maxscale_zoom31;
+    &minscale_zoom31;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 28</Filter>
+    &maxscale_zoom32;
+    &minscale_zoom32;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 28</Filter>
+    &maxscale_zoom33;
+    &minscale_zoom33;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 28</Filter>
+    &maxscale_zoom34;
+    &minscale_zoom34;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 28</Filter>
+    &maxscale_zoom35;
+    &minscale_zoom35;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 28</Filter>
+    &maxscale_zoom36;
+    &minscale_zoom39;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 29</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom28;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 29</Filter>
+    &maxscale_zoom29;
+    &minscale_zoom29;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 29</Filter>
+    &maxscale_zoom30;
+    &minscale_zoom30;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 29</Filter>
+    &maxscale_zoom31;
+    &minscale_zoom31;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 29</Filter>
+    &maxscale_zoom32;
+    &minscale_zoom32;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 29</Filter>
+    &maxscale_zoom33;
+    &minscale_zoom33;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 29</Filter>
+    &maxscale_zoom34;
+    &minscale_zoom34;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 29</Filter>
+    &maxscale_zoom35;
+    &minscale_zoom35;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 29</Filter>
+    &maxscale_zoom36;
+    &minscale_zoom36;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 29</Filter>
+    &maxscale_zoom37;
+    &minscale_zoom40;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 30</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom29;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 30</Filter>
+    &maxscale_zoom30;
+    &minscale_zoom30;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 30</Filter>
+    &maxscale_zoom31;
+    &minscale_zoom31;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 30</Filter>
+    &maxscale_zoom32;
+    &minscale_zoom32;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 30</Filter>
+    &maxscale_zoom33;
+    &minscale_zoom33;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 30</Filter>
+    &maxscale_zoom34;
+    &minscale_zoom34;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 30</Filter>
+    &maxscale_zoom35;
+    &minscale_zoom35;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 30</Filter>
+    &maxscale_zoom36;
+    &minscale_zoom36;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 30</Filter>
+    &maxscale_zoom37;
+    &minscale_zoom37;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 30</Filter>
+    &maxscale_zoom38;
+    &minscale_zoom41;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 31</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom30;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 31</Filter>
+    &maxscale_zoom31;
+    &minscale_zoom31;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 31</Filter>
+    &maxscale_zoom32;
+    &minscale_zoom32;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 31</Filter>
+    &maxscale_zoom33;
+    &minscale_zoom33;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 31</Filter>
+    &maxscale_zoom34;
+    &minscale_zoom34;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 31</Filter>
+    &maxscale_zoom35;
+    &minscale_zoom35;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 31</Filter>
+    &maxscale_zoom36;
+    &minscale_zoom36;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 31</Filter>
+    &maxscale_zoom37;
+    &minscale_zoom37;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 31</Filter>
+    &maxscale_zoom38;
+    &minscale_zoom38;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 31</Filter>
+    &maxscale_zoom39;
+    &minscale_zoom42;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 32</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom31;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 32</Filter>
+    &maxscale_zoom32;
+    &minscale_zoom32;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 32</Filter>
+    &maxscale_zoom33;
+    &minscale_zoom33;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 32</Filter>
+    &maxscale_zoom34;
+    &minscale_zoom34;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 32</Filter>
+    &maxscale_zoom35;
+    &minscale_zoom35;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 32</Filter>
+    &maxscale_zoom36;
+    &minscale_zoom36;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 32</Filter>
+    &maxscale_zoom37;
+    &minscale_zoom37;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 32</Filter>
+    &maxscale_zoom38;
+    &minscale_zoom38;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 32</Filter>
+    &maxscale_zoom39;
+    &minscale_zoom39;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 32</Filter>
+    &maxscale_zoom40;
+    &minscale_zoom43;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 33</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom32;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 33</Filter>
+    &maxscale_zoom33;
+    &minscale_zoom33;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 33</Filter>
+    &maxscale_zoom34;
+    &minscale_zoom34;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 33</Filter>
+    &maxscale_zoom35;
+    &minscale_zoom35;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 33</Filter>
+    &maxscale_zoom36;
+    &minscale_zoom36;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 33</Filter>
+    &maxscale_zoom37;
+    &minscale_zoom37;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 33</Filter>
+    &maxscale_zoom38;
+    &minscale_zoom38;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 33</Filter>
+    &maxscale_zoom39;
+    &minscale_zoom39;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 33</Filter>
+    &maxscale_zoom40;
+    &minscale_zoom40;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 33</Filter>
+    &maxscale_zoom41;
+    &minscale_zoom44;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 34</Filter>
+    &maxscale_zoom0;
+    &minscale_zoom33;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.8" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 34</Filter>
+    &maxscale_zoom34;
+    &minscale_zoom34;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="0.933333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 34</Filter>
+    &maxscale_zoom35;
+    &minscale_zoom35;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.06666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 34</Filter>
+    &maxscale_zoom36;
+    &minscale_zoom36;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 34</Filter>
+    &maxscale_zoom37;
+    &minscale_zoom37;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.33333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 34</Filter>
+    &maxscale_zoom38;
+    &minscale_zoom38;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.46666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 34</Filter>
+    &maxscale_zoom39;
+    &minscale_zoom39;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.6" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 34</Filter>
+    &maxscale_zoom40;
+    &minscale_zoom40;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.73333333333333" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 34</Filter>
+    &maxscale_zoom41;
+    &minscale_zoom41;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="1.86666666666667" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 34</Filter>
+    &maxscale_zoom42;
+    &minscale_zoom45;
+    <LineSymbolizer stroke="#cacacaff" stroke-width="2" stroke-opacity="1" stroke-linecap="square" />
+  </Rule>
+</Style>
+
+<!--BRANCHES NAMES STYLE (generated with R) -->
+<Style name="branchesNames">
+  <Rule>
+    <Filter>[zoomview] = 0</Filter>
+      &maxscale_zoom2;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 1</Filter>
+      &maxscale_zoom3;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 2</Filter>
+      &maxscale_zoom4;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 3</Filter>
+      &maxscale_zoom5;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 4</Filter>
+      &maxscale_zoom6;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 5</Filter>
+      &maxscale_zoom7;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 6</Filter>
+      &maxscale_zoom8;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 7</Filter>
+      &maxscale_zoom9;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 8</Filter>
+      &maxscale_zoom10;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 9</Filter>
+      &maxscale_zoom11;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 10</Filter>
+      &maxscale_zoom12;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 11</Filter>
+      &maxscale_zoom13;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 12</Filter>
+      &maxscale_zoom14;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 13</Filter>
+      &maxscale_zoom15;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 14</Filter>
+      &maxscale_zoom16;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 15</Filter>
+      &maxscale_zoom17;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 16</Filter>
+      &maxscale_zoom18;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 17</Filter>
+      &maxscale_zoom19;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 18</Filter>
+      &maxscale_zoom20;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 19</Filter>
+      &maxscale_zoom21;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 20</Filter>
+      &maxscale_zoom22;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 21</Filter>
+      &maxscale_zoom23;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 22</Filter>
+      &maxscale_zoom24;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 23</Filter>
+      &maxscale_zoom25;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 24</Filter>
+      &maxscale_zoom26;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 25</Filter>
+      &maxscale_zoom27;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 26</Filter>
+      &maxscale_zoom28;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 27</Filter>
+      &maxscale_zoom29;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 28</Filter>
+      &maxscale_zoom30;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 29</Filter>
+      &maxscale_zoom31;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 30</Filter>
+      &maxscale_zoom32;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 31</Filter>
+      &maxscale_zoom33;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 32</Filter>
+      &maxscale_zoom34;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 33</Filter>
+      &maxscale_zoom35;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+  <Rule>
+    <Filter>[zoomview] = 34</Filter>
+      &maxscale_zoom36;
+      <TextSymbolizer dy="5" size="12" fill="grey" face-name="DejaVu Sans Book" halo-fill="#000000" halo-radius="0" halo-rasterizer="full" placement="line" spacing="1000" minimum-path-length="1500" >[name]</TextSymbolizer>
+      <TextSymbolizer dy="0" size="12" fill="blue" face-name="DejaVu Sans Book" placement="line" opacity="0" spacing="0.2" >"abcde"</TextSymbolizer>
+  </Rule>
+</Style>
+<!-- LAYERS -->
+<Layer name="clade1" status="on" srs="&osm2pgsql_projection;">
+  <StyleName>clade1</StyleName>
+  <Datasource>
+    <Parameter name="table">
+      (select way, clade,sci_name,zoomview,ref, nbdesc
+      from polygons
+      where ref=1
+      order by nbdesc DESC
+    ) as RES</Parameter>
+    &datasource-settings;
+  </Datasource>
+</Layer>
+<Layer name="clade2" status="on" srs="&osm2pgsql_projection;">
+  <StyleName>clade2</StyleName>
+  <Datasource>
+    <Parameter name="table">
+      (select way,clade,sci_name,zoomview,ref, nbdesc
+      from polygons
+      where ref=2
+      order by nbdesc DESC
+    ) as RES</Parameter>
+    &datasource-settings;
+  </Datasource>
+</Layer>
+<Layer name="clade3" status="on" srs="&osm2pgsql_projection;">
+  <StyleName>clade3</StyleName>
+  <Datasource>
+    <Parameter name="table">
+      (select way,clade,sci_name,zoomview,ref, nbdesc
+      from polygons
+      where ref=3
+      order by nbdesc DESC
+    ) as RES</Parameter>
+    &datasource-settings;
+  </Datasource>
+</Layer>
+
+<Layer name="branches1" status="on" srs="&osm2pgsql_projection;">
+  <StyleName>branches1</StyleName>
+  <Datasource>
+    <Parameter name="table">
+      (select way,branch,zoomview, ref
+      from lines
+      where branch is true
+      ) as roads
+    </Parameter>
+    &datasource-settings;
+  </Datasource>
+</Layer>
+
+<Layer name="luca" status="on" srs="&osm2pgsql_projection;">
+  <StyleName>luca</StyleName>
+  <Datasource>
+    <Parameter name="table">
+      (select way,sci_name, zoomview, nbdesc
+      from points
+      where sci_name='Root'
+    ) as placenames</Parameter>
+    &datasource-settings;
+  </Datasource>
+</Layer>
+
+<Layer name="Clade_names" status="on" srs="&osm2pgsql_projection;">
+  <StyleName>Clade_names</StyleName>
+  <Datasource>
+    <Parameter name="table">
+      (select way,cladecenter,zoomview,sci_name, common_name, nbdesc
+      from points
+      where cladecenter is true
+      order by nbdesc DESC
+    ) as placenames</Parameter>
+    &datasource-settings;
+  </Datasource>
+</Layer>
+<Layer name="Node_names" status="on" srs="&osm2pgsql_projection;">
+  <StyleName>Node_names</StyleName>
+  <Datasource>
+    <Parameter name="table">
+      (select way,tip,zoomview,sci_name,common_name, nbdesc
+      from points
+      where cladecenter is null and tip is false
+      order by nbdesc DESC
+    ) as points</Parameter>
+    &datasource-settings;
+  </Datasource>
+</Layer>
+<Layer name="tip_names" status="on" srs="&osm2pgsql_projection;">
+  <StyleName>tip_names</StyleName>
+  <Datasource>
+    <Parameter name="table">
+      (select way,sci_name,common_name,tip,zoomview, nbdesc
+      from points where tip is true
+    ) as placenames</Parameter>
+    &datasource-settings;
+  </Datasource>
+</Layer>
+<Layer name="branchesNames" status="on" srs="&osm2pgsql_projection;">
+  <StyleName>branchesNames</StyleName>
+  <Datasource>
+    <Parameter name="table">
+      (select way, branch,zoomview, name
+      from lines
+      where branch is true          
+      ) as roads
+    </Parameter>
+    &datasource-settings;
+  </Datasource>
+</Layer>
+<Layer name="ranknames1" status="on" srs="&osm2pgsql_projection;">
+  <StyleName>ranknames1</StyleName>
+  <Datasource>
+    <Parameter name="table">
+      (select way, rankname,rank, zoomview,ref
+      from lines
+      where rankname is true and ref=1           
+      ) as roads
+    </Parameter>
+    &datasource-settings;
+  </Datasource>
+</Layer>
+<Layer name="ranknames2" status="on" srs="&osm2pgsql_projection;">
+  <StyleName>ranknames2</StyleName>
+  <Datasource>
+    <Parameter name="table">
+      (select way, rankname,rank,zoomview,ref
+      from lines
+      where rankname is true and ref=2          
+      ) as roads
+    </Parameter>
+    &datasource-settings;
+  </Datasource>
+</Layer>
+<Layer name="ranknames3" status="on" srs="&osm2pgsql_projection;">
+  <StyleName>ranknames3</StyleName>
+  <Datasource>
+    <Parameter name="table">
+      (select way, rankname,rank,zoomview,ref
+      from lines
+      where rankname is true and ref=3
+      ) as roads
+    </Parameter>
+    &datasource-settings;
+  </Datasource>
+</Layer>
+</Map>

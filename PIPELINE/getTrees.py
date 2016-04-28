@@ -1,0 +1,21 @@
+#!/usr/bin/python
+from ete3 import Tree
+from ete3 import NCBITaxa
+ncbi = NCBITaxa()
+ncbi.update_taxonomy_database()
+print(">>> Downloading Archaeal tree...")
+tarc = ncbi.get_descendant_taxa(2157, return_tree=True)
+print(">>> DONE")
+print("\n>>> Writing trees to files...")
+tarc.write(outfile = "ARCHAEA", features = ["name", "taxid", "sci_name","common_name","rank"], format_root_node=True)
+print("\n>>> Downloading Bacterial tree...")
+tbac = ncbi.get_descendant_taxa(2, return_tree=True)
+print(">>> DONE")
+print("\n>>> Writing trees to files...")
+tbac.write(outfile = "BACTERIA", features = ["name", "taxid", "sci_name","common_name","rank"], format_root_node=True)
+print("\n>>> Downloading Euka tree...")
+teuc = ncbi.get_descendant_taxa(2759, return_tree=True)
+print(">>> DONE")
+print("\n>>> Writing trees to files...")
+teuc.write(outfile = "EUKARYOTES", features = ["name", "taxid", "sci_name","common_name","rank"], format_root_node=True)
+print(">>> DONE")

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+    <widget xmlns   = "http://www.w3.org/ns/widgets"
+        xmlns:gap   = "http://phonegap.com/ns/1.0"
+        id          = "fr.univ-lyon1.lifemapcom"
+        version     = "1.0.0" >
+    <!-- versionCode is optional and Android only -->
+    <name>Lifemap</name>
+
+    <description>
+      Lifemap is a tool to explore the tree of life in an interactive manner. It is based on a modification of the NCBI taxonomy and contains around 800,000 species. Each node and (species) in the tree can be clicked on to get information and pictures retrieved from wikipedia. It is also possible to compute the route between taxa or clades in the tree.  
+    </description>
+
+    <author href="https://lbbe.univ-lyon1.fr/-de-Vienne-Damien-.html" email="damien.de-vienne@univ-lyon1.fr">
+        Damien de Vienne 
+    </author>
+    <!--    <access origin="*" />-->
+    <plugin name="com.indigoway.cordova.whitelist.whitelistplugin" spec="1.1.1" source="pgb" />
+    <allow-navigation href="http://umr5558-treezoom/*" />
+    <icon src="icon.png" /> 
+    <allow-navigation href="http://umr5558-ncbitreezoom/*" />
+    <!--This plugin allows testing the network quality-->
+    <plugin name="org.apache.cordova.network-information" spec="0.2.15" source="pgb" />
+</widget>

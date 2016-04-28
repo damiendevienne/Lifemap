@@ -1,6 +1,6 @@
 # Lifemap
 
-Lifemap is a tool that allows exploring on-line, in a manner similar to geographic maps, a complete representation of the Tree of Life. 
+Lifemap is a tool that allows exploring on-line, in a manner similar to geographic maps, a complete representation of the Tree of Life. It relies on some tools created in the context of the OpenStreetMap project: mapnik and mod_tile. 
 
 The tree is the taxonomy of the NCBI. The code available here is divided into different folders corresponding to different aspects of the project
 * PIPELINE: the main functions of Lifemap, allowing to go from the retrieval of the NCBI taxonomy to the creation of a PostgreSQL/PostGIS database. 

@@ -1,6 +1,6 @@
 # Lifemap
 
-![GitHub Logo](/images/logo.png)
+![Lifemap Logo](/WEBSITE/img/logo1.png)
 
 Lifemap is a tool that allows exploring on-line, in a manner similar to geographic maps, a complete representation of the Tree of Life. It relies on some tools created in the context of the OpenStreetMap project: mapnik and mod_tile. 
 

@@ -11,7 +11,7 @@ os.system("mkdir genomes trees")
 ## 1. get the tree and update database
 print 'RETRIEVING NCBI DATA'
 print '  Downloading trees...'
-#os.system('python getTrees.py');
+os.system('python getTrees.py');
 print '  Done'
 
 ##1.1 Clean trees

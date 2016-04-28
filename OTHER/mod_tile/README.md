@@ -1,6 +1,6 @@
 #mod_tile modification
 
-If 32 zoom levels is not enough for what you want to visualize, you should replace the src and includes folders of your mod_tile version by those displayed here and recompile.
+If 32 zoom levels is not enough for what you want to visualize, you should replace the `src` and `includes` folders of your mod_tile version by those displayed here and recompile.
 
 mod_tile is available at https://github.com/openstreetmap/mod_tile
 

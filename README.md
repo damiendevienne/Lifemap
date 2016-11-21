@@ -11,3 +11,4 @@ The tree is the taxonomy of the NCBI. The code available here is divided into di
 * OTHER: Configuration and style files, as well as modified source code of mod_tile that allows more zoom level to be rendered.
 
 
+Lifemap code is published under the GPL licence. Lifemap web sites, images, logos, are licensed under a Creative Commons Attribution-NonCommercial 4.0 International License. 

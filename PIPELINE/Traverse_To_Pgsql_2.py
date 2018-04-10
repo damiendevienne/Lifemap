@@ -7,14 +7,15 @@
 # We read the tree from external file (trees are retrieved with the code called "gettrees.py").
 # Added possibility to have groups containing only one descendants to be visible. Adds a few zoom levels (not so many)
 
-import sys,os
+import sys
+import os
 from argparse import ArgumentParser, FileType ##for options handling
 import numpy as np
 from ete3 import Tree
 #from ete3 import NCBITaxa
 import psycopg2 ##for postgresql connection
-import cPickle as pickle
-
+#import cPickle as pickle
+from getTrees_fun import getTheTrees
 
 parser = ArgumentParser(description='Open taxonomic tree and recode it into PostGRES/PostGIS database.')
 parser.add_argument('group', help='Group to look at. Can be 1,2 or 3 for Archaea, Eukaryotes and Bacteria respectively', choices=['1','2','3'])
@@ -24,24 +25,37 @@ parser.add_argument('--lang', nargs='?', const='EN', default='EN', help='Languag
 args = parser.parse_args()
 print args
 
+##update db (if requested?)
+def updateDB():
+	os.system("wget ftp://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz -N")
+	os.system("tar xvzf taxdump.tar.gz -C taxo/")
+	#unzip taxref
+	os.system("unzip -o taxo/TAXREF_INPN_v11.zip -d taxo/")
+
+updateDB()
+
 ##get arguments
 groupnb = args.group ##will be written
+
+T = getTheTrees()
 
 #print sys.argv[1];
 starti = args.start;
 print "Downloading tree..."
 if (groupnb=="1"):
-	with open('ARCHAEA.pkl', 'rb') as input:
-		t = pickle.load(input)
-    print "Archaeal tree loaded..."
-    t.x = 6.0;
-    t.y = 9.660254-10.0;
-    t.alpha = 30.0;
-    t.ray = 10.0;
-    starti = starti;
+	# with open('ARCHAEA.pkl', 'rb') as input:
+	# 	t = pickle.load(input)
+	T = T['2157']
+	print "Archaeal tree loaded..."
+	t.x = 6.0;
+	t.y = 9.660254-10.0;
+	t.alpha = 30.0;
+	t.ray = 10.0;
+	starti = starti;
 if (groupnb=="2"):
-	with open('EUKARYOTES.pkl', 'rb') as input:
-		t = pickle.load(input)
+	# with open('EUKARYOTES.pkl', 'rb') as input:
+	# 	t = pickle.load(input)
+	T = T['2759']
     print "Eukaryotic tree loaded"
     t.x = -6.0;
     t.y = 9.660254-10.0;
@@ -49,8 +63,9 @@ if (groupnb=="2"):
     t.ray = 10.0;
     starti = starti;
 if (groupnb=="3"):
-	with open('BACTERIA.pkl', 'rb') as input:
-		t = pickle.load(input)
+	# with open('BACTERIA.pkl', 'rb') as input:
+	# 	t = pickle.load(input)
+	T = T['2']
     print "Bacterial tree loaded"
     t.x = 0.0;
     t.y = -11.0;

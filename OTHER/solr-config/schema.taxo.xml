@@ -411,6 +411,8 @@
   <field name="_text_" type="text_general" multiValued="true" indexed="true" stored="false"/>
   <field name="_version_" type="long" indexed="true" stored="true"/>
   <field name="common_name" type="string"/>
+  <field name="authority" type="string"/>
+  <field name="synonym" type="string"/>
   <field name="coordinates" type="tdoubles"/>
   <field name="lat" type="tdoubles"/>
   <field name="lon" type="tdoubles"/>

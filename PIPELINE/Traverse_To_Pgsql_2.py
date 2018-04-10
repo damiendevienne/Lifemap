@@ -56,22 +56,22 @@ if (groupnb=="2"):
 	# with open('EUKARYOTES.pkl', 'rb') as input:
 	# 	t = pickle.load(input)
 	T = T['2759']
-    print "Eukaryotic tree loaded"
-    t.x = -6.0;
-    t.y = 9.660254-10.0;
-    t.alpha = 150.0;
-    t.ray = 10.0;
-    starti = starti;
+	print "Eukaryotic tree loaded"
+	t.x = -6.0;
+	t.y = 9.660254-10.0;
+	t.alpha = 150.0;
+	t.ray = 10.0;
+	starti = starti;
 if (groupnb=="3"):
 	# with open('BACTERIA.pkl', 'rb') as input:
 	# 	t = pickle.load(input)
 	T = T['2']
-    print "Bacterial tree loaded"
-    t.x = 0.0;
-    t.y = -11.0;
-    t.alpha = 270.0;
-    t.ray = 10.0;
-    starti = starti;
+	print "Bacterial tree loaded"
+	t.x = 0.0;
+	t.y = -11.0;
+	t.alpha = 270.0;
+	t.ray = 10.0;
+	starti = starti;
 
 t.zoomview = np.ceil(np.log2(30/t.ray));
 

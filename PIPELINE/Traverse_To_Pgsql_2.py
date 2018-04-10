@@ -75,6 +75,8 @@ if (groupnb=="3"):
 
 t.zoomview = np.ceil(np.log2(30/t.ray));
 
+print "t.x: --------------------      " + t.x
+
 #specis and node ids
 nbsp = len(t)
 spid = starti

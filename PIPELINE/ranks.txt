@@ -1,0 +1,28 @@
+superkingdom	domaine
+tribe	tribu
+subgenus	sous-genre
+family	famille
+species subgroup	sous-groupe d'espèces
+species group	groupe d'espèces
+phylum	embranchement
+superclass	super-classe
+subphylum	sous-embranchement
+subspecies	sous-espèce
+no rank	sans rang
+superorder	super-ordre
+infraorder	infra-ordre
+subclass	sous-classe
+species	espèce
+superphylum	super-embranchement
+kingdom	règne
+subtribe	sous-tribu
+forma	forme
+infraclass	infra-classe
+varietas	variété
+subfamily	sous-famille
+class	classe
+superfamily	super-famille
+parvorder	parvordre
+suborder	sous-ordre
+genus	genre
+order	ordre

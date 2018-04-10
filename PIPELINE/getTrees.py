@@ -3,6 +3,7 @@
 
 from ete3 import Tree
 import os
+import cPickle as pickle
 
 ##DOWNLOAD taxdump and store in taxo folder
 os.system("wget ftp://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz -N")
@@ -42,7 +43,6 @@ class Taxid:
 cpt = 0
 cptfr = 0
 ATTR = {} ##here we will list attribute of each species per taxid
-
 print "Reading NCBI taxonomy..."
 with open("taxo/names.dmp") as f:  
 	for line in f:		
@@ -112,18 +112,31 @@ with open(filepath) as fp:
 		T[dad].add_child(T[son])
 
 
-#t = T['1']
-tarc = T['2157']
-tbac = T['2']
-teuc = T['2759']
-
+##we save T entirely so that we do not hacve to write it to a file.
 print("\n>>> Writing ARCHAEA tree...")
-tarc.write(outfile = "ARCHAEA", features = ["name", "taxid", "sci_name","common_name","rank", "authority","synonym","common_name_FR", "rank_FR"], format_root_node=True)
+with open('ARCHAEA.pkl', 'wb') as output:
+    pickle.dump(T['2157'], output, pickle.HIGHEST_PROTOCOL)
 print("\n>>> Writing BACTERIA tree...")
-tbac.write(outfile = "BACTERIA", features = ["name", "taxid", "sci_name","common_name","rank", "authority","synonym","common_name_FR", "rank_FR"], format_root_node=True)
+with open('BACTERIA.pkl', 'wb') as output:
+    pickle.dump(T['2'], output, pickle.HIGHEST_PROTOCOL)
 print("\n>>> Writing EUKA tree...")
-teuc.write(outfile = "EUKARYOTES", features = ["name", "taxid", "sci_name","common_name","rank", "authority","synonym","common_name_FR", "rank_FR"], format_root_node=True)
+with open('EUKARYOTES.pkl', 'wb') as output:
+    pickle.dump(T['2759'], output, pickle.HIGHEST_PROTOCOL)
 print(">>> DONE")
+
+
+# #t = T['1']
+# tarc = T['2157']
+# tbac = T['2']
+# teuc = T['2759']
+
+# print("\n>>> Writing ARCHAEA tree...")
+# tarc.write(outfile = "ARCHAEA", features = ["name", "taxid", "sci_name","common_name","rank", "authority","synonym","common_name_FR", "rank_FR"], format_root_node=True)
+# print("\n>>> Writing BACTERIA tree...")
+# tbac.write(outfile = "BACTERIA", features = ["name", "taxid", "sci_name","common_name","rank", "authority","synonym","common_name_FR", "rank_FR"], format_root_node=True)
+# print("\n>>> Writing EUKA tree...")
+# teuc.write(outfile = "EUKARYOTES", features = ["name", "taxid", "sci_name","common_name","rank", "authority","synonym","common_name_FR", "rank_FR"], format_root_node=True)
+# print(">>> DONE")
 
 
 

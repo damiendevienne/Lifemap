@@ -13,7 +13,7 @@ import numpy as np
 from ete3 import Tree
 #from ete3 import NCBITaxa
 import psycopg2 ##for postgresql connection
-
+import cPickle as pickle
 
 
 parser = ArgumentParser(description='Open taxonomic tree and recode it into PostGRES/PostGIS database.')
@@ -31,7 +31,8 @@ groupnb = args.group ##will be written
 starti = args.start;
 print "Downloading tree..."
 if (groupnb=="1"):
-    t = Tree("ARCHAEA")
+	with open('ARCHAEA.pkl', 'rb') as input:
+		t = pickle.load(input)
     print "Archaeal tree loaded..."
     t.x = 6.0;
     t.y = 9.660254-10.0;
@@ -39,7 +40,8 @@ if (groupnb=="1"):
     t.ray = 10.0;
     starti = starti;
 if (groupnb=="2"):
-    t = Tree("EUKARYOTES")
+	with open('EUKARYOTES.pkl', 'rb') as input:
+		t = pickle.load(input)
     print "Eukaryotic tree loaded"
     t.x = -6.0;
     t.y = 9.660254-10.0;
@@ -47,7 +49,8 @@ if (groupnb=="2"):
     t.ray = 10.0;
     starti = starti;
 if (groupnb=="3"):
-    t = Tree("BACTERIA")
+	with open('BACTERIA.pkl', 'rb') as input:
+		t = pickle.load(input)
     print "Bacterial tree loaded"
     t.x = 0.0;
     t.y = -11.0;
@@ -301,19 +304,6 @@ out = open("tempndid", "w")
 out.write("%d" % ndid) ##we store the max id so that we start from there for next group.
 print ("Max zoom view : %d" % (maxZoomView));
 
-###############################
-##   WIKIPEDIA INFORMATION  ###
-###############################
-##import urllib2
-##for n in t.traverse():
-##    spname =n.sci_name;
-##    spname = spname.replace(" ","_")
-##    url = 'https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts|pageimages&exintro=&explaintext=&titles='+spname+'&redirects&exsentences=3&piprop=original'
-##    response = urllib2.urlopen(url)
-##    x = response.read()
-##    print(x)
-
-  
         
 ##remove unwanted last character(,) of json file
 json.close()

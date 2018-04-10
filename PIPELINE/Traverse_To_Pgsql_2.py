@@ -45,7 +45,7 @@ print "Downloading tree..."
 if (groupnb=="1"):
 	# with open('ARCHAEA.pkl', 'rb') as input:
 	# 	t = pickle.load(input)
-	T = T['2157']
+	t = T['2157']
 	print "Archaeal tree loaded..."
 	t.x = 6.0;
 	t.y = 9.660254-10.0;
@@ -55,7 +55,7 @@ if (groupnb=="1"):
 if (groupnb=="2"):
 	# with open('EUKARYOTES.pkl', 'rb') as input:
 	# 	t = pickle.load(input)
-	T = T['2759']
+	t = T['2759']
 	print "Eukaryotic tree loaded"
 	t.x = -6.0;
 	t.y = 9.660254-10.0;
@@ -65,7 +65,7 @@ if (groupnb=="2"):
 if (groupnb=="3"):
 	# with open('BACTERIA.pkl', 'rb') as input:
 	# 	t = pickle.load(input)
-	T = T['2']
+	t = T['2']
 	print "Bacterial tree loaded"
 	t.x = 0.0;
 	t.y = -11.0;

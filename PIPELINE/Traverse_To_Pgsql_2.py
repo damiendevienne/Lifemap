@@ -193,10 +193,8 @@ for n in t.traverse():
         n.common_name = n.common_name_FR
         n.rank = n.rank_FR   
     #####OK
-
     n.common_name = n.common_name.replace("'","''");
     n.sci_name = n.sci_name.replace("'","''")
-
     #add parenthesis to the common name
     if n.common_name!='':
         n.common_name = "(" + n.common_name + ")"
@@ -253,6 +251,10 @@ def writejsonNode(node):
     json.write("    \"taxid\":\"%s\",\n" % (node.taxid))
     json.write("    \"sci_name\":\"%s\",\n" % (sci_name))
     json.write("    \"common_name\":\"%s\",\n" % (common_name))
+    #new functions: add authority and synonym
+    json.write("    \"authority\":\"%s\",\n" % (node.authority))
+    json.write("    \"synonym\":\"%s\",\n" % (node.synonym))
+    #end
     json.write("    \"rank\":\"%s\",\n" % (node.rank))
     json.write("    \"zoom\":\"%d\",\n" % (node.zoomview+4))
     json.write("    \"nbdesc\":\"%d\",\n" % (node.nbdesc))

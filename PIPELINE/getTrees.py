@@ -8,6 +8,8 @@ import os
 os.system("wget ftp://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz -N")
 os.system("tar xvzf taxdump.tar.gz -C taxo/")
 ##DOWNLOAD TAXREF BY HAND! and put it in taxo/
+#unzip taxref
+os.system("unzip taxo/TAXREF_INPN_v11.zip -d taxo/")
 
 
 print "Getting french translations..."

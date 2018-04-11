@@ -243,6 +243,7 @@ for n in t.traverse():
     for i in child:
         i.alpha = ang[cpt];
         i.x = n.x + i.dist*np.cos(rad(i.alpha));
+        print "x OK"
         i.y = n.y + i.dist*np.sin(rad(i.alpha));
         i.zoomview = np.ceil(np.log2(30/i.ray))
         if i.zoomview <= 0:

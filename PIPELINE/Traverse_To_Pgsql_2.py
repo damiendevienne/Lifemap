@@ -37,15 +37,16 @@ updateDB()
 ##get arguments
 groupnb = args.group ##will be written
 
-T = getTheTrees()
+#T = getTheTrees()
 
 #print sys.argv[1];
 starti = args.start;
 print "Downloading tree..."
 if (groupnb=="1"):
-	# with open('ARCHAEA.pkl', 'rb') as input:
-	# 	t = pickle.load(input)
-	t = T['2157']
+	#with open('ARCHAEA.pkl', 'rb') as input:
+	#t = pickle.load(input)
+	#t = T['2157']
+	t = Tree("ARCHAEA")
 	print "Archaeal tree loaded..."
 	t.x = 6.0;
 	t.y = 9.660254-10.0;

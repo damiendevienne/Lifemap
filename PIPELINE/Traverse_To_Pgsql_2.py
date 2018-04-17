@@ -37,7 +37,7 @@ updateDB()
 ##get arguments
 groupnb = args.group ##will be written
 
-#T = getTheTrees()
+T = getTheTrees()
 
 #print sys.argv[1];
 starti = args.start;
@@ -45,8 +45,8 @@ print "Downloading tree..."
 if (groupnb=="1"):
 	#with open('ARCHAEA.pkl', 'rb') as input:
 	#t = pickle.load(input)
-	#t = T['2157']
-	t = Tree("ARCHAEA")
+	t = T['2157'].detach()
+	#t = Tree("ARCHAEA")
 	print "Archaeal tree loaded..."
 	t.x = 6.0;
 	t.y = 9.660254-10.0;
@@ -209,7 +209,6 @@ for n in t.traverse():
         tot = tot + np.sqrt(len(i));
     nbdesc = len(n);
     ##remove special chars in names
-
     ####IF --LANG IS SET TO FR, WE CHGANGE HERE THE RANK AND COMMON NAMES
     if (args.lang=='FR'):
         n.common_name = n.common_name_FR
@@ -244,7 +243,6 @@ for n in t.traverse():
     for i in child:
         i.alpha = ang[cpt];
         i.x = n.x + i.dist*np.cos(rad(i.alpha));
-        print "x OK"
         i.y = n.y + i.dist*np.sin(rad(i.alpha));
         i.zoomview = np.ceil(np.log2(30/i.ray))
         if i.zoomview <= 0:
@@ -293,6 +291,7 @@ def writejsonNode(node):
 print "Tree traversal 2... "
 ##LAST LOOP TO write coords of polygs and JSON file
 for n in t.traverse():
+    print n.x;
     #save all trees to disk
     out="trees/" + str(n.taxid) + ".tre";
     n.write(outfile=out, features=["taxid","sci_name","common_name","rank"]);

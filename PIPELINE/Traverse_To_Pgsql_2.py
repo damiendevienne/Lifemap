@@ -21,18 +21,21 @@ parser = ArgumentParser(description='Open taxonomic tree and recode it into Post
 parser.add_argument('group', help='Group to look at. Can be 1,2 or 3 for Archaea, Eukaryotes and Bacteria respectively', choices=['1','2','3'])
 parser.add_argument('start', help='index of the first node met in the tree', type=int)
 parser.add_argument('--lang', nargs='?', const='EN', default='EN', help='Language chosen. FR for french, EN (default) for english', choices=['EN','FR'])
+parser.add_argument('--updatedb', nargs='?', const='True', default='True', help='Should the NCBI taxonomy db be updated ?', choices=['True','False'])
 
 args = parser.parse_args()
-print args
+#print args
 
 ##update db (if requested?)
 def updateDB():
+	print 'Updating databases...'
 	os.system("wget ftp://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz -N")
 	os.system("tar xvzf taxdump.tar.gz -C taxo/")
 	#unzip taxref
 	os.system("unzip -o taxo/TAXREF_INPN_v11.zip -d taxo/")
 
-updateDB()
+if (args.updatedb=='True'):
+	updateDB()
 
 ##get arguments
 groupnb = args.group ##will be written
@@ -76,8 +79,6 @@ if (groupnb=="3"):
 
 t.zoomview = np.ceil(np.log2(30/t.ray));
 
-print "t.x: --------------------      " 
-print t.x
 
 #specis and node ids
 nbsp = len(t)
@@ -291,7 +292,6 @@ def writejsonNode(node):
 print "Tree traversal 2... "
 ##LAST LOOP TO write coords of polygs and JSON file
 for n in t.traverse():
-    print n.x;
     #save all trees to disk
     out="trees/" + str(n.taxid) + ".tre";
     n.write(outfile=out, features=["taxid","sci_name","common_name","rank"]);

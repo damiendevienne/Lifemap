@@ -1,14 +1,16 @@
 #!/usr/bin/python
 
 import sys,os
+from argparse import ArgumentParser, FileType ##for options handling
+
 
 ##
 os.system("mkdir genomes trees")
 ## 1. get the tree and update database
-print 'RETRIEVING NCBI DATA'
-print '  Downloading trees...'
-os.system('python getTrees.py');
-print '  Done'
+##print 'RETRIEVING NCBI DATA'
+##print '  Downloading trees...'
+##os.system('python getTrees.py');
+##print '  Done'
 print '\NCREATING DATABASE'
 print '  Traversing Archaeal tree...'
 os.system('python Traverse_To_Pgsql_2.py 1 1');
@@ -16,12 +18,12 @@ print '  ...Done'
 with open('tempndid', 'r') as f:
     ndid = f.readline()
 print '  Traversing Eukaryotic tree... start at id: %s' % ndid
-os.system('python Traverse_To_Pgsql_2.py 2 %s' % ndid)
+os.system('python Traverse_To_Pgsql_2.py 2 %s --updatedb False' % ndid)
 print '  ...Done'
 with open('tempndid', 'r') as f:
     ndid = f.readline()
 print '  Traversing Bact tree... start at id:%s ' % ndid
-os.system('python Traverse_To_Pgsql_2.py 3 %s' % ndid)
+os.system('python Traverse_To_Pgsql_2.py 3 %s --updatedb False' % ndid)
 print '  ...Done'
 
 

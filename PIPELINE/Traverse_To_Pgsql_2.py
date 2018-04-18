@@ -211,7 +211,7 @@ for n in t.traverse():
         special=2
     ## |<-- NEW
     for i in child:
-        tot = tot + np.sqrt(len(i));d
+        tot = tot + np.sqrt(len(i));
     nbdesc = len(n);
     ##remove special chars in names
     ####IF --LANG IS SET TO FR, WE CHGANGE HERE THE RANK AND COMMON NAMES

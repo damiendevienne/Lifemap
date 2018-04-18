@@ -9,12 +9,12 @@ sudo -u postgres createdb -E UTF8 -O lm tree
 sudo -u postgres psql -d tree -f dbSetup.sql
 sudo apt-get --yes --force-yes install gdal-bin libgdal1-dev libmapnik-dev mapnik-utils python-mapnik
 cd
-mkdir src
+#mkdir src
 cd ~/src
 git clone git://github.com/SomeoneElseOSM/mod_tile.git
 cd mod_tile
 cd ~/src
-git clone https://github.com/damiendevienne/Lifemap.git
+#git clone https://github.com/damiendevienne/Lifemap.git
 cp -r ~/src/Lifemap/OTHER/mod_tile/includes ~/src/Lifemap/OTHER/mod_tile/src ~/src/mod_tile/
 cd ~/src/mod_tile
 ./autogen.sh

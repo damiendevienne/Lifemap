@@ -9,7 +9,7 @@
 
 import sys,os, time
 
-path2solr = "/home/ddevienne/TOOLS/solr-5.4.0/" ##ÜPDATE ??
+path2solr = "/home/lm/src/solr-7.2.1/" 
 startsolr = path2solr + "bin/solr start"
 restartsolr = path2solr + "bin/solr restart"
 

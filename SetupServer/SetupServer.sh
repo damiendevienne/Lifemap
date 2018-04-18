@@ -39,12 +39,12 @@ sudo pip install --upgrade --target=/usr/local/lib/python2.7/dist-packages ete3
 ##configure solr
 sudo apt-get --yes --force-yes install default-jre default-jdk
 cd ~/src
-wget http://mirrors.ircam.fr/pub/apache/lucene/solr/7.2.1/solr-7.2.1.tgz
-tar xvzf solr-7.2.1.tgz
-cd ~/src/solr-7.2.1
+wget http://mirrors.ircam.fr/pub/apache/lucene/solr/6.6.3/solr-6.6.3.tgz
+tar xvzf solr-6.6.3.tgz
+cd ~/src/solr-6.6.3
 bin/solr start
 bin/solr create -c taxo
 bin/solr create -c addi
-cp ~/src/Lifemap/OTHER/solr-config/schema.taxo.xml ~/src/solr-7.2.1/server/solr/taxo/conf/schema.xml
-cp ~/src/Lifemap/OTHER/solr-config/solrconfig.taxo.xml ~/src/solr-7.2.1/server/solr/taxo/conf/solrconfig.xml
+cp ~/src/Lifemap/OTHER/solr-config/schema.taxo.xml ~/src/solr-6.6.3/server/solr/taxo/conf/schema.xml
+cp ~/src/Lifemap/OTHER/solr-config/solrconfig.taxo.xml ~/src/solr-6.6.3/server/solr/taxo/conf/solrconfig.xml
 

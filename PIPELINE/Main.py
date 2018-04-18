@@ -5,7 +5,7 @@ from argparse import ArgumentParser, FileType ##for options handling
 
 
 ##
-os.system("mkdir genomes trees")
+os.system("mkdir genomes")
 ## 1. get the tree and update database
 ##print 'RETRIEVING NCBI DATA'
 ##print '  Downloading trees...'
@@ -43,11 +43,11 @@ print '  ...Done '
 
 ## 3. move trees/ to /var/www/html after deleting previous version
 ##delete old 'trees' files
-print '  Deleting old newick tree files... '
-os.system('rm -r /var/www/html/trees/')
-print '  ...Done '
-print '  Moving new newick tree files... '
-os.system('mv trees/ /var/www/html/trees/')
+# print '  Deleting old newick tree files... '
+# os.system('rm -r /var/www/html/trees/')
+# print '  ...Done '
+# print '  Moving new newick tree files... '
+# os.system('mv trees/ /var/www/html/trees/')
 
 ## 4. Remove tiles
 print '  Deleting old tiles... '

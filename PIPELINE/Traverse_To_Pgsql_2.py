@@ -17,7 +17,7 @@ import psycopg2 ##for postgresql connection
 #import cPickle as pickle
 from getTrees_fun import getTheTrees
 
-parser = ArgumentParser(description='Open taxonomic tree and recode it into PostGRES/PostGIS database.')
+parser = ArgumentParser(description='Open taxonomic tree and recode it into PostGRES/PostGIS database for visualisation in Lifemap.')
 parser.add_argument('group', help='Group to look at. Can be 1,2 or 3 for Archaea, Eukaryotes and Bacteria respectively', choices=['1','2','3'])
 parser.add_argument('start', help='index of the first node met in the tree', type=int)
 parser.add_argument('--lang', nargs='?', const='EN', default='EN', help='Language chosen. FR for french, EN (default) for english', choices=['EN','FR'])

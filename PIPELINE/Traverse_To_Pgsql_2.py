@@ -51,6 +51,8 @@ if (groupnb=="1"):
 	t = T['2157'].detach()
 	#t = Tree("ARCHAEA")
 	print "Archaeal tree loaded..."
+	##and we save it
+	t.write(outfile="ARCHAEA", features = ["name", "taxid"], format_root_node=True)
 	t.x = 6.0;
 	t.y = 9.660254-10.0;
 	t.alpha = 30.0;
@@ -59,8 +61,9 @@ if (groupnb=="1"):
 if (groupnb=="2"):
 	# with open('EUKARYOTES.pkl', 'rb') as input:
 	# 	t = pickle.load(input)
-	t = T['2759']
+	t = T['2759'].detach()
 	print "Eukaryotic tree loaded"
+	t.write(outfile="EUKARYOTES")
 	t.x = -6.0;
 	t.y = 9.660254-10.0;
 	t.alpha = 150.0;
@@ -69,8 +72,9 @@ if (groupnb=="2"):
 if (groupnb=="3"):
 	# with open('BACTERIA.pkl', 'rb') as input:
 	# 	t = pickle.load(input)
-	t = T['2']
+	t = T['2'].detach()
 	print "Bacterial tree loaded"
+	t.write(outfile="BACTERIA")
 	t.x = 0.0;
 	t.y = -11.0;
 	t.alpha = 270.0;
@@ -207,7 +211,7 @@ for n in t.traverse():
         special=2
     ## |<-- NEW
     for i in child:
-        tot = tot + np.sqrt(len(i));
+        tot = tot + np.sqrt(len(i));d
     nbdesc = len(n);
     ##remove special chars in names
     ####IF --LANG IS SET TO FR, WE CHGANGE HERE THE RANK AND COMMON NAMES
@@ -216,6 +220,7 @@ for n in t.traverse():
         n.rank = n.rank_FR   
     #####OK
     n.common_name = n.common_name.replace("'","''");
+    n.rank = n.rank.replace("'","''");
     n.sci_name = n.sci_name.replace("'","''")
     #add parenthesis to the common name
     if n.common_name!='':
@@ -293,8 +298,8 @@ print "Tree traversal 2... "
 ##LAST LOOP TO write coords of polygs and JSON file
 for n in t.traverse():
     #save all trees to disk
-    out="trees/" + str(n.taxid) + ".tre";
-    n.write(outfile=out, features=["taxid","sci_name","common_name","rank"]);
+#    out="trees/" + str(n.taxid) + ".tre";
+#    n.write(outfile=out, features=["taxid","sci_name","common_name","rank"]);
     ##we finish writing in the database here.
     if n.is_root()==False:
         ndid = ndid+1

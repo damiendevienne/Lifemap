@@ -274,13 +274,18 @@ def writejsonNode(node):
     sci_name = sci_name.replace('"','\\"')
     common_name = node.common_name
     common_name = common_name.replace('"','\\"')
+	##new attributes
+    authority = node.authority
+    authority = authority.replace('"','\\"')
+    synonym = node.synonym
+    synonym = synonym.replace('"','\\"')
     json.write("  {\n");
     json.write("    \"taxid\":\"%s\",\n" % (node.taxid))
     json.write("    \"sci_name\":\"%s\",\n" % (sci_name))
     json.write("    \"common_name\":\"%s\",\n" % (common_name))
     #new functions: add authority and synonym
-    json.write("    \"authority\":\"%s\",\n" % (node.authority))
-    json.write("    \"synonym\":\"%s\",\n" % (node.synonym))
+    json.write("    \"authority\":\"%s\",\n" % (authority))
+    json.write("    \"synonym\":\"%s\",\n" % (synonym))
     #end
     json.write("    \"rank\":\"%s\",\n" % (node.rank))
     json.write("    \"zoom\":\"%d\",\n" % (node.zoomview+4))

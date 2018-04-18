@@ -2,8 +2,12 @@
 # -*- coding: utf-8 -*-
 
 from ete3 import Tree
+from ete3 import Phyloxml, phyloxml
+from ete3 import nexml
 import os
 import cPickle as pickle
+
+
 
 ##DOWNLOAD taxdump and store in taxo folder
 os.system("wget ftp://ftp.ncbi.nlm.nih.gov/pub/taxonomy/taxdump.tar.gz -N")
@@ -112,6 +116,13 @@ with open(filepath) as fp:
 		T[dad].add_child(T[son])
 
 
+
+nexml_project = nexml.Nexml()
+tree_collection = nexml.Trees()
+nexml_tree = nexml.NexmlTree(T['2157'])
+tree_collection.add_tree(nexml_tree)
+nexml_project.export()
+
 ##we save T entirely so that we do not hacve to write it to a file.
 print("\n>>> Writing ARCHAEA tree...")
 with open('ARCHAEA.pkl', 'wb') as output:
@@ -124,6 +135,8 @@ with open('EUKARYOTES.pkl', 'wb') as output:
     pickle.dump(T['2759'], output, pickle.HIGHEST_PROTOCOL)
 print(">>> DONE")
 
+with open('BIGTREE.pkl', 'wb') as output:
+    pickle.dump(T, output, pickle.HIGHEST_PROTOCOL)
 
 # #t = T['1']
 # tarc = T['2157']

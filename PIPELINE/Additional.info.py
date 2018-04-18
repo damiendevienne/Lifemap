@@ -15,8 +15,8 @@ groupnb = sys.argv[1]; ##will be written
 #######################################################################################################################
 #######################################################################################################################
 if (groupnb=="1"):
-    os.system("wget ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/eukaryotes.txt")
-    os.system("wget ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/prokaryotes.txt")
+    os.system("wget ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/eukaryotes.txt -N")
+    os.system("wget ftp://ftp.ncbi.nlm.nih.gov/genomes/GENOME_REPORTS/prokaryotes.txt -N")
     os.system("mv eukaryotes.txt prokaryotes.txt genomes/")
     t = Tree("ARCHAEA")
 if (groupnb=="2"):

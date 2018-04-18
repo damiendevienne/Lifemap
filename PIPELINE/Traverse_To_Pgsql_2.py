@@ -63,7 +63,7 @@ if (groupnb=="2"):
 	# 	t = pickle.load(input)
 	t = T['2759'].detach()
 	print "Eukaryotic tree loaded"
-	t.write(outfile="EUKARYOTES")
+	t.write(outfile="EUKARYOTES", features = ["name", "taxid"], format_root_node=True)
 	t.x = -6.0;
 	t.y = 9.660254-10.0;
 	t.alpha = 150.0;
@@ -74,7 +74,7 @@ if (groupnb=="3"):
 	# 	t = pickle.load(input)
 	t = T['2'].detach()
 	print "Bacterial tree loaded"
-	t.write(outfile="BACTERIA")
+	t.write(outfile="BACTERIA", features = ["name", "taxid"], format_root_node=True)
 	t.x = 0.0;
 	t.y = -11.0;
 	t.alpha = 270.0;

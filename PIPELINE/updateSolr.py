@@ -9,7 +9,7 @@
 
 import sys,os, time
 
-path2solr = "/home/lm/src/solr-7.2.1/" 
+path2solr = "/home/lm/src/solr-6.6.3/" 
 startsolr = path2solr + "bin/solr start"
 restartsolr = path2solr + "bin/solr restart"
 

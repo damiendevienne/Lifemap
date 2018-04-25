@@ -49,11 +49,6 @@ print '  ...Done '
 # print '  Moving new newick tree files... '
 # os.system('mv trees/ /var/www/html/trees/')
 
-## 4. Remove tiles
-print '  Deleting old tiles... '
-os.system('rm -r /var/lib/mod_tile/default/')
-
-
 ## 5. Create postgis index
 print '  Creating index... '
 os.system('python CreateIndex.py')
@@ -66,8 +61,19 @@ os.system('python CreateIndex.py')
 
 #get date of update
 os.system('echo "$(echo "var DateUpdate='")" "$(date -R -r taxdump.tar.gz | cut -d' ' -f1-4)" "$(echo "';")" > date-update.js')
+
+
 #copy this date to /var/www/html
 os.system('sudo cp date-update.js /var/www/html/')
+## 4. Remove tiles
+print '  Deleting old tiles... '
+os.system('sudo rm -r /var/lib/mod_tile/default/')
+
+
+#run rendered (so the service is already available)
+os.system("sudo ~/src/mod_tile/renderd")
+##generate all tiles for zoom 0 to 12
+os.system("sudo ~/src/mod_tile/render_list -a -z 0 -Z 12")
 
 ## 6.bis. Restarting the machine would be the easiest way.
-os.system('reboot')
+os.system('sudo reboot')

@@ -219,6 +219,9 @@ for n in t.traverse():
         n.common_name = n.common_name_FR
         n.rank = n.rank_FR   
     #####OK
+    n.common_name_long = ', '.join(n.common_name)
+    n.common_name = n.common_name[0]
+    ##we create a 'long' common name. the common name going to db is only the first of the list 
     n.common_name = n.common_name.replace("'","''");
     n.rank = n.rank.replace("'","''");
     n.sci_name = n.sci_name.replace("'","''")

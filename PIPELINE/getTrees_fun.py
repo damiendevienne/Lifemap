@@ -9,14 +9,21 @@ def getTheTrees():
 	##DOWNLOAD taxdump and store in taxo folder
 	##DOWNLOAD TAXREF BY HAND! and put it in taxo/
 
+	class Trans:
+		def __init__(self):
+			self.common_name_FR = []
+
+
 	print "Getting french translations..."
 	TRANS = {} ##translations in french
 	with open("taxo/TAXREFv11.txt") as f:  
 		for line in f:
 			sciname = line.split("\t")[14]
 			comnameFR = line.split("\t")[19]
-			if (line.split("\t")[19]!='' and TRANS.has_key(sciname)==False):
-				TRANS[sciname] = comnameFR
+			if (TRANS.has_key(sciname)==False and line.split("\t")[19]!=''):
+				TRANS[sciname] = Trans()
+			if (line.split("\t")[19]!=''):
+				TRANS[sciname].common_name_FR.append(comnameFR)
 
 	#get translation of ranks
 	print "\nGetting rank names in french..."
@@ -33,8 +40,10 @@ def getTheTrees():
 			self.sci_name = ""
 			self.authority = ""
 			self.synonym = ""
-			self.common_name = ""
-			self.common_name_FR = ""
+#			self.common_name = ""
+			self.common_name = []
+#			self.common_name_FR = ""
+			self.common_name_FR = []
 
 	cpt = 0
 	cptfr = 0
@@ -51,7 +60,7 @@ def getTheTrees():
 				ATTR[taxid].sci_name = tid_val
 				#and get translation in french (if any)
 				if TRANS.has_key(tid_val):
-					ATTR[taxid].common_name_FR = TRANS[tid_val]
+					ATTR[taxid].common_name_FR = TRANS[tid_val].common_name_FR
 					cptfr += 1
 			if (tid_type=="authority"):
 				if (ATTR[taxid].authority!=""):
@@ -65,10 +74,11 @@ def getTheTrees():
 					ATTR[taxid].synonym = tid_val
 			if (tid_type=="common name"):
 				cpt +=1
-				if (ATTR[taxid].common_name!=""):
-					ATTR[taxid].common_name = ATTR[taxid].common_name + ", " + tid_val
-				else: 
-					ATTR[taxid].common_name = tid_val
+				ATTR[taxid].common_name.append(tid_val)
+				# if (ATTR[taxid].common_name!=""):
+				# 	ATTR[taxid].common_name = ATTR[taxid].common_name + ", " + tid_val
+				# else: 
+				# 	ATTR[taxid].common_name = tid_val
 
 
 	T = {}

@@ -64,5 +64,10 @@ os.system('python CreateIndex.py')
 ##os.system('/etc/init.d/apache2 restart')
 ##os.system('./home/ddevienne/TOOLS/mod_tile/renderd')
 
+#get date of update
+os.system('echo "$(echo "var DateUpdate='")" "$(date -R -r taxdump.tar.gz | cut -d' ' -f1-4)" "$(echo "';")" > date-update.js')
+#copy this date to /var/www/html
+os.system('sudo cp date-update.js /var/www/html/')
+
 ## 6.bis. Restarting the machine would be the easiest way.
 os.system('reboot')

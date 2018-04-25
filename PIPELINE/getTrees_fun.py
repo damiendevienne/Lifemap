@@ -31,7 +31,7 @@ def getTheTrees():
 	with open("ranks.txt") as f:  
 		for line in f:
 			rank_en = line.split("\t")[0]
-			rank_fr = line.split("\t")[1]
+			rank_fr = line.split("\t")[1].rstrip() ##to remove \n
 			RANKS[rank_en] = rank_fr
 
 

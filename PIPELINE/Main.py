@@ -60,11 +60,11 @@ os.system('python CreateIndex.py')
 ##os.system('./home/ddevienne/TOOLS/mod_tile/renderd')
 
 #get date of update
-os.system('echo "$(echo "var DateUpdate='")" "$(date -R -r taxdump.tar.gz | cut -d' ' -f1-4)" "$(echo "';")" > date-update.js')
+##os.system('echo "$(echo "var DateUpdate='")" "$(date -R -r taxdump.tar.gz | cut -d' ' -f1-4)" "$(echo "';")" > date-update.js')
 
 
 #copy this date to /var/www/html
-os.system('sudo cp date-update.js /var/www/html/')
+os.system('sudo getDateUpdate.sh')
 ## 4. Remove tiles
 print '  Deleting old tiles... '
 os.system('sudo rm -r /var/lib/mod_tile/default/')

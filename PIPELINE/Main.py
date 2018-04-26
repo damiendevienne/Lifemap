@@ -69,11 +69,10 @@ os.system('sudo getDateUpdate.sh')
 print '  Deleting old tiles... '
 os.system('sudo rm -r /var/lib/mod_tile/default/')
 
-
 #run rendered (so the service is already available)
-os.system("sudo ~/src/mod_tile/renderd")
+#os.system("sudo ~/src/mod_tile/renderd")
 ##generate all tiles for zoom 0 to 12
-os.system("sudo ~/src/mod_tile/render_list -a -z 0 -Z 12")
+#os.system("sudo ~/src/mod_tile/render_list -a -z 0 -Z 12")
 
 ## 6.bis. Restarting the machine would be the easiest way.
 os.system('sudo reboot')

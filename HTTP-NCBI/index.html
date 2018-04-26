@@ -180,7 +180,7 @@
 	        <!--IMAGE ON TOP-->
 	        <div id="logo" class="img.center" style="background-color:white;">
 		        <img class="center" src = "img/logo1ncbi.png" width="50%">
-			    <div class="text-center" style="font-family:'Courier New', Courier, monospace; font-size:x-small;">NCBI taxonomy last update: June 26th, 2017</div>
+			    <div class="text-center" style="font-family:'Courier New', Courier, monospace; font-size:x-small;">NCBI taxonomy last update: <font id="theDate" color="#3e5a99">Charging...</font></div>
 	        </div>
         	<!--SIMPLE SEARCH DIV-->
 			<div id="mainsearch" class="container-fluid" style="margin: 10px 10px 0px 10px; padding:0px; z-index:10;">
@@ -290,7 +290,7 @@
 							  <li>The species name (and the associated common name if there is one)</li>
 							  <li>The rank (kingdom, family, class, species...)</li>
 							  <li>Ability to go to the corresponding node/species on NCBI web site (displayed in a new window)</li>
-							  <li>Possibility to download the corresponding subtree in newick extended format</li>
+							  <!--<li>Possibility to download the corresponding subtree in newick extended format</li>-->
 							  <li>Possibilty to get the whole lineage from the current node/tip to the root of the tree.</li>
 						  </uL>
 						</p>
@@ -362,10 +362,12 @@
 	<script src="js/labels/leaflet.label.js" type="text/javascript"></script>
 	<!--MAP LOADING INFO-->
 	<script src="js/loading/Control.Loading.js" type="text/javascript"></script>
+	<!-- Get date of update -->
+	<script src="date-update.js" type="text/javascript"></script>
 	<!--HERE IS WHAT CONCERNS THE MAP AND MAP FUNCTION (focus, etc...)-->
     <script>
 		var map = L.map('map', {zoomControl: false, attributionControl: false});
-		var tolUrl='http://install.univ-lyon1.fr/osm_tiles/{z}/{x}/{y}.png';
+		var tolUrl='http://lifemap-ncbi.univ-lyon1.fr/osm_tiles/{z}/{x}/{y}.png';
 		var tol = new L.TileLayer(tolUrl, {minZoom: 4, maxZoom: 42});
 		map.addLayer(tol);
 		map.setView([-5,0], 5);
@@ -536,7 +538,7 @@
 	    }  
 	    var zoomTo = function(taxid) {
 //			$("#route-details").hide();
-	  		var url = 'http://install.univ-lyon1.fr:8983/solr/taxo/select?q=taxid:"'+taxid+'"&wt=json';
+	  		var url = 'http://lifemap-ncbi.univ-lyon1.fr:8983/solr/taxo/select?q=taxid:"'+taxid+'"&wt=json';
 			if (taxid === 1) {
 			  map.setView( L.latLng([-4.226497,0]),7);
 			}
@@ -576,7 +578,7 @@
 			var lon2 = bb._northEast.lng;
 			var lat1 = bb._southWest.lat;
 			var lat2 = bb._northEast.lat;
-			var URL2 = "http://install.univ-lyon1.fr:8983/solr/taxo/select?q=*:*&fq=zoom:[0 TO " + z + "]&fq=lat:[" + lat1 + " TO " + lat2 + "]&fq=lon:[" + lon1 + " TO " + lon2 + "]&wt=json&rows=1000";
+			var URL2 = "http://lifemap-ncbi.univ-lyon1.fr:8983/solr/taxo/select?q=*:*&fq=zoom:[0 TO " + z + "]&fq=lat:[" + lat1 + " TO " + lat2 + "]&fq=lon:[" + lon1 + " TO " + lon2 + "]&wt=json&rows=1000";
 			$.ajax({
 				url : URL2,
 				success : function(data) {
@@ -642,8 +644,8 @@
 		//SEARCH FUNCTIONS
 		$(function() {
 			var str;
-			var URL_PREFIX = "http://install.univ-lyon1.fr:8983/solr/taxo/suggesthandler?suggest.q=";
-			var URL_PREFIX_FINAL = "http://install.univ-lyon1.fr:8983/solr/taxo/select?q=taxid:";
+			var URL_PREFIX = "http://lifemap-ncbi.univ-lyon1.fr:8983/solr/taxo/suggesthandler?suggest.q=";
+			var URL_PREFIX_FINAL = "http://lifemap-ncbi.univ-lyon1.fr:8983/solr/taxo/select?q=taxid:";
 			var URL_SUFFIX = "&wt=json";
 			$("#searchinput").autocomplete({
 				source : function(request, response) {
@@ -739,8 +741,8 @@
 		});
 		$(function() {
 			var str;
-			var URL_PREFIX = "http://install.univ-lyon1.fr:8983/solr/taxo/suggesthandler?suggest.q=";
-			var URL_PREFIX_FINAL = "http://install.univ-lyon1.fr:8983/solr/taxo/select?q=taxid:";
+			var URL_PREFIX = "http://lifemap-ncbi.univ-lyon1.fr:8983/solr/taxo/suggesthandler?suggest.q=";
+			var URL_PREFIX_FINAL = "http://lifemap-ncbi.univ-lyon1.fr:8983/solr/taxo/select?q=taxid:";
 			var URL_SUFFIX = "&wt=json";
 			$("#searchinput2").autocomplete({
 				source : function(request, response) {
@@ -813,8 +815,8 @@
 		});
 		$(function() {
 			var str;
-			var URL_PREFIX = "http://install.univ-lyon1.fr:8983/solr/taxo/suggesthandler?suggest.q=";
-			var URL_PREFIX_FINAL = "http://install.univ-lyon1.fr:8983/solr/taxo/select?q=taxid:";
+			var URL_PREFIX = "http://lifemap-ncbi.univ-lyon1.fr:8983/solr/taxo/suggesthandler?suggest.q=";
+			var URL_PREFIX_FINAL = "http://lifemap-ncbi.univ-lyon1.fr:8983/solr/taxo/select?q=taxid:";
 			var URL_SUFFIX = "&wt=json";
 			$("#searchinput3").autocomplete({
 				source : function(request, response) {
@@ -909,7 +911,7 @@
 			taxidTo = taxidTo.replace(/\s+/g, '');
 			console.log(taxidFrom);
 			console.log(taxidTo);				
-			var url = 'http://install.univ-lyon1.fr:8983/solr/addi/select?q=*:*&fq=taxid:('+taxidFrom+' '+taxidTo+')&wt=json';
+			var url = 'http://lifemap-ncbi.univ-lyon1.fr:8983/solr/addi/select?q=*:*&fq=taxid:('+taxidFrom+' '+taxidTo+')&wt=json';
 			$.ajax({
 			    url : url,
 			    success : function(data) {
@@ -935,7 +937,7 @@
 					routeq = route.toString().replace(/,/g,' ');
 					console.log("routeq");
 					console.log(routeq);
-					url2 = 'http://install.univ-lyon1.fr:8983/solr/taxo/select?q=*:*&fq=taxid:(' + routeq + ')&wt=json&rows=10000';
+					url2 = 'http://lifemap-ncbi.univ-lyon1.fr:8983/solr/taxo/select?q=*:*&fq=taxid:(' + routeq + ')&wt=json&rows=10000';
 
 					$.ajax({
 					    url : url2,
@@ -1066,10 +1068,10 @@
 	var getNbdesc = function(taxid) {
 		$("#NBDESC").empty();
 		if (taxid===1) {
-			var url = 'http://install.univ-lyon1.fr:8983/solr/taxo/select?q=taxid:(2 2157 2759)&wt=json';
+			var url = 'http://lifemap-ncbi.univ-lyon1.fr:8983/solr/taxo/select?q=taxid:(2 2157 2759)&wt=json';
 		}
 		else {
-			var url = 'http://install.univ-lyon1.fr:8983/solr/taxo/select?q=taxid:"'+taxid+'"&wt=json';
+			var url = 'http://lifemap-ncbi.univ-lyon1.fr:8983/solr/taxo/select?q=taxid:"'+taxid+'"&wt=json';
 		}
   		$.ajax({
 			url : url,
@@ -1097,7 +1099,7 @@
 		taxi = taxid;
 		spna = spname;
 		comna = comname;	
-		var treeFileAddr = 'http://install.univ-lyon1.fr/trees/' + taxid.replace(/\s+/g, '') + '.tre';
+		var treeFileAddr = 'http://lifemap-ncbi.univ-lyon1.fr/trees/' + taxid.replace(/\s+/g, '') + '.tre';
 		$('#modaltitle').empty();
 		$('#modalbody-text').empty();	
 		$('#modalbody-pict').empty();
@@ -1137,9 +1139,9 @@
 		}
 		text +="</ul><ul>"
 		text +='<li>Explore <b>' + spname + '</b> on <a href="http://www.ncbi.nlm.nih.gov/Taxonomy/Browser/wwwtax.cgi?id=' + taxid.replace(/\s+/g, '') + '&mode=info" target="_blank">NCBI</a></li>';
-		if (taxid!="1") {
-			text += '<li><a href="' + treeFileAddr + '" download>Download</a> the complete NCBI subtree of <b>' + spname + '</b> in Newick Extended format (NHX) </li>';
-		}
+		//if (taxid!="1") {
+		//	text += '<li><a href="' + treeFileAddr + '" download>Download</a> the complete NCBI subtree of <b>' + spname + '</b> in Newick Extended format (NHX) </li>';
+		//}
 
 		text +="</ul>";
 		$('#modalbody-text').append(text);
@@ -1177,7 +1179,7 @@
 			var lon2 = bb._northEast.lng;
 			var lat1 = bb._southWest.lat;
 			var lat2 = bb._northEast.lat;
-			var URL2 = "http://install.univ-lyon1.fr:8983/solr/taxo/select?q=*:*&fq=zoom:[0 TO " + z + "]&fq=lat:[" + lat1 + " TO " + lat2 + "]&fq=lon:[" + lon1 + " TO " + lon2 + "]&wt=json&rows=1000";
+			var URL2 = "http://lifemap-ncbi.univ-lyon1.fr:8983/solr/taxo/select?q=*:*&fq=zoom:[0 TO " + z + "]&fq=lat:[" + lat1 + " TO " + lat2 + "]&fq=lon:[" + lon1 + " TO " + lon2 + "]&wt=json&rows=1000";
 			$.ajax({
 				url : URL2,
 				success : function(data) {
@@ -1187,7 +1189,7 @@
 					$.each(ok, function( index, value ) {
 						var latlong = new L.LatLng(ok[index].lat[0], ok[index].lon[0]);
 						var taxid = String(ok[index].taxid[0]);
-						var URL3 = 'http://install.univ-lyon1.fr:8983/solr/addi/select?q=*:*&fq=taxid:'+taxid+'&wt=json';
+						var URL3 = 'http://lifemap-ncbi.univ-lyon1.fr:8983/solr/addi/select?q=*:*&fq=taxid:'+taxid+'&wt=json';
 						$.ajax({
 							url:URL3,
 							success : function(data2) {
@@ -1228,6 +1230,11 @@
 map.on('moveend',function() {
 	console.log(map.getCenter())
 })
+</script>
+<script>
+	console.log(DateUpdate);
+	var datediv = document.getElementById("theDate");
+	datediv.innerHTML = DateUpdate;
 </script>
   </body>
 </html>

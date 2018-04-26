@@ -5,10 +5,9 @@ from argparse import ArgumentParser, FileType ##for options handling
 
 
 ##kill render_list (in case it is running)
-os.system("sudo kill render_list")
-
-os.system("cd /home/lm/src/Lifemap/PIPELINE")
-
+print "killing render_list"
+os.system("sudo killall render_list")
+print "ok"
 ##
 os.system("mkdir genomes") ##if not exists
 ## 1. get the tree and update database

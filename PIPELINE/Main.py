@@ -7,7 +7,7 @@ from argparse import ArgumentParser, FileType ##for options handling
 ##kill render_list (in case it is running)
 os.system("sudo kill render_list")
 
-os.system("cd ~/src/Lifemap/PIPELINE")
+os.system("cd /home/lm/src/Lifemap/PIPELINE")
 
 ##
 os.system("mkdir genomes") ##if not exists

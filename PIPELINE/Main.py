@@ -6,6 +6,9 @@ from argparse import ArgumentParser, FileType ##for options handling
 
 ##kill render_list (in case it is running)
 os.system("sudo kill render_list")
+
+os.system("cd ~/src/Lifemap/PIPELINE")
+
 ##
 os.system("mkdir genomes") ##if not exists
 ## 1. get the tree and update database
@@ -53,3 +56,8 @@ os.system('sudo rm -r /var/lib/mod_tile/default/')
 ## 7. Restarting the machine 
 print 'restart NOW'
 os.system('sudo reboot')
+
+
+
+##/home/lm/src/Lifemap/PIPELINE/Main.py >> /var/log/lifemap.log
+

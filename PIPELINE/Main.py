@@ -46,7 +46,7 @@ os.system('python CreateIndex.py')
 print '  Done... '
 
 # 5. get and copy date of update to /var/www/html
-os.system('sudo getDateUpdate.sh')
+os.system('sudo ./getDateUpdate.sh')
 
 ## 6. Remove old tiles
 print '  Deleting old tiles... '

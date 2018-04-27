@@ -11,11 +11,11 @@ sudo apt-get --yes install gdal-bin libgdal-dev libmapnik-dev mapnik-utils pytho
 #cd
 #mkdir src
 cd ~/src
-git clone git://github.com/SomeoneElseOSM/mod_tile.git
+git clone git://github.com/damiendevienne/mod_tile_deepzoom.git
+mv mod_tile_deepzoom mod_tile
 #cd mod_tile
 #cd ~/src
 #git clone https://github.com/damiendevienne/Lifemap.git
-cp -r ~/src/Lifemap/OTHER/mod_tile/includes ~/src/Lifemap/OTHER/mod_tile/src ~/src/mod_tile/
 cd ~/src/mod_tile
 ./autogen.sh
 ./configure
@@ -34,7 +34,7 @@ sudo service apache2 restart
 # ##configure python
 sudo apt-get --yes install python-numpy python-qt4 python-lxml python-six python-pip
 sudo pip install --upgrade pip
-sudo pip install --upgrade psycopg2 
+sudo pip install --upgrade psycopg2-binary
 sudo pip install --upgrade ete3
 ##configure solr
 sudo apt-get --yes install default-jre default-jdk
@@ -45,5 +45,5 @@ cd ~/src/solr-6.6.3
 bin/solr start
 bin/solr create -c taxo
 bin/solr create -c addi
-cp ~/src/Lifemap/OTHER/solr-config/schema.taxo.xml ~/src/solr-7.3.0/server/solr/taxo/conf/schema.xml
-cp ~/src/Lifemap/OTHER/solr-config/solrconfig.taxo.xml ~/src/solr-7.3.0/server/solr/taxo/conf/solrconfig.xml
+cp ~/src/Lifemap/OTHER/solr-config/schema.taxo.xml ~/src/solr-6.6.3/server/solr/taxo/conf/schema.xml
+cp ~/src/Lifemap/OTHER/solr-config/solrconfig.taxo.xml ~/src/solr-6.6.3/server/solr/taxo/conf/solrconfig.xml

@@ -28,7 +28,7 @@ def getXYZ(fi):
 				if (key=='lon'):
 					lon = val;
 					#do stuff
-					if (zoom<=15):
+					if (zoom<=16):
 						xy = deg2num(float(lat), float(lon), float(zoom))
 						coo.write("%d %d %s\n" % (xy[0], xy[1],zoom))
 					zoom = False

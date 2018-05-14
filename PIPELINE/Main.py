@@ -52,6 +52,8 @@ os.system('sudo ./getDateUpdate.sh')
 print '  Deleting old tiles... '
 os.system('sudo rm -r /var/lib/mod_tile/default/')
 
+##7. Get New coordinates for generating tiles
+os.system('python GetAllTilesCoord.py')
 ## 7. Restarting the machine 
 print 'restart NOW'
 os.system('sudo reboot')

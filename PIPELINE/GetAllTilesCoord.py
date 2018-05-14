@@ -28,14 +28,15 @@ def getXYZ(fi):
 				if (key=='lon'):
 					lon = val;
 					#do stuff
-					xy = deg2num(float(lat), float(lon), float(zoom))
-					coo.write("%d %d %s\n" % (xy[0], xy[1],zoom))
+					if (zoom<=15):
+						xy = deg2num(float(lat), float(lon), float(zoom))
+						coo.write("%d %d %s\n" % (xy[0], xy[1],zoom))
 					zoom = False
 					lat = False
 					lon = False
 
 getXYZ('TreeFeatures1.json')
-# getXYZ('TreeFeatures2.json')
-# getXYZ('TreeFeatures3.json')
+getXYZ('TreeFeatures2.json')
+getXYZ('TreeFeatures3.json')
 
 coo.close();

@@ -99,6 +99,9 @@
 			margin-top:15px;
 			margin-bottom:15px;				
 		}
+		.whitish {
+			color:#e6ecf0;
+		}
 		img.center {
     		display: block;
     		margin: 0 auto;
@@ -156,6 +159,10 @@
 		 		box-shadow: 0 0 5px black;
 				position:absolute;
 		}
+		#TreeTextarea {
+			background-color:#e5e5e5;
+		}
+
     </style>
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -356,7 +363,53 @@
 		</div>
 	</div>
 
-
+	<!--MODAL FOR CHOOSING THE FORMAT OF OUTPUT TREE-->
+	<div id="ModalTreeFormat" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content" style="background-color:#181a2b;">
+				<div class="modal-header" style="color:white;">
+					<button type="button" class="close" data-dismiss="modal" style="color:white;">&times;</button>
+					<div class="modal-title"><b>Tree Format</b></div>
+				</div>
+				<div class="modal-body row whitish">
+					<div class="col-sm-4">
+						<div><b>Names</b></div>
+						<div class="radio"><label class="active"><input type="radio" name="namenodes" value="sciname" checked="">Scientific</label></div>
+						<div class="radio"><label><input type="radio" name="namenodes" value="id">Taxid</label></div>
+						<div class="radio"><label><input type="radio" name="namenodes" value="both">Both</label></div>
+					</div>
+					<div class="col-sm-4">
+						<div><b>Remove singletons</b></div>
+						<div class="radio"><label class="active"><input type="radio" name="rmsingle" value="true" checked="">true</label></div>
+						<div class="radio"><label><input type="radio" value="false" name="rmsingle">false</label></div>
+					</div>
+					<div class="col-sm-4">
+						<div><b>Remove node names</b></div>
+						<div class="radio"><label class="active"><input type="radio" name="rmNodeNames" value="true" checked="">true</label></div>
+						<div class="radio"><label><input type="radio" value="false" name="rmNodeNames">false</label></div>
+					</div>
+				</div>
+				<div class="modal-body row">
+					<div clsss="col-sm-12">
+						<div id="TheFomatedTree" style="margin:15px;">
+							<textarea id="TreeTextarea" rows="5" style="min-width: 100%; max-width: 100%; font-size:9pt;"readonly></textarea>
+						</div>
+					</div>			
+				</div>	
+				<div class="modal-footer">
+					<div class="row"> 
+						<div class="col-xs-6 text-center">
+							<button type="button" id="GoGetSubTreeNewick" class="btn btn-primary" onclick="CopyToClipboard()">Copy to clipboard</button>
+						</div>
+						<div class="col-xs-6 text-center">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 	<script src="js/jquery-1.12.3.min.js"></script>
@@ -376,6 +429,9 @@
 	<!-- Get date of update -->
 	<script src="date-update.js" type="text/javascript"></script>
 	<!--HERE IS WHAT CONCERNS THE MAP AND MAP FUNCTION (focus, etc...)-->
+	<!-- FOR TREE MANIPULATION -->
+	<script src="http://jnuno.com/tree-model-js/vendor/jnuno/TreeModel-min.js"></script>
+
     <script>
 		var map = L.map('map', {zoomControl: false, attributionControl: false});
 		var tolUrl='http://lifemap-ncbi.univ-lyon1.fr/osm_tiles/{z}/{x}/{y}.png';
@@ -457,6 +513,7 @@
 			$("#mainsearch").show();
 			map.removeLayer(markersRoute);
 			map.removeLayer(polyline);
+			map.removeLayer(multipolyline);
 			map.removeLayer(markersMultiTaxid);
 			//and we also clear the to and from variables
 			taxidFrom = undefined; 
@@ -537,7 +594,6 @@
 		function getRoute(a1, a2) {
     		//we explore a1 and check if the value is present in a2.
     		//if it is, we store both the corresponding indexes in a1 and a2 (and cut after?...)
-    		console.log(a1)
     		var res1 = [];
     		var res2 = [];
     		for (var i = 0; i < a1.length; i++) {
@@ -552,7 +608,7 @@
 		    }
 			return res1.concat(res2.reverse());
 	    }
-		function getmultiRoute(multiA) {
+		function getmultiRoute(multiA, action) {
 			var alreadymet=[];
 			var NEW=[];
 			for (i=0;i<multiA.length;i++) {
@@ -567,59 +623,208 @@
 					}
 				}
 			}
-			console.log(alreadymet) //this lists all required taxid, each once only. From those we will get lat/lon coordinates
-			console.log(NEW) //this will be used for drawing lines.
+			//this lists all required taxid, each once only. From those we will get lat/lon coordinates
 			var URL_PREFIX_FINAL = "http://lifemap-ncbi.univ-lyon1.fr:8983/solr/taxo/select?q=taxid:(";
 			var URL_SUFFIX = ")&wt=json&rows=10000";
 			var URL = URL_PREFIX_FINAL + alreadymet.join(' ') + URL_SUFFIX;
-			console.log(URL)
 			$.ajax({
 				url : URL,
 				success : function(data) {
 					//create a dictionary
 					var DictoLL = {};
+					var DictoNAMES = {};
 					map.removeLayer(multipolyline);
 					var docs = JSON.stringify(data.response.docs);
 					var jsonData = JSON.parse(docs);
-					console.log(jsonData)					
 					for (i=0;i<jsonData.length;i++) {
 						DictoLL[jsonData[i].taxid[0]] = jsonData[i].coordinates;
+						DictoNAMES[jsonData[i].taxid[0]] = jsonData[i].sci_name;
 					}
 					//NOW we can convert NEW (taxids) into NEWLL (lat long for each taxid)
-					var NEWLL = NEW
-					for (i=0;i<NEWLL.length;i++) {
-						for (j=0;j<NEWLL[i].length; j++) {
+					var NEWLL = []
+					for (i=0;i<NEW.length;i++) {
+						NEWLL[i]=[]
+						for (j=0;j<NEW[i].length; j++) {
 							//NEWLL[i][j]=L.latLng(DictoLL[NEWLL[i][j]])
-							if (NEWLL[i][j]===0) {NEWLL[i][j] = [-4.226497,0];} //root coordinates
-							else { NEWLL[i][j]=DictoLL[NEWLL[i][j]]; }
+							if (NEW[i][j]===0) {NEWLL[i][j] = [-4.226497,0];} //root coordinates
+							else { NEWLL[i][j]=DictoLL[NEW[i][j]]; }
 						}
 					}
-					console.log(NEWLL)
-					console.log(NEWLL[1])
-
-//					multipolyline = L.polyline(NEWLL[0], {color: 'red', clickable:false, weight:6}).addTo(map);
-					//multipolyline.addTo(map);
-// var latlngs = [
-//     [[45.51, -122.68],
-//      [37.77, -122.43],
-//      [34.04, -118.2]],
-//     [[40.78, -73.91],
-//      [41.83, -87.62],
-//      [32.76, -96.72]]
-// ];
-					multipolyline = L.polyline(NEWLL, {color: 'red', opacity:0.6}).addTo(map);
-					// zoom the map to the polyline
-					// markersMultiTaxid.addTo(map);
-					// map.fitBounds(markersMultiTaxid.getBounds());
+					multipolyline = L.polyline(NEWLL, {color: 'orange', opacity:0.6, weight:6, clickable:false}).addTo(map);
+					//MAKE THE NEWICK TREE: 
+					console.log(NEW)
+					if (action==='getsubtree') MakeNewickTree(NEW, DictoNAMES)
 				},
 				dataType : 'jsonp',
 				jsonp : 'json.wrf'
 			});
-
-
 //			var NEWmerged = NEW.concat.apply([], NEW);
 //			console.log(NEWmerged)
 	    }  
+	    function MakeNewickTree(newmultiA, dictonames) {
+	    	//reduce: should singletons be remved?
+	    	//keepnodenames: should node names be kept in the tree?
+			//whattokeep, reduce and keepnodenames are directly red from radiobutton states
+	    	//trigger opening of a modal
+			if ($('#ModalTreeFormat').is(':visible')==false) {$("#ModalTreeFormat").modal("toggle");}
+
+			//empty TreeTextarea
+			$('#TreeTextarea').val("No subtree to download. ")			
+
+			//get values of buttons
+
+			var reduce = ($('input[name="rmsingle"]:checked').val()=="true" ? true : false);
+			var keepnodenames = ($('input[name="rmNodeNames"]:checked').val()=="true" ? false : true);
+			var whattokeep = $('input[name="namenodes"]:checked').val();
+
+
+			console.log(reduce)
+
+			var DictCount = {}	    	
+	    	for (i=0; i<newmultiA.length; i++) {
+	    		br = newmultiA[i]
+	    		for (j=1; j<br.length; j++) {
+	    			if (!(br[j] in DictCount)) {
+	    				DictCount[br[j]] = 1;
+	    			}
+	    			else {
+	    				DictCount[br[j]] += 1;
+	    			}
+	    		}
+	    	}
+
+	    	console.log(DictCount)
+
+	    	//get the MRCA of the subtree. 
+	    	//By construction it is the last node met in newmultiA[0] with value > 1 in DictCount 
+	    	for (j=newmultiA[0].length-1; j>=0; j--) {
+	    		if (DictCount[newmultiA[0][j]]>1) {
+	    			var theRoot = newmultiA[0][j]
+	    			break;
+	    		}
+	    	}
+	    	console.log(theRoot)
+	    	//remove everything after the root (no need to go to LUCA each time)
+	    	newmultiA[0].length = newmultiA[0].indexOf(theRoot)+1
+
+	    	// //IF reducte==true
+	    	// // we remove nodes present only once (singletons) by traversing and removing them.
+	    	if (reduce) {
+	    		console.log("we reduce")
+		    	for (i=0; i<newmultiA.length; i++) {
+		    		br = newmultiA[i]
+		    		for (j=br.length-1; j>=0; j--) { //starts at one because we want to keep the tips!
+		    			//console.log(br[j])
+		    			if (DictCount[br[j]] == 1) {
+		    				br.splice(br.indexOf(br[j]), 1)
+		    			}
+		    		}
+		    	}
+		    }
+	    	console.log(newmultiA)
+
+	    	var treeobj = {"thetree":[]}
+	    	// console.log(newmultiA[0])
+	    	// newmultiA[0].push("root")
+	    	// console.log(newmultiA[0])
+	    	var seenalready = []
+	    	for (i=0; i<newmultiA.length; i++) {
+	    		br = newmultiA[i]
+	    		for (j=0; j<br.length; j++) {
+	    			if (seenalready.indexOf(br[j])===-1) {
+		    			if (br[j]===theRoot) {
+		    				if (theRoot===0) {
+				    			treeobj.thetree.push({
+				    				"id":br[j],
+				    				"parentid":"root",
+				    				"sciname":"root",
+				    				"both":"root|" + br[j]
+				    			});
+				    		}
+				    		else {
+				    			treeobj.thetree.push({
+				    				"id":br[j],
+				    				"parentid":"root",
+				    				"sciname":dictonames[br[j]],
+				    				"both":dictonames[br[j]] + "|" + br[j]
+				    			});
+				    		}
+
+		    			}
+		    			else {
+			    			treeobj.thetree.push({
+			    				"id":br[j],
+			    				"parentid":br[j+1],
+			    				"sciname":dictonames[br[j]],
+			    				"both":dictonames[br[j]] + "|" + br[j]
+			    			});
+			    		}
+			    		seenalready.push(br[j])
+			    	}
+		    	}
+	    	}
+	    	console.log(treeobj.thetree)
+	    	console.log(treeobj.thetree.length)
+		    var map = {}, node, roots = [], i;
+		    for (i = 0; i < treeobj.thetree.length; i += 1) {
+		        map[treeobj.thetree[i].id] = i; // initialize the map
+		        treeobj.thetree[i].children = []; // initialize the children
+		    }
+		    for (i = 0; i < treeobj.thetree.length; i += 1) {
+		        node = treeobj.thetree[i];
+		        if (node.parentid !== "root") {
+		            // if you have dangling branches check that map[node.parentId] exists
+		            treeobj.thetree[map[node.parentid]].children.push(node);
+		        } else {
+		            roots.push(node);
+		        }
+		    }
+		    console.log(roots[0])
+			function nested(nest, what, keepnn){
+				var subtree = "";
+				if(nest.children.length>0){ //this is a node
+					var children = [];
+					nest.children.forEach(function(child){
+						var subsubtree = nested(child, what, keepnn);
+						children.push(subsubtree);
+					});
+					var substring = children.join();
+					if(nest.hasOwnProperty('id')){
+						if (keepnn) subtree = "("+substring+")" + nest[what];
+						else subtree = "("+substring+")";
+				    }
+					if(nest.hasOwnProperty('branch_length')){
+					    subtree = subtree + ":"+nest.branch_length;
+				    }
+				}
+				else {
+					var leaf = "";
+					if(nest.hasOwnProperty('id')){
+				    	leaf = nest[what];
+					}
+		    		if(nest.hasOwnProperty('branch_length')){
+						leaf = leaf + ":"+nest.branch_length;
+					}
+		    		subtree = subtree + leaf;
+				}
+				return subtree;
+			}
+
+			var THETREE = nested(roots[0], whattokeep, keepnodenames) + ";";
+			$("#TreeTextarea").val(THETREE);
+			console.log(THETREE)
+	    }
+
+		function CopyToClipboard() {
+			/* Get the text field */
+			var copyText = document.getElementById("TreeTextarea");
+			/* Select the text field */
+			copyText.select();
+			/* Copy the text inside the text field */
+			document.execCommand("copy");
+			/* Alert the copied text */
+			alert("Copied.");
+		}
 
 	    var zoomTo = function(taxid) {
 //			$("#route-details").hide();
@@ -664,31 +869,24 @@
 			}
 			else {
 				multiTaxid=multiTaxid.filter( onlyUnique ) //remove any possible duplicate
-				console.log(multiTaxid)
 				if(multiTaxid.length==1) {alert("Only one (unique) taxid given. Cannot perform the requested action. Please use the top panel")}
 				else {
 					multiTaxid=multiTaxid.join(' ');
-					console.log(multiTaxid);
 					allRoutes(multiTaxid).then(function(resu) {
 						if (resu.length==0) {alert("No taxid was find on the database")}
 						if (resu.length==1) {alert("Only 1 valid taxid found on the databse. Please use the top panel")}
 						if (resu.length>1) {
-							console.log("on y va")
-							if (action==='view') { //START
-								console.log(resu);
 								var RESUFINAL = [];
 								var RESUROUTES = [];
 								for (i=0;i<resu.length; i++) {
 									RESUFINAL[i] = resu[i].taxid[0]
 									RESUROUTES[i] = resu[i].taxid.concat(resu[i].ascend)
 								}
-								getmultiRoute(RESUROUTES);
+								getmultiRoute(RESUROUTES, action);
 								RESUFINAL = RESUFINAL.join(' ')
-								console.log(RESUROUTES)
 								var URL_PREFIX_FINAL = "http://lifemap-ncbi.univ-lyon1.fr:8983/solr/taxo/select?q=taxid:(";
 								var URL_SUFFIX = ")&wt=json";
 								var URL = URL_PREFIX_FINAL + RESUFINAL + URL_SUFFIX;
-								console.log(URL)
 								$.ajax({
 									url : URL,
 									success : function(data) {
@@ -699,10 +897,10 @@
 										markersMultiTaxid = new L.FeatureGroup()
 										var docs = JSON.stringify(data.response.docs);
 										var jsonData = JSON.parse(docs);
-										console.log(jsonData)
 //										map.setView(jsonData[0].coordinates, jsonData[0].zoom-1);		    
 										for (i=0;i<jsonData.length;i++) {
 											mm1 = new L.marker(jsonData[i].coordinates, {icon: pin1})
+											mm1.bindTooltip(jsonData[i].sci_name + ' (taxid: '+jsonData[i].taxid[0]+')')
 											mm1.addTo(markersMultiTaxid);
 										}
 										markersMultiTaxid.addTo(map);
@@ -711,11 +909,6 @@
 									dataType : 'jsonp',
 									jsonp : 'json.wrf'
 								});	   
-							} //END
-							if (action==='getsubtree') {
-								//perform computations from resu only.
-								//propsoe to download the newick in a modal
-							}
 						}
 					})
 				}
@@ -725,6 +918,15 @@
 		$("#viewMulti").click(function() {
 			checkvalidity('view')
 		});
+		$("#getSubtree").click(function() {
+			checkvalidity('getsubtree')
+		});
+
+		$('input[type="radio"]').change(function() {
+			console.log("changed");
+			checkvalidity('getsubtree');
+		});
+		
 
 		//We create here the function that will build popups (modals).
 		function CreatePopUps() {
@@ -767,7 +969,6 @@
 			//We need to create something for the root as well.
 			var marker = L.marker([-4.226497,0], {icon: mark, zIndexOffset:-1000});
 			marker.on("click", function() {
-				console.log("jjkjk");
 				markofun(1,"Root"," "," ");
 			})
 			//create and bind content to marker (TODO)
@@ -823,6 +1024,7 @@
 								response($.map(jsonData, function(value, key) {
 									str = value.term;
 									str=str.split("|");
+									console.log(str)
 									var issp = str[2];
 									issp = issp.replace(/<b>/g,"");
 									issp = issp.replace(/<\/b>/g,"");
@@ -884,6 +1086,8 @@
 						success : function(data) {
 							map.removeLayer(SPfocus);
 							map.removeLayer(markersMultiTaxid);
+							map.removeLayer(multipolyline);
+
 							var docs = JSON.stringify(data.response.docs);
 							var jsonData = JSON.parse(docs);
 							map.setView(jsonData[0].coordinates, jsonData[0].zoom-1);		    
@@ -1069,15 +1273,10 @@
 		function allRoutes(multiTaxid) {
 			return new Promise(function (resolve, reject) {
 				var url = 'http://lifemap-ncbi.univ-lyon1.fr:8983/solr/addi/select?q=*:*&fq=taxid:('+multiTaxid+')&wt=json';
-				console.log(url)
 				$.ajax({
 				    url : url,
 				    success : function(data) {
-				    	console.log("oui");
-				    	console.log(multiTaxid);
 					    var res = data.response.docs;
-					    console.log("dedans")
-					    console.log(res)
 					    resolve(res)
 					},
 		    		dataType : 'jsonp',
@@ -1091,15 +1290,10 @@
 			//get infos
 			taxidFrom = taxidFrom.replace(/\s+/g, '');
 			taxidTo = taxidTo.replace(/\s+/g, '');
-			console.log(taxidFrom);
-			console.log(taxidTo);				
 			var url = 'http://lifemap-ncbi.univ-lyon1.fr:8983/solr/addi/select?q=*:*&fq=taxid:('+taxidFrom+' '+taxidTo+')&wt=json';
 			$.ajax({
 			    url : url,
 			    success : function(data) {
-			    	console.log("oui");
-			    	console.log(taxidFrom);
-					console.log(taxidTo);	
 				    var res = data.response.docs;
 					var asc1 = res[0].ascend;
 					asc1 = [parseInt(res[0].taxid)].concat(asc1);
@@ -1117,18 +1311,16 @@
 					}
 					var mrca = getMrca(asc1,asc2);
 					routeq = route.toString().replace(/,/g,' ');
-					console.log("routeq");
-					console.log(routeq);
 					url2 = 'http://lifemap-ncbi.univ-lyon1.fr:8983/solr/taxo/select?q=*:*&fq=taxid:(' + routeq + ')&wt=json&rows=10000';
 
 					$.ajax({
 					    url : url2,
 					    success: function(data2) {
-				    	console.log("oui2");
-				    	console.log(data2);
 						map.removeLayer(markersRoute);
 						map.removeLayer(polyline);
 						map.removeLayer(markersMultiTaxid);
+						map.removeLayer(multipolyline);
+
 						$("#details-content").empty();
 						markersRoute = new L.FeatureGroup();
 						//we get taxid order of this new list (different from the input order asked to solr
@@ -1228,8 +1420,7 @@
 							}
 
 						}
-						console.log(latlngs);
-						polyline = L.polyline(latlngs, {color: 'red', clickable:false, weight:6});
+						polyline = L.polyline(latlngs, {color: 'red', clickable:false, weight:6, opacity:0.6});
 						polyline.addTo(map);
 						if (focus) map.fitBounds(polyline.getBounds(), {paddingTopLeft:[20,140], paddingBottomRight:[0,120]});
 						markersRoute.addTo(map);
@@ -1262,7 +1453,6 @@
 			success : function(data) {
 				var docs = JSON.stringify(data.response.docs);
 				var jsonData = JSON.parse(docs);
-				console.log(jsonData);
 				if (taxid===1) {
 					var arr = [jsonData[0].nbdesc[0],jsonData[1].nbdesc[0],jsonData[2].nbdesc[0]];
 					var total=0;
@@ -1278,8 +1468,8 @@
 		});	    
 	};
 	function markofun(taxid, spname,comname, rank, nbdesc) {
-		console.log("nbdesc");
-		console.log(nbdesc);
+		//console.log("nbdesc");
+		//console.log(nbdesc);
 		taxi = taxid;
 		spna = spname;
 		comna = comname;	
@@ -1318,7 +1508,7 @@
 			getNbdesc(taxid);
 		}
 		else {
-			console.log("not undefined");
+			//console.log("not undefined");
 			text +="<li>Number of descendants: <b>"+nbdesc+"</b></li>";		
 		}
 		text +="</ul><ul>"
@@ -1368,8 +1558,8 @@
 				url : URL2,
 				success : function(data) {
 					var ok = data.response.docs;
-					console.log("HERE WE ARE")
-					console.log(ok)
+					//console.log("HERE WE ARE")
+					//console.log(ok)
 					$.each(ok, function( index, value ) {
 						var latlong = new L.LatLng(ok[index].lat[0], ok[index].lon[0]);
 						var taxid = String(ok[index].taxid[0]);
@@ -1402,7 +1592,7 @@
 <script>
 //HERE I PUT THE READING OF THE URL THAT WILL SEE WHETHER OR NOT THERE IS A QUERY INSIDE AND IF YES WILL ZOOM THERE.
     var url = window.location.href; // or window.location.href for current url
-    console.log(url);
+    //console.log(url);
     var captured = url.split("tid=")[1];
     if (captured) {
     	zoomTo(captured.toString());
@@ -1411,9 +1601,9 @@
     }
 </script>
 <script>
-map.on('moveend',function() {
-	console.log(map.getCenter())
-})
+//map.on('moveend',function() {
+	// console.log(map.getCenter())
+//})
 </script>
 <script>
 	console.log(DateUpdate);

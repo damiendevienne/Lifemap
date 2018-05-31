@@ -542,6 +542,11 @@
 			taxidFrom = undefined;
 			map.removeLayer(SPfocus);
 		});
+		$("#clearTextarea").click(function(){
+			map.removeLayer(multipolyline);
+			map.removeLayer(markersMultiTaxid);
+		});
+
 		$("#searchinput").focus(function() {
 			$(this).autocomplete('search', $(this).val())
 		})

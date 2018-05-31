@@ -110,6 +110,10 @@
 			cursor:help;
 			background-color: white;
 		}
+		span.taxidname {
+			font-size:x-small;
+			color: #505050;
+    	}
 		span.sciname {
 			font-size:small;
 			color: #505050;
@@ -161,6 +165,9 @@
 		}
 		#TreeTextarea {
 			background-color:#e5e5e5;
+		}
+		.badge-success {
+		  background-color: #468847;
 		}
 
     </style>
@@ -229,8 +236,8 @@
 					</label>
 				</div>
 				<div>
-					<b><i>Imput multiple taxid</i></b><br>
-					<textarea id="textarea" rows="4" style="min-width: 100%; max-width: 100%; font-size:9pt;" placeholder="separated by comas, spaces, new lines or anything non-numerical">63221 741158 1425170 693984 591932</textarea>
+					<b><i>Imput multiple taxid</i></b>&nbsp;&nbsp;<span><a href="#" id="taxidexamples" style="font-size:9pt; color:#7898d1;">load example</a></span><br>
+					<textarea id="textarea" rows="4" style="min-width: 100%; max-width: 100%; font-size:9pt;" placeholder="Separate Taxids by comas, spaces, new lines or anything non-numerical, or use the searchbox above to add Taxids."></textarea>
 					<div style='line-height: 2.5;'>
 						<button id ="viewMulti" type="button" class="btn btn-primary btn-xs">View</button>
 						<button id ="getSubtree" type="button" class="btn btn-primary btn-xs">Get subtree</button>
@@ -299,7 +306,7 @@
 						<p><i class='fa fa-question-circle fa-fw fa-lg' style='color:grey;'></i>&nbsp;<b>Lifemap</b> is an interactive tool to explore the WHOLE NCBI TAXONOMY. The concept used in <b>Lifemap</b> is similar to the one used in cartography with tools like Google Maps© or Open Street Maps: exploring is done by zooming and panning.</p>
 					</div>
 					<div class="papernote">
-						<p><i class='fa fa-info fa-fw  fa-lg' style='color:grey;'></i>&nbsp;The current tree contains ALL species present in NCBI taxonomy as of <u>October 18th, 2016</u>: 1,135,169 species including 10,545 Archaea, 418,777 Bacteria and 705,847 Eukaryotes. The Lifemap tree is updated every two weeks.</p>
+						<p><i class='fa fa-info fa-fw  fa-lg' style='color:grey;'></i>&nbsp;The current tree contains ALL species present in NCBI taxonomy. It is automatically updated every Saturday.</p>
 					</div>
 					<div class="papernote">
 						<p><i class='fa fa-hand-pointer-o fa-fw fa-lg' style='color:grey;'></i>&nbsp;All the nodes in the tree are clickable. This displays various information and options:
@@ -316,7 +323,13 @@
 						<p><i class='fa fa-level-up fa-fw fa-lg' style='color:grey;'></i>&nbsp;Itineraries between taxa can be computed by clicking on the bottom right button of the main page and filling the two search fields. When filled, the route is drawn between the taxa, the Most Recent Common Ancestor (MRCA) of the two groups/species is returned. The user gets also access to a list of all the nodes that are encountered in the way from one group to the other. This list is clickable.</p>
 					</div>
 					<div class="papernote">
+						<p><i class='fa fa-sitemap fa-fw fa-lg' style='color:grey;'></i>&nbsp;<b style="color:red; font-size:7pt;">[new]</b> Subtrees for a subset of species or nodes identified by their <i>Taxid</i> can be visualized and downloaded (in Newick format). For simplicity, species can be searched in the search bar and added to the dedicated box with the <span class="badge">add</span> button.</p>
+					</div>
+					<div class="papernote">
 						<p><i class='fa fa-user fa-fw  fa-lg' style='color:grey;'></i>&nbsp;Lifemap was written by Damien M. de Vienne (<a href='https://lbbe.univ-lyon1.fr/-de-Vienne-Damien-.html?lang=fr'>web page</a>), a CNRS researcher working in the Laboratory of Biometry and Evolutionary Biology (<a href="https://lbbe.univ-lyon1.fr/?lang=en">LBBE</a>) in Lyon (France) with support from the informatics departement (especially Stephane Delmotte and Bruno Spataro). </p>
+					</div>
+					<div class="papernote">
+						<p><i class='fa fa-file-text-o fa-fw  fa-lg' style='color:grey;'></i>&nbsp;<u>Reference:</u> de Vienne DM (2016) Lifemap: Exploring the Entire Tree of Life. <i>PLOS Biology</i> <b>14</b>(12):e2001624. <a href="https://doi.org/10.1371/journal.pbio.2001624">https://doi.org/10.1371/journal.pbio.2001624"</a></p>
 					</div>
 					<p  style="font-size: x-small; text-align: center;"><i>For any question, remark, suggestion, or bug report, please contact Damien de Vienne: damien.de-vienne@univ-lyon1.fr</i><br>
 					<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a>&nbsp;<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Lifemap</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://lbbe.univ-lyon1.fr/-de-Vienne-Damien-.html" property="cc:attributionName" rel="cc:attributionURL">Damien de Vienne / CNRS</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.<br></p>
@@ -652,7 +665,6 @@
 					}
 					multipolyline = L.polyline(NEWLL, {color: 'orange', opacity:0.6, weight:6, clickable:false}).addTo(map);
 					//MAKE THE NEWICK TREE: 
-					console.log(NEW)
 					if (action==='getsubtree') MakeNewickTree(NEW, DictoNAMES)
 				},
 				dataType : 'jsonp',
@@ -677,9 +689,6 @@
 			var keepnodenames = ($('input[name="rmNodeNames"]:checked').val()=="true" ? false : true);
 			var whattokeep = $('input[name="namenodes"]:checked').val();
 
-
-			console.log(reduce)
-
 			var DictCount = {}	    	
 	    	for (i=0; i<newmultiA.length; i++) {
 	    		br = newmultiA[i]
@@ -692,9 +701,6 @@
 	    			}
 	    		}
 	    	}
-
-	    	console.log(DictCount)
-
 	    	//get the MRCA of the subtree. 
 	    	//By construction it is the last node met in newmultiA[0] with value > 1 in DictCount 
 	    	for (j=newmultiA[0].length-1; j>=0; j--) {
@@ -703,14 +709,12 @@
 	    			break;
 	    		}
 	    	}
-	    	console.log(theRoot)
 	    	//remove everything after the root (no need to go to LUCA each time)
 	    	newmultiA[0].length = newmultiA[0].indexOf(theRoot)+1
 
 	    	// //IF reducte==true
 	    	// // we remove nodes present only once (singletons) by traversing and removing them.
 	    	if (reduce) {
-	    		console.log("we reduce")
 		    	for (i=0; i<newmultiA.length; i++) {
 		    		br = newmultiA[i]
 		    		for (j=br.length-1; j>=0; j--) { //starts at one because we want to keep the tips!
@@ -721,7 +725,6 @@
 		    		}
 		    	}
 		    }
-	    	console.log(newmultiA)
 
 	    	var treeobj = {"thetree":[]}
 	    	// console.log(newmultiA[0])
@@ -763,8 +766,6 @@
 			    	}
 		    	}
 	    	}
-	    	console.log(treeobj.thetree)
-	    	console.log(treeobj.thetree.length)
 		    var map = {}, node, roots = [], i;
 		    for (i = 0; i < treeobj.thetree.length; i += 1) {
 		        map[treeobj.thetree[i].id] = i; // initialize the map
@@ -779,7 +780,6 @@
 		            roots.push(node);
 		        }
 		    }
-		    console.log(roots[0])
 			function nested(nest, what, keepnn){
 				var subtree = "";
 				if(nest.children.length>0){ //this is a node
@@ -812,7 +812,6 @@
 
 			var THETREE = nested(roots[0], whattokeep, keepnodenames) + ";";
 			$("#TreeTextarea").val(THETREE);
-			console.log(THETREE)
 	    }
 
 		function CopyToClipboard() {
@@ -923,7 +922,6 @@
 		});
 
 		$('input[type="radio"]').change(function() {
-			console.log("changed");
 			checkvalidity('getsubtree');
 		});
 		
@@ -992,6 +990,18 @@
 				}
 			});
 		}
+		function AddTaxidToBox(e, taxid, el) {
+			$(el).addClass("badge-success")
+			$(el).attr("title", "Added")
+			$(el).text("ok")
+			//get taxid and copy.
+			$("#textarea").val($("#textarea").val() + ' ' + taxid);			
+			e.stopPropagation();
+
+		}
+		$("#taxidexamples").on('click', function() {
+			$("#textarea").val("63221 741158 1425170 693984 591932");	
+		})
 
 	</script>
 			<!--MAIN SEARCH FUNCTIONS (SINGLE AND ITINERARY)-->
@@ -1024,7 +1034,6 @@
 								response($.map(jsonData, function(value, key) {
 									str = value.term;
 									str=str.split("|");
-									console.log(str)
 									var issp = str[2];
 									issp = issp.replace(/<b>/g,"");
 									issp = issp.replace(/<\/b>/g,"");
@@ -1044,10 +1053,12 @@
 									var renderval = spname + commonname;
 
 									if ((issp==="species")||(issp==="subspecies")) {
-										labOK = "<div style='padding: 20px;'><span class=\"scinameItalic\">" + str[0] + "</span><span class=\"commonname\">" + str[1] + "</span><br><span class=\"rank\" >" + str[2] + "</span></div>";			
+//										labOK = "<div style='padding: 20px;'><span class=\"scinameItalic\">" + str[0] + "</span><span class=\"commonname\">" + str[1] + "</span><br><span class=\"rank\" >" + str[2] + "</span></div>";
+										labOK = "<div class='row'><div class='col-xs-9'><div style='padding: 20px;'><span class=\"scinameItalic\">" + str[0] + "</span><span class=\"commonname\">" + str[1] + "</span><br><span class=\"rank\" >" + str[2] + "</span><br><span class=\"taxidname\" >" + taxid + "</span></div></div><div class='col-xs-3'><div style=\"padding-top:20px;\"><span class=\"badge\" title=\"Copy taxid to the box below\" onclick=\"AddTaxidToBox(event, "+taxid+", this)\">add</span></div></div></div>";			
 									}
 									else {
-										labOK = "<div style='padding: 20px;'><span class=\"sciname\">" + str[0] + "</span><span class=\"commonname\">" + str[1] + "</span><br><span class=\"rank\">" + str[2] + "</span></div>";
+//										labOK = "<div style='padding: 20px;'><span class=\"sciname\">" + str[0] + "</span><span class=\"commonname\">" + str[1] + "</span><br><span class=\"rank\">" + str[2] + "</span></div>";
+										labOK = "<div class='row'><div class='col-xs-9'><div style='padding: 20px;'><span class=\"sciname\">" + str[0] + "</span><span class=\"commonname\">" + str[1] + "</span><br><span class=\"rank\" >" + str[2] + "</span><br><span class=\"taxidname\" >" + taxid + "</span></div></div><div class='col-xs-3'><div style=\"padding-top:20px;\"><span class=\"badge\" title=\"Copy taxid to the box below\" onclick=\"AddTaxidToBox(event, "+taxid+", this)\">add</span></div></div></div>";
 									}
 									return {
 										label : labOK,
@@ -1486,7 +1497,7 @@
 		}
 		$('#modaltitle').append("<span class='commonname2'>"+comname+"</span>");
 		$('#modaltitle').append("<span class='rank2'>"+rank+"</span>");	
-		$('#modaltitle').append("<div><span style='color:grey; font-size:small;'>NCBI taxid: </span><span style='color:grey; font-size:small;'>"+taxid+"</style></div>");	
+		$('#modaltitle').append("<div><span style='color:grey; font-size:small;'>NCBI taxid: </span><span style='color:grey; font-size:small;'>"+taxid+"</span><span class='badge' style='margin-left: 20px; cursor: pointer;' title='Copy taxid to the left box' onclick=\"AddTaxidToBox(event, "+taxid+", this)\">add</span></div>");	
 //		text = "<div style='font-style:center; color:grey;'>No article concerning this group on <i class='fa fa-wikipedia-w'></i>ikipedia.</div>";
 		text = "<ul>";		
 		pict = "";

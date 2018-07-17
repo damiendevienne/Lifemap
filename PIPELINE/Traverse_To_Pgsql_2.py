@@ -22,6 +22,7 @@ parser.add_argument('group', help='Group to look at. Can be 1,2 or 3 for Archaea
 parser.add_argument('start', help='index of the first node met in the tree', type=int)
 parser.add_argument('--lang', nargs='?', const='EN', default='EN', help='Language chosen. FR for french, EN (default) for english', choices=['EN','FR'])
 parser.add_argument('--updatedb', nargs='?', const='True', default='True', help='Should the NCBI taxonomy db be updated ?', choices=['True','False'])
+parser.add_argument('--simplify', nargs='?', const='True', default='False', help='Should the tree be simplified by removing environmental and unindentified species?', choices=['True','False'])
 
 args = parser.parse_args()
 #print args
@@ -33,6 +34,14 @@ def updateDB():
 	os.system("tar xvzf taxdump.tar.gz -C taxo/")
 	#unzip taxref
 	os.system("unzip -o taxo/TAXREF_INPN_v11.zip -d taxo/")
+
+def simplify(arbre):
+	for n in arbre.traverse():
+		if ('Unclassified' in n.sci_name) or ('unclassified' in n.sci_name) or ('uncultured' in n.sci_name) or ('Uncultured' in n.sci_name) or ('unidentified' in n.sci_name) or ('Unidentified' in n.sci_name) or ('environmental' in n.sci_name) or ('sp.' in n.sci_name):
+			n.detach()
+	print "Tree HAS BEEN simplified"
+	return arbre
+
 
 if (args.updatedb=='True'):
 	updateDB()
@@ -49,6 +58,9 @@ if (groupnb=="1"):
 	#with open('ARCHAEA.pkl', 'rb') as input:
 	#t = pickle.load(input)
 	t = T['2157'].detach()
+	#SIMPLIFY THE TREE IF REQUESTED	
+	if args.simplify=="True":
+		t = simplify(t)
 	#t = Tree("ARCHAEA")
 	print "Archaeal tree loaded..."
 	##and we save it
@@ -62,6 +74,9 @@ if (groupnb=="2"):
 	# with open('EUKARYOTES.pkl', 'rb') as input:
 	# 	t = pickle.load(input)
 	t = T['2759'].detach()
+	#SIMPLIFY THE TREE IF REQUESTED	
+	if args.simplify=="True":
+		t = simplify(t)
 	print "Eukaryotic tree loaded"
 	t.write(outfile="EUKARYOTES", features = ["name", "taxid"], format_root_node=True)
 	t.x = -6.0;
@@ -73,6 +88,9 @@ if (groupnb=="3"):
 	# with open('BACTERIA.pkl', 'rb') as input:
 	# 	t = pickle.load(input)
 	t = T['2'].detach()
+	#SIMPLIFY THE TREE IF REQUESTED	
+	if args.simplify=="True":
+		t = simplify(t)
 	print "Bacterial tree loaded"
 	t.write(outfile="BACTERIA", features = ["name", "taxid"], format_root_node=True)
 	t.x = 0.0;

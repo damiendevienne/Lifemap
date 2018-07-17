@@ -1,0 +1,1113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--ADD FAVICON -->
+    <link rel="icon" type="image/png" href="img/LMicon1.png">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Lifemap</title>
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- font awesome -->
+	<link rel="stylesheet" href="js/font-awesome-4.6.1/css/font-awesome.min.css">
+	<!-- leaflet -->
+	<link rel="stylesheet" href="js/leaflet/leaflet.css" />
+<!--	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
+   integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
+   crossorigin=""/>-->
+	<!-- jqueryui -->
+	<link href="js/searchbar/jquery-ui.css" rel="stylesheet">
+	<!--map loading info-->
+	<link rel="stylesheet" href="js/loading/Control.Loading.css" />
+
+    <style>
+		html, body {
+			height:100%;
+		}
+		.container {
+			height:100%;
+			width: 100%;
+			padding: 0;
+		}
+		#map {
+			height:100%;
+			width: 100%;
+			padding:0;
+			margin:0;
+			display: block;
+		}
+		.fill2{
+			height:100%;
+			min-height:100%;
+			padding:0px;
+		}
+		.fillright{
+			height:100%;
+			min-height:100%;
+			max-height: 100%;
+			background-color: white;
+			border-left:1px solid grey;
+			box-shadow: 0 0 10px black;
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+
+		.fill{
+			width:100%;
+			height:100%;
+			min-height:100%;
+			background-color:black;
+			padding:0px;
+			margin: 0px;
+		}
+		#searchinput {
+			width: 100%;
+			padding-left:40px;
+			padding-right:30px;
+		}
+		#searchclear {
+			position: absolute;
+			right: 10px;
+			top: 0;
+			bottom: 0;
+			height: 14px;
+			margin: auto;
+			font-size: 14px;
+			cursor: pointer;
+			color: #585858;
+		}
+		#route {
+			position: absolute;
+			left: 12px;
+			top: 0;
+			bottom: 0;
+			height: 20px;
+			margin: auto;
+			font-size: 20px;
+			cursor: pointer;
+			color: #585858;
+		}
+		.routestick {
+			cursor:pointer;
+		}
+		.papernote {
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+			padding:10px;
+			margin-top:15px;
+			margin-bottom:15px;				
+		}
+		img.center {
+    		display: block;
+    		margin: 0 auto;
+    		padding-bottom: 20px;
+			padding-top: 10px;
+			cursor:help;
+		}
+		span.sciname {
+			font-size:small;
+			color: #505050;
+    	}
+    	span.scinameItalic {
+			font-style: italic;
+			font-size:small;
+			color: #505050 ;	
+    	}
+    	span.commonname {
+    		color: #505050 ;
+			font-size:small;	
+    	}
+    	span.rank {
+			text-transform: uppercase;
+			font-weight: bolder;
+			font-size:x-small;
+			color: #989898 ;	
+    	}
+		span.sciname2 {
+			font-size:medium;
+			color: #505050;
+    	}
+    	span.scinameItalic2 {
+			font-style: italic;
+			font-size:medium;
+			color: #505050 ;	
+    	}
+    	span.commonname2 {
+    		color: #505050 ;
+			font-size:medium;	
+    	}
+    	span.rank2 {
+			text-transform: uppercase;
+			font-weight: bolder;
+			font-size:small;
+			color: #989898 ;	
+    	}
+		.ui-autocomplete {
+				background:white;
+				border:0px;
+				border-radius: 5px;
+				margin-top:25px;
+				max-height:72%;
+				overflow-y: auto;
+				overflow-x: hidden;
+		 		box-shadow: 0 0 5px black;
+				position:absolute;
+		}		
+
+    </style>
+    <!--REDIRECTION-->
+	<script type="text/javascript">
+		if (screen.width <= 800) {
+			window.location = "http://lifemap.univ-lyon1.fr/mobile.index.html";
+		}
+    </script>
+<!--GOOGLE ANALYTICS-->
+	  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-80203455-1', 'auto');
+  ga('send', 'pageview');
+
+	</script>
+  </head>
+  <body>
+    <div class="container">
+      <div class='row fill'>
+        <div id="mapblock" class='col-sm-9 col-lg-10 fill2'><div id="map"></div></div>
+        <div id="rightblock" class='col-sm-3 col-lg-2 fillright'>
+        	<!--RESIZE BUTTON-->
+        	<div class=" text-right"><i id="reducerightblock" class="glyphicon glyphicon-minus-sign" style="padding:5px; color:#b4c3e0; cursor: pointer;"></i>
+        	</div>	
+	        <!--IMAGE ON TOP-->
+	        <div id="logo" class="img.center">
+		        <img class="center" src = "img/logo1.png" width="50%">
+	        </div>
+        	<!--SIMPLE SEARCH DIV-->
+			<div id="mainsearch" class="container-fluid" style="margin: 10px 10px 0px 10px; padding:0px; z-index:10;">
+				<div class="btn-group" style="width:100%;">
+					<span id="route" class="fa fa-level-up" title="Search routes between taxa or clades"></span>
+					<input id="searchinput" type="search" class="form-control" style=" height:40px;" placeholder="Search species, clade, ...">
+					<span id="searchclear" class="glyphicon glyphicon-remove" title = "clear"></span>
+				</div>
+			</div>
+			<!-- ITINERARIES SEARCH DIV (TOP) -->
+			<div id="route-top" class="container-fluid" style=" padding-left:15px; padding-right:15px; background:#b4c3e0;z-index: 100; margin: 10px 10px 0px 10px; border-radius: 5px;" hidden>
+				<div class="row">&nbsp;</div>
+				<div class="row">
+					<div class="col-xs-2" style=" padding-left:0px; padding-right:0px;"><a id="back-to-map" class="btn" style="color:white;" title="clear route"><i class="fa fa-arrow-left"></i></a></div>
+					<div class="col-xs-10" style="padding-left:0px;">
+						<input id="searchinput2" type="search" class="form-control" placeholder="From species, clade...">
+					</div>
+				</div>
+				<div class="row">&nbsp;</div>
+				<div class="row">
+					<div class="col-xs-2"></div>
+					<div class="col-xs-10" style="padding-left:0px;">
+						<input id="searchinput3" type="search" class="form-control" placeholder="To species, clade...">
+					</div>
+				</div>
+				<div class="row">&nbsp;</div>
+			</div>	
+			<div  class="checkbox" data-html="true" style="margin: 10px 10px 0px 10px; padding:0px; z-index:10;" data-toggle="tooltip" title="When checked, moves are done by flying." data-placement="left">
+				<label><input type="checkbox" id="zoomTo">"Fly" to new locations</label>
+			</div>
+
+			<!--ITINERARY RESULTS DIV (BOTTOM)-->
+			<div id="route-bottom" class="container-fluid" style="position: absolute; right:0px; left:0px; bottom:0; z-index:1000; background:white; box-shadow: 0 0 10px black;" hidden>
+				<div class="row" style="padding:10px;">
+					<div class="col-sm-8 vcenter">
+						<div class="row"><i class="fa fa-map-marker fa-fw" style="color:#ffcc00; text-shadow: 1px 1px 1px #ccc;"></i><span id="routefrom"></span>
+						</div>
+						<div class="row"><i class="fa fa-ellipsis-v fa-fw" style="color:grey;"></i>
+						</div>
+						<div id="mrcablock" hidden>
+							<div class="row"><i class="fa fa-map-marker fa-fw" style="color:red; text-shadow: 1px 1px 1px #ccc;"></i><span style="font-size: xx-small; font-weight: bold; color:red;">MRCA </span><span id="routemrca" style="font-weight: bold; color:red;"></span>
+							</div>
+							<div class="row"><i class="fa fa-ellipsis-v fa-fw" style="color:grey;"></i>
+							</div>
+						</div>
+						<div class="row"><i class="fa fa-map-marker fa-fw" style="color:blue; text-shadow: 1px 1px 1px #ccc;"></i><span id="routeto"></span>
+						</div>	
+					</div>
+					<div class="col-sm-4 vcenter text-center">
+						<a href="#" id="getroutedetails" class="btn" style="color:#b4c3e0;" title="Route details"><i class="fa fa-list"></i></a>
+						<a href="#" id="recenter" class="btn" style="color:#b4c3e0;" title="Recenter map on this route"><i class="fa fa-dot-circle-o"></i></a>
+					</div>
+<!--					<div class="col-sm-2 vcenter"><a href="#" id="recenter" class="btn" style="color:#b4c3e0;"><i class="fa fa-dot-circle-o"></i></a></div>
+				    <div class="col-sm-2 vcenter"><a href="#" id="getroutedetails" class="btn" style="color:#b4c3e0;"><i class="fa fa-list"></i></a></div>
+-->
+				</div>
+			</div>
+			<!--ITINERARY DETAILS DIV -->
+			<div id="route-details" class="container-fluid" style="position: absolute; right:0px; left:0px; bottom:0px; top:270px; z-index:2000; background:#fafafa; box-shadow: 0 0 10px black; overflow:scroll;" hidden>
+				<div class="row" style="padding-top:10px; padding-right: 10px;">
+					<div id="closedetails" class="col-xs-1 col-xs-offset-11">
+						<i class="fa fa-times" style="color:black;"></i>
+					</div>
+				</div>
+				<div id="details-content" class="row" style="padding:10px;">
+				</div>
+				<hr>
+				<div class="row text-center" style="padding-bottom: 20px;">
+					<button type="button" class="btn btn-default" id="closedetails2">Close</button>
+				</div>
+			</div>
+
+        </div>
+      </div>
+      <!--DIV WITH SIMPLY ONE BUTTON TO GET THE RIGHT BLOCK BACK.-->
+      <div id="showrightblock" class=" text-right" style="position:absolute; top:0px; right:0px; z-index:7000;" hidden><i class="glyphicon glyphicon-plus-sign" style="padding:5px; color:#b4c3e0; cursor: pointer;"></i>
+      </div>
+    </div>
+
+
+
+		<div class="modal fade" id="theMenu" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<img class="center" src = "img/logo1.png" width="40%">
+					</div>
+					<div class="modal-body text-justify" style="font-size: small;">
+					<div class="papernote">
+						<p><i class='fa fa-question-circle fa-fw fa-lg' style='color:grey;'></i>&nbsp;<b>Lifemap</b> is an interactive tool to explore the tree of life. The concept used in <b>Lifemap</b> is similar to the one used in cartography with tools like Google Maps© or Open Street Maps: exploring is done by zooming and panning.</p>
+					</div>
+					<div class="papernote">
+						<p><i class='fa fa-info fa-fw  fa-lg' style='color:grey;'></i>&nbsp;The current tree contains 802639 species: 3733 Archaea, 277426 Bacteria and 521480 Eukaryotes. It is based on the taxonomy publised by the NCBI and updated regularly.</p>
+					</div>
+					<div class="papernote">
+						<p><i class='fa fa-hand-pointer-o fa-fw fa-lg' style='color:grey;'></i>&nbsp;All the nodes in the tree are clickable. It displays information (description and picture) concerning the taxa (retrieved from the <i class='fa fa-wikipedia-w'></i>ikipedia page, if any). If you have description or pictures you would like to see in Lifemap, simply create or update the corresponding <span style="white-space: nowrap;"><i class='fa fa-wikipedia-w'></i>ikipedia</span> page. </p>
+					</div>
+					<div class="papernote">
+						<p><i class='fa fa-level-up fa-fw fa-lg' style='color:grey;'></i>&nbsp;Itineraries between taxa can be computed by clicking on the <i class='fa fa-level-up fa-fw '></i> icon on the left of the search field. When filling the two new search fields, the route is drawn between the taxa and the Most Recent Common Ancestor (MRCA) of the two groups/species is returned. The user gets also access to a list of all the nodes that are encountered in the way from one group to the other. This list is clickable.</p>
+					</div>
+					<div class="papernote">
+						<p><i class='fa fa-plus-square fa-fw  fa-lg' style='color:grey;'></i>&nbsp;'Expert' versions of Lifemap, dedicated to the researchers in genomics, genetics and evolutionary biology also exist. <a href="http://lifemap-ncbi.univ-lyon1.fr">Lifemap-ncbi</a> displays the entire NCBI taxonomy (more than 1.1 million taxa) and allows (i) an easy access to NCBI web pages, (ii) the visualization and count of genomes completely sequenced and (iii) the possibility to download every subtree for every node in Newick format. <a href="http://lifemap-otol.univ-lyon1.fr">Lifemap-otol</a> allows exploring the whole tree produced by the 'Open Tree of Life' project (around 2.2 Million species). Again, it allows easy access to other taxonomic resources at each node, and the possibility to download every subtree in Newick format.</p>
+					</div>
+					<div class="papernote">
+						<p><i class='fa fa-user fa-fw  fa-lg' style='color:grey;'></i>&nbsp;Lifemap was written by Damien M. de Vienne (<a href='https://lbbe.univ-lyon1.fr/-de-Vienne-Damien-.html?lang=fr'>web page</a>), a CNRS researcher working in the Laboratory of Biometry and Evolutionary Biology (<a href="https://lbbe.univ-lyon1.fr/?lang=en">LBBE</a>) in Lyon (France) with support from the informatics departement (especially Stephane Delmotte and Bruno Spataro). </p>
+					</div>
+					<p  style="font-size: x-small; text-align: center;"><i>For any question, remark, suggestion, or bug report, please contact Damien de Vienne: damien.de-vienne@univ-lyon1.fr</i><br>
+					<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a>&nbsp;<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Lifemap</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://lbbe.univ-lyon1.fr/-de-Vienne-Damien-.html" property="cc:attributionName" rel="cc:attributionURL">Damien de Vienne / CNRS</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.<br></p>
+					<div class="modal-footer">	
+					  <div style="text-align:center;">
+					    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2c/CNRS.svg/200px-CNRS.svg.png" height="40px">
+					    <img src="https://upload.wikimedia.org/wikipedia/fr/7/7d/Logo_lbbe.png" height="40px">
+					  </div>				
+				        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!--MODAL DIV THAT WILL CONTAIN THE DESCRIPTION OF THE SPECIES + PICTURES-->
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<div id="modaltitle" class="modal-title"></div>
+				</div>
+				<div class="modal-body row">
+						<div class="col-sm-5">
+							<div id="modalbody-text" style="padding: 5px; font-size:small;"></div>							
+						</div>
+						<div class="col-sm-7">
+							<div id="modalbody-pict" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);"></div>
+						</div>
+				</div>
+				<div id="modalbody-links" class="modal-body row"></div>	
+				<div class="modal-footer">
+					<div class="row"> 
+						<div class="col-xs-6 text-center">
+							<button type="button" id="viewfullancestry" class="btn btn-primary">View full ancestry</button>
+						</div>
+						<div class="col-xs-6 text-center">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="js/jquery-1.12.3.min.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Include leaflet -->
+	<script src="js/leaflet/leaflet.js"></script>
+<!--	 <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+   integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+   crossorigin=""></script> -->
+	<!--JQUERY UI -->
+	<script src="js/searchbar/jquery-ui.js"></script>
+	<!--JQUERY UI HTML AUTOCOMPLETE EXTENSION-->
+	<script src="js/searchbar/jquery.ui.autocomplete.html.js"></script>
+	<!--MAP LOADING INFO-->
+	<script src="js/loading/Control.Loading.js" type="text/javascript"></script>
+	<!--HERE IS WHAT CONCERNS THE MAP AND MAP FUNCTION (focus, etc...)-->
+    <script>
+		var map = L.map('map', {zoomControl: false, attributionControl: false});
+		var tolUrl='http://umr5558-treezoom.univ-lyon1.fr/osm_tiles/{z}/{x}/{y}.png';
+		var tol = new L.TileLayer(tolUrl, {minZoom: 4, maxZoom: 42});
+		map.addLayer(tol);
+		map.setView([-5,0], 5);
+		map.on("moveend", function() {
+			CreatePopUps();
+		})	
+		//add controls
+		new L.Control.Zoom({ position: 'topleft' }).addTo(map);
+		var loadingControl = L.Control.loading({delayIndicator:1000}).addTo(map);
+
+		var SPfocus = L.marker([0,0]);
+		var pointA = new L.LatLng(0,0);
+		var pointB = new L.LatLng(1,1);
+		var pointList = [pointA, pointB];
+		var polyline = L.polyline(pointList);
+		var markersRoute = new L.FeatureGroup();
+		var markers = new L.FeatureGroup();
+    </script>
+    <!--VISUAL ELEMENTS (LOGOS, IMAGES, etc...)-->
+	<script>
+		var circl = L.icon({
+			iconUrl: 'img/circl.png',
+			iconSize:     [10, 10], // size of the icon
+			iconAnchor:   [5, 5], // point of the icon which will correspond to marker's location
+		});
+		var mark = L.icon({
+			iconUrl: 'img/mark2.png',
+			iconSize:     [30, 30], // size of the icon
+			iconAnchor:   [15, 15], // point of the icon which will correspond to marker's location
+		});
+		var pin1 = L.icon({
+			iconUrl: 'img/pin1.png',
+			iconSize:     [18, 25], // size of the icon
+			iconAnchor:   [9, 30], // point of the icon which will correspond to marker's location
+		});
+		var pin2 = L.icon({
+			iconUrl: 'img/pin2.png',
+			iconSize:     [18, 25], // size of the icon
+			iconAnchor:   [9, 30], // point of the icon which will correspond to marker's location
+		});
+		var pin3 = L.icon({
+			iconUrl: 'img/pin3.png',
+			iconSize:     [18, 25], // size of the icon
+			iconAnchor:   [9, 30], // point of the icon which will correspond to marker's location
+		});
+	</script>
+	<script>
+		$("#route").click(function(){
+			$("#route-top").show();
+			$("#mainsearch").hide();		
+			map.removeLayer(SPfocus);
+			focusorgo();
+		});
+		$("#back-to-map").click(function(){
+			$("#route-top").hide();
+//				$("#route-suggestions").hide();	
+			$("#route-bottom").hide();
+			$("#mainsearch").show();
+			map.removeLayer(markersRoute);
+			map.removeLayer(polyline);
+			//and we also clear the to and from variables
+			taxidFrom = undefined; 
+			taxidTo = undefined;
+			//and we empty search fields
+			$("#searchinput2").val('');
+			$("#searchinput3").val('');
+		});
+		$("#searchclear").click(function(){
+			$("#searchinput").val('');
+			$("#searchinput2").val('');
+			$("#searchinput3").val('');
+			taxidFrom = undefined;
+			map.removeLayer(SPfocus);
+		});
+		$("#searchinput").focus(function() {
+			$(this).autocomplete('search', $(this).val())
+		})
+		$("#searchinput2").focus(function() {
+		    $("#route-bottom").hide();	
+			$(this).autocomplete('search', $(this).val())
+		})
+		$("#searchinput3").focus(function() {
+		    $("#route-bottom").hide();	
+			$(this).autocomplete('search', $(this).val())
+		})
+		$("#searchinput2").keyup(function() {
+			taxidFrom = undefined;
+		});
+		$("#searchinput3").keyup(function() {
+			taxidTo = undefined;
+		});
+		$("#getroutedetails").click(function() {
+			$("#route-details").show();
+		});
+		$("#closedetails").click(function() {
+			$("#route-details").hide();
+		});
+		$("#closedetails2").click(function() {
+			$("#route-details").hide();
+		});
+		$("#recenter").click(function() {
+			mrcaroute();
+		});	
+		$("#reducerightblock").click(function() {
+			$("#rightblock").hide();
+			$("#showrightblock").show();
+			$("#mapblock").attr("class", "col-sm-12 fill2");
+			map.invalidateSize();
+		});
+		$("#showrightblock").click(function() {
+			$("#rightblock").show();
+			$("#showrightblock").hide();
+			$("#mapblock").attr("class", "col-sm-9 col-lg-10 fill2");
+			map.invalidateSize();
+		});
+		$("#logo").click(function() {
+			$("#theMenu").modal("toggle");
+		});
+		//HERE We create two variables that will be responsible for storing taxids of species from and two which roads may be computed
+		var taxidFrom;
+		var taxidTo;	
+	</script>
+	<script>
+		function getMrca(a1, a2) {
+    	//we explore a1 and check if the value is present in a2.
+    	//if it is, we store both the corresponding indexes in a1 and a2 (and cut after?...)
+    		for (var i = 0; i < a1.length; i++) {
+	    		if (a2.indexOf(a1[i]) != -1) {
+		    		mrca = a1[i];
+					break; 
+			    }
+		    }	
+		    if (mrca===0) {mrca = 1;}
+			return mrca;
+		}
+		function getRoute(a1, a2) {
+    		//we explore a1 and check if the value is present in a2.
+    		//if it is, we store both the corresponding indexes in a1 and a2 (and cut after?...)
+    		var res1 = [];
+    		var res2 = [];
+    		for (var i = 0; i < a1.length; i++) {
+	    		res1.push(a1[i]);
+	    		if (a2.indexOf(a1[i]) != -1) {
+		    		var i2=a2.indexOf(a1[i]);
+					break; 
+				}
+    		}
+		    for (var i = 0; i < i2; i++) {
+			    res2.push(a2[i]);
+		    }
+			return res1.concat(res2.reverse());
+	    }  
+	    var zoomTo = function(taxid) {
+//			$("#route-details").hide();
+	  		var url = 'http://umr5558-treezoom.univ-lyon1.fr/solr/solr/taxo/select?q=taxid:"'+taxid+'"&wt=json';
+			if (taxid === 1) {
+				if ($("#zoomTo").is(":checked")) map.flyTo(L.latLng([-4.226497,0]),7);
+				else map.setView( L.latLng([-4.226497,0]),7);
+			}
+			else if (typeof taxid != 'undefined') {
+		  		$.ajax({
+					url : url,
+					success : function(data) {
+						var lengthres = data.response.docs.length;
+						if (lengthres > 0) {
+							var docs = JSON.stringify(data.response.docs);
+							var jsonData = JSON.parse(docs);
+							if ($("#zoomTo").is(":checked")) map.flyTo(jsonData[0].coordinates, jsonData[0].zoom);
+							else map.setView(jsonData[0].coordinates, jsonData[0].zoom);;
+						}
+						else {
+							alert("taxid " + taxid + " was not found in this version of Lifemap.")
+						}
+					},
+					error : function() {
+						console.log("ERREUR");
+					},
+					dataType : 'jsonp',
+					jsonp : 'json.wrf'
+				});	    
+			}
+			else {
+				alert('We could not zoom to this location. \nPlease send and email to damien.de-vienne@univ-lyon1.fr explaining this issue and the taxid that was problematic.');
+			}
+		};
+		//We create here the function that will build popups (modals).
+		function CreatePopUps() {
+		//we only remove markers that have their popup closed.
+			map.removeLayer(markers);
+			markers = new L.FeatureGroup();
+			z = map.getZoom() + 4;
+			bb = map.getBounds();
+			var lon1 = bb._southWest.lng;
+			var lon2 = bb._northEast.lng;
+			var lat1 = bb._southWest.lat;
+			var lat2 = bb._northEast.lat;
+			var URL2 = "http://umr5558-treezoom.univ-lyon1.fr/solr/solr/taxo/select?q=*:*&fq=zoom:[0 TO " + z + "]&fq=lat:[" + lat1 + " TO " + lat2 + "]&fq=lon:[" + lon1 + " TO " + lon2 + "]&wt=json&rows=1000";
+			$.ajax({
+				url : URL2,
+				success : function(data) {
+					var ok = data.response.docs;
+					$.each(ok, function( index, value ) {
+						var latlong = new L.LatLng(ok[index].lat[0], ok[index].lon[0]);
+						var marker = L.marker(latlong,{icon: mark});
+						var str = ok[index].all;
+						str=str.split("|");
+						var spname = str[0];					  
+						var comname = str[1];
+						var rank = str[2];
+						var taxid = str[3];
+						if ((rank==="species")||(rank==="subspecies")) {
+							spname = '<i>'+spname+'</i>';
+						}
+						marker.on("click", function() {
+								markofun(taxid, spname, comname, rank);
+						})
+						markers.addLayer(marker);
+						}
+					);
+				},
+			dataType : 'jsonp',
+			jsonp : 'json.wrf'
+			});
+			//We need to create something for the root as well.
+			var marker = L.marker([-4.226497,0], {icon: mark, zIndexOffset:-1000});
+			marker.on("click", function() {
+				console.log("jjkjk");
+				markofun(1,"Root"," "," ");
+			})
+			//create and bind content to marker (TODO)
+			//bind marker to markers group
+			markers.addLayer(marker);
+			markers.addTo(map);
+		}; 
+	</script>
+	<script>
+		function getWikiDesc (spname) {
+			var res = '';
+			return $.getJSON(wikiurl="https://en.wikipedia.org/w/api.php?format=json&action=query&prop=extracts|pageimages&titles="+spname+"&redirects&exsentences=3&piprop=original|thumbnail|name&pithumbsize=400&callback=?").then(function(data){
+				var page = data.query.pages;
+				key = Object.keys(page)[0]
+				if (key!="-1") {
+					res = page[key];
+					return res;
+				}
+				else {
+					return null;
+				}
+			});
+		}
+
+	</script>
+			<!--MAIN SEARCH FUNCTIONS (SINGLE AND ITINERARY)-->
+	<script>
+		//This little code fixes the width of the suggestions
+		jQuery.ui.autocomplete.prototype._resizeMenu = function () {
+ 			var ul = this.menu.element;
+ 	 		ul.outerWidth(this.element.outerWidth());
+		}
+		//SEARCH FUNCTIONS
+		$(function() {
+			var str;
+			var URL_PREFIX = "http://umr5558-treezoom.univ-lyon1.fr/solr/solr/taxo/suggesthandler?suggest.q=";
+			var URL_PREFIX_FINAL = "http://umr5558-treezoom.univ-lyon1.fr/solr/solr/taxo/select?q=taxid:";
+			var URL_SUFFIX = "&wt=json";
+			$("#searchinput").autocomplete({
+				source : function(request, response) {
+					var URL = URL_PREFIX + $("#searchinput").val() + URL_SUFFIX;
+					$.ajax({
+						url : URL,
+						success : function(data) {
+							var step1=data.suggest.mySuggester[$("#searchinput").val()];
+							var docs = JSON.stringify(step1.suggestions);
+							var jsonData = JSON.parse(docs);
+							jsonData.sort(function(a,b) {
+								a1 = a.term.split("|")[0].replace(/<b>/g,"").replace(/<\/b>/g,"");
+								b1 = b.term.split("|")[0].replace(/<b>/g,"").replace(/<\/b>/g,"");
+								return(a1.length-b1.length);
+							})
+								response($.map(jsonData, function(value, key) {
+									str = value.term;
+									str=str.split("|");
+									var issp = str[2];
+									issp = issp.replace(/<b>/g,"");
+									issp = issp.replace(/<\/b>/g,"");
+									issp = issp.replace(" ","");
+									issp = issp.replace(/[\x00-\x2f\x3a-\x40]/g,"");
+									var taxid = str[3];
+									taxid = taxid.replace(/<b>/g,"");
+									taxid = taxid.replace(/<\/b>/g,"");
+									taxid = taxid.replace(" ","");
+									taxid = taxid.replace(/[\x00-\x2f\x3a-\x40]/g,"");
+									var spname = str[0];
+									spname=spname.replace(/<b>/g,"");
+									spname=spname.replace(/<\/b>/g,"");
+									var commonname = str[1];
+									commonname=commonname.replace(/<b>/g,"");
+									commonname=commonname.replace(/<\/b>/g,"");
+									var renderval = spname + commonname;
+
+									if ((issp==="species")||(issp==="subspecies")) {
+										labOK = "<div style='padding: 20px;'><span class=\"scinameItalic\">" + str[0] + "</span><span class=\"commonname\">" + str[1] + "</span><br><span class=\"rank\" >" + str[2] + "</span></div>";			
+									}
+									else {
+										labOK = "<div style='padding: 20px;'><span class=\"sciname\">" + str[0] + "</span><span class=\"commonname\">" + str[1] + "</span><br><span class=\"rank\">" + str[2] + "</span></div>";
+									}
+									return {
+										label : labOK,
+										value : renderval,
+										taxidfinal: taxid,
+										spname:spname,
+										commonname:commonname,
+										rank:issp	
+									}
+								}));
+						},
+						dataType : 'jsonp',
+						jsonp : 'json.wrf'
+					});
+				},
+				minLength : '1',
+				autoFocus: true,
+				html: true,
+				focus: function() {
+			    		// prevent value inserted on focus
+			    		return false;
+				},
+				select: function(e, ui) {
+					var taxidok = ui.item.taxidfinal;
+					var spnameok = ui.item.spname;	
+					var commonnameok = ui.item.commonname;
+					var rankok = ui.item.rank;			    
+					//We copy the search to the search box for the ways.
+					$("#searchinput2").val(ui.item.value);
+					//We store the taxid to variable taxidFrom.
+					taxidFrom = taxidok;
+					$("#searchinput").blur();						
+					var URL = URL_PREFIX_FINAL + taxidok + URL_SUFFIX;
+					$.ajax({
+						url : URL,
+						success : function(data) {
+							map.removeLayer(SPfocus);
+							var docs = JSON.stringify(data.response.docs);
+							var jsonData = JSON.parse(docs);
+							if ($("#zoomTo").is(":checked")) map.flyTo(jsonData[0].coordinates, jsonData[0].zoom-1);
+							else map.setView(jsonData[0].coordinates, jsonData[0].zoom-1);
+							SPfocus = L.marker(jsonData[0].coordinates, {icon: pin1})								
+							SPfocus.on("click", function() {
+								markofun(taxidok, spnameok,commonnameok,rankok);
+							})
+							SPfocus.addTo(map);
+						},
+						dataType : 'jsonp',
+						jsonp : 'json.wrf'
+					});	    
+				}
+			})
+		});
+		$(function() {
+			var str;
+			var URL_PREFIX = "http://umr5558-treezoom.univ-lyon1.fr/solr/solr/taxo/suggesthandler?suggest.q=";
+			var URL_PREFIX_FINAL = "http://umr5558-treezoom.univ-lyon1.fr/solr/solr/taxo/select?q=taxid:";
+			var URL_SUFFIX = "&wt=json";
+			$("#searchinput2").autocomplete({
+				source : function(request, response) {
+					var URL = URL_PREFIX + $("#searchinput2").val() + URL_SUFFIX;
+					$.ajax({
+						url : URL,
+						position: { my: "left top", at: "left bottom", of: ".test" },
+						success : function(data) {
+							var step1=data.suggest.mySuggester[$("#searchinput2").val()];
+							var docs = JSON.stringify(step1.suggestions);
+							var jsonData = JSON.parse(docs);
+							jsonData.sort(function(a,b) {
+								a1 = a.term.split("|")[0].replace(/<b>/g,"").replace(/<\/b>/g,"");
+								b1 = b.term.split("|")[0].replace(/<b>/g,"").replace(/<\/b>/g,"");
+								return(a1.length-b1.length);
+							})
+							response($.map(jsonData, function(value, key) {
+								str = value.term;
+								str=str.split("|");
+								var issp = str[2];
+								issp = issp.replace(/<b>/g,"");
+								issp = issp.replace(/<\/b>/g,"");
+								issp = issp.replace(" ","");
+								issp = issp.replace(/[\x00-\x2f\x3a-\x40]/g,"");
+								var taxid = str[3];
+								taxid = taxid.replace(/<b>/g,"");
+								taxid = taxid.replace(/<\/b>/g,"");
+								taxid = taxid.replace(" ","");
+								taxid = taxid.replace(/[\x00-\x2f\x3a-\x40]/g,"");
+								var spname = str[0];
+								spname=spname.replace(/<b>/g,"");
+								spname=spname.replace(/<\/b>/g,"");
+								var commonname = str[1];
+								commonname=commonname.replace(/<b>/g,"");
+								commonname=commonname.replace(/<\/b>/g,"");
+								var renderval = spname + commonname;
+
+								if ((issp==="species")||(issp==="subspecies")) {
+									labOK = "<div style='border-bottom:1px solid #989898; padding: 20px;'><span class=\"scinameItalic\">" + str[0] + "</span><span class=\"commonname\">" + str[1] + "</span><br><span class=\"rank\" >" + str[2] + "</span></div>";			
+								}
+								else {
+									labOK = "<div style='border-bottom:1px solid #989898; padding: 20px;'><span class=\"sciname\">" + str[0] + "</span><span class=\"commonname\">" + str[1] + "</span><br><span class=\"rank\">" + str[2] + "</span></div>";
+								}
+								return {
+									label : labOK,
+									value : renderval,
+									taxidfinal: taxid
+								}
+							}));
+						},
+						dataType : 'jsonp',
+						jsonp : 'json.wrf'
+					});
+				},
+				minLength : '1',
+				autoFocus: false,
+				html: true,
+				focus: function() {
+			    		// prevent value inserted on focus
+			    		return false;
+				},
+				select: function(e, ui) {
+					var taxidok = ui.item.taxidfinal;			    
+					//We store the taxid to variable taxidFrom
+					taxidFrom = taxidok;
+					$("#searchinput2").blur();
+					focusorgo();
+				}, 
+			})
+		});
+		$(function() {
+			var str;
+			var URL_PREFIX = "http://umr5558-treezoom.univ-lyon1.fr/solr/solr/taxo/suggesthandler?suggest.q=";
+			var URL_PREFIX_FINAL = "http://umr5558-treezoom.univ-lyon1.fr/solr/solr/taxo/select?q=taxid:";
+			var URL_SUFFIX = "&wt=json";
+			$("#searchinput3").autocomplete({
+				source : function(request, response) {
+					var URL = URL_PREFIX + $("#searchinput3").val() + URL_SUFFIX;
+					$.ajax({
+						url : URL,
+						position: { my: "left top", at: "left bottom", of: ".test" },
+						success : function(data) {
+							var step1=data.suggest.mySuggester[$("#searchinput3").val()];
+							var docs = JSON.stringify(step1.suggestions);
+							var jsonData = JSON.parse(docs);
+							jsonData.sort(function(a,b) {
+								a1 = a.term.split("|")[0].replace(/<b>/g,"").replace(/<\/b>/g,"");
+								b1 = b.term.split("|")[0].replace(/<b>/g,"").replace(/<\/b>/g,"");
+								return(a1.length-b1.length);
+							})
+							response($.map(jsonData, function(value, key) {
+								str = value.term;
+								str=str.split("|");
+								var issp = str[2];
+								issp = issp.replace(/<b>/g,"");
+								issp = issp.replace(/<\/b>/g,"");
+								issp = issp.replace(" ","");
+								issp = issp.replace(/[\x00-\x2f\x3a-\x40]/g,"");
+								var taxid = str[3];
+								taxid = taxid.replace(/<b>/g,"");
+								taxid = taxid.replace(/<\/b>/g,"");
+								taxid = taxid.replace(" ","");
+								taxid = taxid.replace(/[\x00-\x2f\x3a-\x40]/g,"");
+								var spname = str[0];
+								spname=spname.replace(/<b>/g,"");
+								spname=spname.replace(/<\/b>/g,"");
+								var commonname = str[1];
+								commonname=commonname.replace(/<b>/g,"");
+								commonname=commonname.replace(/<\/b>/g,"");
+								var renderval = spname + commonname;
+
+								if ((issp==="species")||(issp==="subspecies")) {
+									labOK = "<div style='border-bottom:1px solid #989898; padding: 20px;'><span class=\"scinameItalic\">" + str[0] + "</span><span class=\"commonname\">" + str[1] + "</span><br><span class=\"rank\" >" + str[2] + "</span></div>";			
+								}
+								else {
+									labOK = "<div style='border-bottom:1px solid #989898; padding: 20px;'><span class=\"sciname\">" + str[0] + "</span><span class=\"commonname\">" + str[1] + "</span><br><span class=\"rank\">" + str[2] + "</span></div>";
+								}
+								return {
+									label : labOK,
+									value : renderval,
+									taxidfinal: taxid
+								}
+							}));
+						},
+						dataType : 'jsonp',
+						jsonp : 'json.wrf'
+					});
+				},
+				minLength : '1',
+				autoFocus: false,
+				html: true,
+				focus: function() {
+			    		// prevent value inserted on focus
+			    		return false;
+				},
+				select: function(e, ui) {
+					var taxidok = ui.item.taxidfinal;			    
+					taxidTo = taxidok;
+					$("#searchinput3").blur();
+					focusorgo();
+				}
+			})
+		});
+	
+		//Now we create a function that will handle the fact 
+		//that the focus is always on the search box that is empty, and that when both are full, 
+		//we start computing the route, etc...
+		function focusorgo() {
+			if ((taxidTo===undefined)&&(taxidFrom!=undefined)) {
+				$("#searchinput3").focus();
+			}
+			else if ((taxidFrom===undefined)&&(taxidTo!=undefined)) {
+				$("#searchinput2").focus();
+			}
+			else if ((taxidFrom===undefined)&&(taxidTo===undefined)) {
+				$("#searchinput2").focus();
+			}
+			else { //Both are defined. We can go for it: search path etc.
+				mrcaroute();
+			}
+		}
+		function mrcaroute() {
+			map.removeLayer(SPfocus);
+			//get infos
+			taxidFrom = taxidFrom.replace(/\s+/g, '');
+			taxidTo = taxidTo.replace(/\s+/g, '');
+			console.log(taxidFrom);
+			console.log(taxidTo);				
+			var url = 'http://umr5558-treezoom.univ-lyon1.fr/solr/solr/addi/select?q=*:*&fq=taxid:('+taxidFrom+' '+taxidTo+')&wt=json';
+			$.ajax({
+			    url : url,
+			    success : function(data) {
+			    	console.log("oui");
+			    	console.log(taxidFrom);
+					console.log(taxidTo);	
+				    var res = data.response.docs;
+					var asc1 = res[0].ascend;
+					asc1 = [parseInt(res[0].taxid)].concat(asc1);
+					if ((taxidFrom==='1')||(taxidTo==='1')) {
+						var route = asc1;
+						var asc2 = [0];
+					}
+					else { 
+						var asc2 = res[1].ascend;
+						asc2 = [parseInt(res[1].taxid)].concat(asc2);
+					    var route = getRoute(asc1,asc2);
+					}
+					if (taxidFrom!=res[0].taxid[0]) {
+							route = route.reverse();
+					}
+					var mrca = getMrca(asc1,asc2);
+					routeq = route.toString().replace(/,/g,' ');
+					console.log("routeq");
+					console.log(routeq);
+					url2 = 'http://umr5558-treezoom.univ-lyon1.fr/solr/solr/taxo/select?q=*:*&fq=taxid:(' + routeq + ')&wt=json&rows=10000';
+
+					$.ajax({
+					    url : url2,
+					    success: function(data2) {
+				    	console.log("oui2");
+				    	console.log(data2);
+						map.removeLayer(markersRoute);
+						map.removeLayer(polyline);
+						$("#details-content").empty();
+						markersRoute = new L.FeatureGroup();
+						//we get taxid order of this new list (different from the input order asked to solr
+						dataok = data2.response.docs;
+						//we try to put dataok in the original order
+						var neworder = [];
+						for (var j=0;j < dataok.length; j++) {
+						    neworder[j] = dataok[j].taxid[0];
+						}
+						//we will store lat and longs here 
+						latlngs = [];
+						names = [];
+						taxids = [];
+						ranks = [];
+						commons = [];
+						for (j=0;j < route.length; j++) {
+						    if (route[j]===0) { //we pass by the root
+								latlngs[j] = L.latLng([-4.226497,0]);
+								names[j] = "Root";
+								commons[j] = " ";
+								taxids[j] = 1;
+								ranks[j] = "Root";
+						    }
+						    else {
+								var where = neworder.indexOf(route[j]);
+								latlngs[j] = L.latLng([dataok[where].lat[0],dataok[where].lon[0]]);
+								names[j] = dataok[where].sci_name;
+								taxids[j] = (dataok[where].taxid)[0];
+								ranks[j] = (dataok[where].rank)[0];
+								commons[j] = dataok[where].common_name;
+								if (commons[j]===undefined) {commons[j] = " ";}
+								else {commons[j] = " "+commons[j]+" ";}
+
+						    }
+   						    var mark = L.marker(latlngs[j], {icon: circl, clickable:false}); 
+						    mark.setOpacity(0.6); 
+						    mark.addTo(map);
+						    markersRoute.addLayer(mark);
+						}
+						var mrcaindex = taxids.indexOf(mrca);
+						var sp1 = L.marker(latlngs[0], {icon: pin1});
+						sp1.on("click", function() {
+							markofun(taxids[0], names[0],commons[0], ranks[0]);
+						})					
+//							var pop1= '<div>'+names[0]+'</div>';
+//							sp1.bindPopup(pop1);
+						markersRoute.addLayer(sp1);
+						var sp2 = L.marker(latlngs[latlngs.length-1], {icon: pin3});
+						sp2.on("click", function() {
+							markofun(taxids[latlngs.length-1], names[latlngs.length-1],commons[latlngs.length-1], ranks[latlngs.length-1]);
+						})					
+						markersRoute.addLayer(sp2);
+						if ((mrcaindex!=0)&&(mrcaindex!=(names.length-1))) { //case where there is no mrca (one of the clade is the mrca)
+						    var spmrca = L.marker(latlngs[mrcaindex], {icon: pin2});
+						    spmrca.on("click", function() {
+								markofun(taxids[mrcaindex], names[mrcaindex],commons[mrcaindex], ranks[mrcaindex]);
+							})
+						    markersRoute.addLayer(spmrca);							    
+						    $("#routemrca").empty();
+						    $("#routemrca").append(names[mrcaindex]);
+							    $("#mrcablock").show();	
+							for (i=0;i<names.length;i++) {
+								ht = "<div class='col-xs-12 vcenter' onclick='javascript:zoomTo("+taxids[i]+");'>";
+								if (i!=0) {ht+= "<div class='row'><i class='fa fa-ellipsis-v fa-fw fa-lg' style='color:grey;'></i></div>";}
+								if (i===0) { //from 
+									ht+="<div class='row routestick'><i class='fa fa-map-marker fa-fw fa-lg' style='color:#ffcc00; text-shadow: 1px 1px 1px #ccc;'></i><span class='sciname'>"+names[i]+"</span>&nbsp<span class='rank'>"+ranks[i]+"</span></div>";
+									ht+="</div>" //close xs-10 column
+								}
+								else if (i===mrcaindex) { //to
+									ht+="<div class='row  routestick'><i class='fa fa-map-marker fa-fw fa-lg' style='color:red; text-shadow: 1px 1px 1px #ccc;'></i><span class='sciname'>"+names[i]+"</span>&nbsp<span class='rank'>"+ranks[i]+"</span></div>";
+								}
+								else if (i===(names.length-1)) { //to
+									ht+="<div class='row routestick'><i class='fa fa-map-marker fa-fw fa-lg' style='color:blue; text-shadow: 1px 1px 1px #ccc;'></i><span class='sciname'>"+names[i]+"</span>&nbsp<span class='rank'>"+ranks[i]+"</span></div>";
+								}
+								else { //intermediate nodes
+									ht+="<div class='row routestick'><i class='fa fa-caret-right fa-fw fa-lg' style='color:grey;'></i><span class='sciname'>"+names[i]+"</span>&nbsp<span class='rank'>"+ranks[i]+"</span></div>";	
+								}
+								$("#details-content").append(ht);
+							}
+						}
+						else {
+							$("#mrcablock").hide();	
+							for (i=0;i<names.length;i++) {
+								ht = "<div class='col-xs-12 vcenter' onclick='javascript:zoomTo("+taxids[i]+");'>";
+								if (i!=0) {ht+= "<div class='row'><i class='fa fa-ellipsis-v fa-fw' style='color:grey;'></i></div>";}
+								if (i===0) { //from 
+									ht+="<div class='row routestick'><i class='fa fa-map-marker fa-fw fa-lg' style='color:#ffcc00; text-shadow: 1px 1px 1px #ccc;'></i><span class='sciname'>"+names[i]+"</span>&nbsp<span class='rank'>"+ranks[i]+"</span></div>";
+									ht+="</div>" //close xs-10 column
+								}
+								else if (i===(names.length-1)) { //to
+									ht+="<div class='row routestick'><i class='fa fa-map-marker fa-fw fa-lg' style='color:blue; text-shadow: 1px 1px 1px #ccc;'></i><span class='sciname'>"+names[i]+"</span>&nbsp<span class='rank'>"+ranks[i]+"</span></div>";
+								}
+								else { //intermediate nodes
+									ht+="<div class='row routestick'><i class='fa fa-caret-right fa-fw fa-lg' style='color:grey;'></i><span class='sciname'>"+names[i]+"</span>&nbsp<span class='rank'>"+ranks[i]+"</span></div>";	
+								}
+								$("#details-content").append(ht);
+							}
+
+						}
+						polyline = L.polyline(latlngs, {color: 'red', clickable:false, weight:6});
+						polyline.addTo(map);
+						if (focus) map.fitBounds(polyline.getBounds(), {paddingTopLeft:[20,140], paddingBottomRight:[0,120]});
+						markersRoute.addTo(map);
+						$("#routefrom").empty();
+						$("#routeto").empty();
+						$("#routefrom").append(names[0]);
+						$("#routeto").append(names[names.length-1]);
+						$("#route-bottom").show();
+					    },
+					    dataType : 'jsonp',
+					    jsonp : 'json.wrf'
+						});
+				},
+	    		dataType : 'jsonp',
+	    		jsonp : 'json.wrf'
+	    	})};
+		
+	</script>
+	<script>
+	function markofun(taxid, spname,comname, rank) {
+		taxi = taxid;
+		spna = spname;
+		comna = comname;
+		$('#modaltitle').empty();
+		$('#modalbody-text').empty();	
+		$('#modalbody-pict').empty();
+		$('#modalbody-links').empty();	
+		if ((rank==="species")||(rank===" species ")) {
+				$('#modaltitle').append("<span class='scinameItalic2'>"+spname+"</span>");	
+	    }
+	    else {
+			$('#modaltitle').append("<span class='sciname2'>"+spname+"</span>");	
+		}
+		$('#modaltitle').append("<span class='commonname2'>"+comname+"</span>");
+		$('#modaltitle').append("<span class='rank2'>"+rank+"</span>");	
+		text = "<div style='font-style:center; color:grey;'>No article concerning this group on <i class='fa fa-wikipedia-w'></i>ikipedia.</div>";
+		pict = "";
+		if (spname!="Root") {
+			getWikiDesc(spname).then(function(resu){
+				if (resu!=null) {
+					text = '<div>' + resu.extract + '</div>';
+					text += "<div style='padding-bottom:10px;text-align:right; font-size:xx-small;'><a href='https://en.wikipedia.org/wiki/" + spname + "' target='_blank'>more on <i class='fa fa-wikipedia-w'></i>ikipedia</a><br></div>";
+					$('#modalbody-text').append(text);	
+					if (resu.thumbnail!==undefined) {
+						//we add the image to the popup
+						pict = '<div><a href="https://en.wikipedia.org/wiki/' + spname + '" target="_blank"><img src ='+resu.thumbnail.source+' width="100%"></a></div>'
+						$('#modalbody-pict').append(pict);
+					}
+					else {
+						pict = "<div style='padding:10px; font-size:xx-small; text-align:center; color:grey;'> No picture associated to this articlke on Wikipedia. Click <a href='https://en.wikipedia.org/wiki/" + spname + "' target='_blank'>here</a> if you want to upload one now.</div>";
+						$('#modalbody-pict').append(pict);
+					}
+				}
+				else {
+					$('#modalbody-text').append(text);
+					$('#modalbody-pict').append(pict);
+				}
+			})
+		}
+		else {
+			$('#modalbody-links').append("<img src='img/galaxy.jpg' width='100%'>");
+		}
+		$('#myModal').modal('show');
+		$('#viewfullancestry').on("click", function() {
+			taxidFrom = taxi;
+			taxidTo = "1";
+			$("#myModal").modal("hide");
+			$("#mainsearch").hide();					
+			$('#searchinput2').val(spna + comna);
+			$('#searchinput3').val('Root');
+			$("#route-top").show();
+			mrcaroute();
+		})
+	};
+	</script>
+	<script>
+//HERE I PUT THE READING OF THE URL THAT WILL SEE WHETHER OR NOT THERE IS A QUERY INSIDE AND IF YES WILL ZOOM THERE.
+    var url = window.location.href; // or window.location.href for current url
+    console.log(url);
+    var captured = url.split("tid=")[1];
+    if (captured) {
+    	zoomTo(captured.toString());
+    	//we try to zoom there
+    	console.log("YES")
+    }
+	</script>
+  </body>
+</html>

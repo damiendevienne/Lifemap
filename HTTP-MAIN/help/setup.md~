@@ -1,0 +1,295 @@
+# Set up you own server on Ubuntu 16.04
+
+
+
+> This configuration instructions were largely copied from the OpenStreetMap wiki page [http://wiki.openstreetmap.org/wiki/User:SomeoneElse/Ubuntu_1604_tileserver_load](http://wiki.openstreetmap.org/wiki/User:SomeoneElse/Ubuntu_1604_tileserver_load).
+
+> These instructions were tested on Ubuntu-16.04-server (LTS)
+
+###Update and upgrade Ubuntu
+Make sure to update and upgrade all your packages: 
+
+```sh
+sudo apt-get update
+sudo apt-get upgrade
+```
+_**Note**:_ _it might be necessary to restart after this upgrade._
+
+    
+###install basic softwares and dependencies
+
+Install first this series of packages
+
+```sh
+sudo apt install libboost-all-dev git-core tar unzip wget bzip2 build-essential autoconf libtool libxml2-dev libgeos-dev libgeos++-dev libpq-dev libbz2-dev libproj-dev munin-node munin libprotobuf-c0-dev protobuf-c-compiler libfreetype6-dev libpng12-dev libtiff5-dev libicu-dev libgdal-dev libcairo-dev libcairomm-1.0-dev apache2 apache2-dev libagg-dev liblua5.2-dev ttf-unifont lua5.1 liblua5.1-dev libgeotiff-epsg node-carto
+```
+
+followed by these ones
+```sh
+sudo apt-get install postgresql postgresql-contrib postgis postgresql-9.5-postgis-2.2
+```
+
+###Create and configure a Postgresql/Postgis database
+
+We create a user called `lm` protected by a password (`0000`), and finally a postgresql database named `tree` for which we enable PostGis. You can change the username, password or database name, but if so, you will have to change a configuration file on which the tile machinery (mod_tile and renderd) relies. 
+
+Connect as a 'postgres' user and create user lm.
+
+```sh
+sudo -u postgres -i
+createuser lm -P
+```
+
+The  `-P` option tells Postgres to ask interactively for the password you want. You need to enter `0000` if you don't want to change the configuration files. 
+
+
+Then create the database, with owner `lm`. 
+```sh
+createdb -E UTF8 -O lm tree
+```
+
+While still working as the 'postgres' user, type
+
+```sh
+psql   # (will give a postgres=# prompt) 
+\c tree  # (to connnect to database tree as superuser
+
+```
+Now install the postgis extension:
+
+```psql
+CREATE EXTENSION postgis;  
+ALTER TABLE geometry_columns OWNER TO lm;
+ALTER TABLE spatial_ref_sys OWNER TO lm; 
+```
+
+Then exit with `\q` to exit psql followed by `exit` to come back to normal user.
+
+
+### Install Mapnik
+
+Mapnik is responsible for creating all the images (tiles), using as data sources the data present in the database we just created. To install mapnik do:
+
+```sh
+sudo apt-get install gdal-bin libgdal1-dev libmapnik-dev mapnik-utils python-mapnik
+
+```
+
+### Install mod_tile and renderd
+"mod_tile" is an Apache module that handles requests for tiles; "renderd" is a daemon that actually renders tiles when "mod_tile" requests. for increasing the number of zoom levels that can be used, mod_tile has to be modified, using the files present in the Lifemap GitHub. This is explained later with the installation
+
+For convenience, We chose as starting "mod_tile" the one forked by "SomeoneElseOSM" and available on github.
+
+Create an `src` folder if it does not exist:
+
+```bash
+cd
+mkdir src
+```
+
+Downloald mod_tile
+
+```sh
+cd ~/src
+git clone git://github.com/SomeoneElseOSM/mod_tile.git
+cd mod_tile
+```
+
+Download Lifemap files
+
+```sh
+cd ~/src
+git clone https://github.com/damiendevienne/Lifemap.git
+```
+
+We then replace `includes/` and `src/` folders in mod_tile by those present in `Lifemap/OTHER/mod_tile`
+
+```sh
+cp -r ~/src/Lifemap/OTHER/mod_tile/includes ~/src/Lifemap/OTHER/mod_tile/src ~/src/mod_tile/
+```
+
+We can then compile mod_tile.
+
+```sh
+cd ~/src/mod_tile
+./autogen.sh
+./configure
+make
+sudo make install
+sudo make install-mod_tile
+sudo ldconfig
+```
+
+###Configuring Apache
+
+Manually create the directory for generated tiles:
+
+```sh
+sudo mkdir /var/lib/mod_tile
+sudo mkdir /var/run/renderd
+```
+
+To tell Apache to load the mod_tile module, edit the following file with vi (or nano, emacs, gedit...). The file may not exist. You will thus have to create it.
+
+```sh
+sudo vi /etc/apache2/conf-available/mod_tile.conf
+```
+
+And add the following line :
+
+```sh
+LoadModule tile_module /usr/lib/apache2/modules/mod_tile.so
+``
+
+Then type
+
+```sh
+sudo a2enconf mod_tile
+```
+
+Now let's configure 'renderd'. open the following file with vi (or other editor)
+
+```sh
+sudo vi /etc/apache2/sites-available/000-default.conf
+```
+
+add the following lines between the "ServerAdmin" and "DocumentRoot" lines:
+
+```xml
+LoadTileConfigFile /etc/renderd.conf
+ModTileRenderdSocketName /var/run/renderd/renderd.sock
+# Timeout before giving up for a tile to be rendered
+ModTileRequestTimeout 0
+# Timeout before giving up for a tile to be rendered that is otherwise missing
+ModTileMissingRequestTimeout 30
+```
+
+Then reload apache
+
+```sh
+sudo service apache2 restart
+```
+
+
+###### [OPTIONAL]: Configure apache for running php and python scripts
+This is necessary if you plan to have a web page that helps loading and launching your tree (as in the Virtualmachine proposed [here](virtualmachine.md)).
+
+Enable CGI processing in apache
+```sh
+sudo a2enmod cgi
+```
+Create a folder on which tu put your python files
+```sh
+sudo mkdir /var/www/html/bin
+```
+And tell apache that this folder will contain scripts that you want to execute. Open the file:
+```
+sudo vi /etc/apache2/sites-available/000-default.conf
+```
+and add the following lines before `</VirtualHost>`:
+
+```
+<Directory /var/www/html/bin>
+        Options +ExecCGI
+        AddHandler cgi-script .py
+</Directory>
+```
+
+Finally, if you want to be able to upload tree files larger than 8MB you need to change the defult php settings by editing the `php.ini` file, usually located in `/etc/php/7.0/apache2/php.ini`. 
+
+
+locate the line where it is written `post_max_size` and change the value to 200M. Make sure the `file_upload` is set to `On`. Finally set the value for "upload_max_filesize` to `200M`.   
+
+
+Then reload apache
+```sh
+sudo service apache2 restart
+```
+
+###Configuring python
+
+For traversing the tree and populating the PostgreSQL/PostGIS database, you will need some python modules to be installed. 
+Install first some required dependencies: 
+```sh
+sudo apt-get install python-numpy python-qt4 python-lxml python-six pip
+```
+Install the `psycopg2` module that allow connection with the Postgresql database:
+```sh
+pip install --upgrade psycopg2 
+```
+You can then install the `ete3` module for phylogenetic trees handling, making sure to set a correct target.   
+```sh
+sudo pip install --upgrade --target=/usr/local/lib/python2.7/dist-packages ete3
+```
+To get the correct address of the target, look at where `psycopg2` module was installed (with `pip show psycopg2`). Note that if you don't specify this --target, the module will be 
+
+###The Mapnik stylesheet
+
+The stylesheet for Mapnik is an xml file (or list of files) that specifies all the graphical aspects that allow mapnik to transform the database into images: what color, what font, what style for what object at each possible zoom level.
+The current stylesheets (currently used on the main Lifemap maps online) are available in the Lifemap github that you downloaded earlier. It is thus present in
+
+```sh
+~/src/Lifemap/OTHER/style/
+```
+
+te file `osm.xml` (the main stylesheet) refers to many other files that are within the `inc` folder. One of these files,`~/src/Lifemap/OTHER/style/inc/datasource-settings.xml.inc` contains the information for Mapnik to connect to the database.
+
+If you followed all the instructions above for the installation, you should have the following settings. If you changed some of these information (username, password, databse name, etc.), change accordingly.
+
+```xml
+...
+<Parameter name="type">postgis</Parameter>
+<Parameter name="password">0000</Parameter>
+<Parameter name="host">localhost</Parameter>
+<Parameter name="port"></Parameter>
+<Parameter name="user">lm</Parameter>
+<Parameter name="dbname">tree</Parameter>
+...
+```
+
+### The 'renderd' configuration file
+
+This file tells 'renderd' where to find mapnik, where to find the stylesheet and where to write the images generated by mapnik. Edit this file by typing
+
+```sh
+sudo vi /etc/renderd.conf
+```
+
+and modify it to make it look like the following. You can change the number of threads used, the location of the stylesheet, etc. if necessary.
+
+```
+[renderd]
+num_threads=8
+tile_dir=/var/lib/mod_tile
+stats_file=/var/run/renderd/renderd.stats
+
+[mapnik]
+plugins_dir=/usr/lib/mapnik/3.0/input
+font_dir=/usr/share/fonts/truetype
+font_dir_recurse=1
+
+[default]
+URI=/osm_tiles/
+TILEDIR=/var/lib/mod_tile
+XML=/home/lm/src/Lifemap/OTHER/style/osm.xml
+HOST=localhost
+TILESIZE=256
+MINZOOM=0
+MAXZOOM=40
+
+```
+
+### Test that everything works
+
+If everything went well you should be able to run the 'renderd' daemon by typing
+```
+	sudo ~/src/mod_tile/renderd -f
+```
+
+the `-f` option is for running renderd in foreground mode to see what happens.
+
+If all the installation went well and your database is empty (as it should at this stage), you will see some small errors concerning sql executeQuery failures (because the database is empty) but you SHOULD NOT get the ubuntu header back (lm@ubuntu:~$). This means that the daemon is runnning ok and is waiting for instructions from mod_tile.
+
+### Populate the database with your tree
+
+### Explore the tree from the web navigator

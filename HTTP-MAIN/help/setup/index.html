@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Set-up your own Lifemap-server (advanced)' - Lifemap-server</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Set-up your own Lifemap-server (advanced)'";
+    var mkdocs_page_input_path = "setup.md";
+    var mkdocs_page_url = "/setup/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Lifemap-server</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../virtualmachine/">Use Lifemap-server virtual machine (easy)</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Set-up your own Lifemap-server (advanced)'</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#set-up-you-own-server-on-ubuntu-1604">Set up you own server on Ubuntu 16.04</a></li>
+                
+                    <li><a class="toctree-l4" href="#update-and-upgrade-ubuntu">Update and upgrade Ubuntu</a></li>
+                
+                    <li><a class="toctree-l4" href="#install-basic-softwares-and-dependencies">install basic softwares and dependencies</a></li>
+                
+                    <li><a class="toctree-l4" href="#create-and-configure-a-postgresqlpostgis-database">Create and configure a Postgresql/Postgis database</a></li>
+                
+                    <li><a class="toctree-l4" href="#install-mapnik">Install Mapnik</a></li>
+                
+                    <li><a class="toctree-l4" href="#install-mod_tile-and-renderd">Install mod_tile and renderd</a></li>
+                
+                    <li><a class="toctree-l4" href="#configuring-apache">Configuring Apache</a></li>
+                
+                    <li><a class="toctree-l4" href="#configuring-python">Configuring python</a></li>
+                
+                    <li><a class="toctree-l4" href="#configuring-solr">Configuring Solr</a></li>
+                
+                    <li><a class="toctree-l4" href="#the-mapnik-stylesheet">The Mapnik stylesheet</a></li>
+                
+                    <li><a class="toctree-l4" href="#the-renderd-configuration-file">The 'renderd' configuration file</a></li>
+                
+                    <li><a class="toctree-l4" href="#test-that-everything-works">Test that everything works</a></li>
+                
+                    <li><a class="toctree-l4" href="#populate-the-database-with-your-tree">Populate the database with your tree</a></li>
+                
+                    <li><a class="toctree-l4" href="#explore-the-tree-from-the-web-navigator">Explore the tree from the web navigator</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Lifemap-server</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Set-up your own Lifemap-server (advanced)'</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="set-up-you-own-server-on-ubuntu-1604">Set up you own server on Ubuntu 16.04</h1>
+<blockquote>
+<p>This configuration instructions were largely copied from the OpenStreetMap wiki page <a href="http://wiki.openstreetmap.org/wiki/User:SomeoneElse/Ubuntu_1604_tileserver_load">http://wiki.openstreetmap.org/wiki/User:SomeoneElse/Ubuntu_1604_tileserver_load</a>.</p>
+<p>These instructions were tested on Ubuntu-16.04-server (LTS)</p>
+</blockquote>
+<h3 id="update-and-upgrade-ubuntu">Update and upgrade Ubuntu</h3>
+<p>Make sure to update and upgrade all your packages: </p>
+<pre><code class="sh">sudo apt-get update
+sudo apt-get upgrade
+</code></pre>
+
+<p><em><strong>Note</strong>:</em> <em>it might be necessary to restart after this upgrade.</em></p>
+<h3 id="install-basic-softwares-and-dependencies">install basic softwares and dependencies</h3>
+<p>Install first this series of packages</p>
+<pre><code class="sh">sudo apt install libboost-all-dev git-core tar unzip wget bzip2 build-essential autoconf libtool libxml2-dev libgeos-dev libgeos++-dev libpq-dev libbz2-dev libproj-dev munin-node munin libprotobuf-c0-dev protobuf-c-compiler libfreetype6-dev libpng12-dev libtiff5-dev libicu-dev libgdal-dev libcairo-dev libcairomm-1.0-dev apache2 apache2-dev libagg-dev liblua5.2-dev ttf-unifont lua5.1 liblua5.1-dev libgeotiff-epsg node-carto
+</code></pre>
+
+<p>followed by these ones</p>
+<pre><code class="sh">sudo apt-get install postgresql postgresql-contrib postgis postgresql-9.5-postgis-2.2
+</code></pre>
+
+<h3 id="create-and-configure-a-postgresqlpostgis-database">Create and configure a Postgresql/Postgis database</h3>
+<p>We create a user called <code>lm</code> protected by a password (<code>0000</code>), and finally a postgresql database named <code>tree</code> for which we enable PostGis. You can change the username, password or database name, but if so, you will have to change a configuration file on which the tile machinery (mod_tile and renderd) relies. </p>
+<p>Connect as a 'postgres' user and create user lm.</p>
+<pre><code class="sh">sudo -u postgres -i
+createuser lm -P
+</code></pre>
+
+<p>The  <code>-P</code> option tells Postgres to ask interactively for the password you want. You need to enter <code>0000</code> if you don't want to change the configuration files. </p>
+<p>Then create the database, with owner <code>lm</code>. </p>
+<pre><code class="sh">createdb -E UTF8 -O lm tree
+</code></pre>
+
+<p>While still working as the 'postgres' user, type</p>
+<pre><code class="sh">psql   # (will give a postgres=# prompt) 
+\c tree  # (to connnect to database tree as superuser
+
+</code></pre>
+
+<p>Now install the postgis extension:</p>
+<pre><code class="psql">CREATE EXTENSION postgis;  
+ALTER TABLE geometry_columns OWNER TO lm;
+ALTER TABLE spatial_ref_sys OWNER TO lm; 
+</code></pre>
+
+<p>Then exit with <code>\q</code> to exit psql followed by <code>exit</code> to come back to normal user.</p>
+<h3 id="install-mapnik">Install Mapnik</h3>
+<p>Mapnik is responsible for creating all the images (tiles), using as data sources the data present in the database we just created. To install mapnik do:</p>
+<pre><code class="sh">sudo apt-get install gdal-bin libgdal1-dev libmapnik-dev mapnik-utils python-mapnik
+
+</code></pre>
+
+<h3 id="install-mod_tile-and-renderd">Install mod_tile and renderd</h3>
+<p>"mod_tile" is an Apache module that handles requests for tiles; "renderd" is a daemon that actually renders tiles when "mod_tile" requests. for increasing the number of zoom levels that can be used, mod_tile has to be modified, using the files present in the Lifemap GitHub. This is explained later with the installation</p>
+<p>For convenience, We chose as starting "mod_tile" the one forked by "SomeoneElseOSM" and available on github.</p>
+<p>Create an <code>src</code> folder if it does not exist:</p>
+<pre><code class="bash">cd
+mkdir src
+</code></pre>
+
+<p>Downloald mod_tile</p>
+<pre><code class="sh">cd ~/src
+git clone git://github.com/SomeoneElseOSM/mod_tile.git
+cd mod_tile
+</code></pre>
+
+<p>Download Lifemap files</p>
+<pre><code class="sh">cd ~/src
+git clone https://github.com/damiendevienne/Lifemap.git
+</code></pre>
+
+<p>We then replace <code>includes/</code> and <code>src/</code> folders in mod_tile by those present in <code>Lifemap/OTHER/mod_tile</code></p>
+<pre><code class="sh">cp -r ~/src/Lifemap/OTHER/mod_tile/includes ~/src/Lifemap/OTHER/mod_tile/src ~/src/mod_tile/
+</code></pre>
+
+<p>We can then compile mod_tile.</p>
+<pre><code class="sh">cd ~/src/mod_tile
+./autogen.sh
+./configure
+make
+sudo make install
+sudo make install-mod_tile
+sudo ldconfig
+</code></pre>
+
+<h3 id="configuring-apache">Configuring Apache</h3>
+<p>Manually create the directory for generated tiles:</p>
+<pre><code class="sh">sudo mkdir /var/lib/mod_tile
+sudo mkdir /var/run/renderd
+</code></pre>
+
+<p>To tell Apache to load the mod_tile module, edit the following file with vi (or nano, emacs, gedit...). The file may not exist. You will thus have to create it.</p>
+<pre><code class="sh">sudo vi /etc/apache2/conf-available/mod_tile.conf
+</code></pre>
+
+<p>And add the following line :</p>
+<pre><code class="sh">LoadModule tile_module /usr/lib/apache2/modules/mod_tile.so
+``
+
+Then type
+
+```sh
+sudo a2enconf mod_tile
+</code></pre>
+
+<p>Now let's configure 'renderd'. open the following file with vi (or other editor)</p>
+<pre><code class="sh">sudo vi /etc/apache2/sites-available/000-default.conf
+</code></pre>
+
+<p>add the following lines between the "ServerAdmin" and "DocumentRoot" lines:</p>
+<pre><code class="xml">LoadTileConfigFile /etc/renderd.conf
+ModTileRenderdSocketName /var/run/renderd/renderd.sock
+# Timeout before giving up for a tile to be rendered
+ModTileRequestTimeout 0
+# Timeout before giving up for a tile to be rendered that is otherwise missing
+ModTileMissingRequestTimeout 30
+</code></pre>
+
+<p>Then reload apache</p>
+<pre><code class="sh">sudo service apache2 restart
+</code></pre>
+
+<h6 id="optional-configure-apache-for-running-php-and-python-scripts">[OPTIONAL]: Configure apache for running php and python scripts</h6>
+<p>This is necessary if you plan to have a web page that helps loading and launching your tree (as in the Virtualmachine proposed <a href="../virtualmachine/">here</a>).</p>
+<p>Enable CGI processing in apache</p>
+<pre><code class="sh">sudo a2enmod cgi
+</code></pre>
+
+<p>Create a folder on which tu put your python files</p>
+<pre><code class="sh">sudo mkdir /var/www/html/bin
+</code></pre>
+
+<p>And tell apache that this folder will contain scripts that you want to execute. Open the file:</p>
+<pre><code>sudo vi /etc/apache2/sites-available/000-default.conf
+</code></pre>
+
+<p>and add the following lines before <code>&lt;/VirtualHost&gt;</code>:</p>
+<pre><code>&lt;Directory /var/www/html/bin&gt;
+        Options +ExecCGI
+        AddHandler cgi-script .py
+&lt;/Directory&gt;
+</code></pre>
+
+<p>Finally, if you want to be able to upload tree files larger than 8MB you need to change the defult php settings by editing the <code>php.ini</code> file, usually located in <code>/etc/php/7.0/apache2/php.ini</code>. </p>
+<p>locate the line where it is written <code>post_max_size</code> and change the value to 200M. Make sure the <code>file_upload</code> is set to <code>On</code>. Finally set the value for "upload_max_filesize<code>to</code>200M`.   </p>
+<p>Then reload apache</p>
+<pre><code class="sh">sudo service apache2 restart
+</code></pre>
+
+<h3 id="configuring-python">Configuring python</h3>
+<p>For traversing the tree and populating the PostgreSQL/PostGIS database, you will need some python modules to be installed. 
+Install first some required dependencies: </p>
+<pre><code class="sh">sudo apt-get install python-numpy python-qt4 python-lxml python-six pip
+</code></pre>
+
+<p>Install the <code>psycopg2</code> module that allow connection with the Postgresql database:</p>
+<pre><code class="sh">pip install --upgrade psycopg2 
+</code></pre>
+
+<p>You can then install the <code>ete3</code> module for phylogenetic trees handling, making sure to set a correct target.   </p>
+<pre><code class="sh">sudo pip install --upgrade --target=/usr/local/lib/python2.7/dist-packages ete3
+</code></pre>
+
+<p>To get the correct address of the target, look at where <code>psycopg2</code> module was installed (with <code>pip show psycopg2</code>). Note that if you don't specify this --target, the module will be </p>
+<h3 id="configuring-solr">Configuring Solr</h3>
+<p>Solr is an Apache module that allows very fast searching. It is used in Lifemap for finding the species and node names in the explorer page. 
+To set up Solr, go to http://lucene.apache.org/solr/ and download the latest .tar.gz solr version, and save it in your home directory under the <code>src</code> folder:</p>
+<pre><code class="sh">cd ~/src
+wget http://apache.trisect.eu/lucene/solr/6.2.1/solr-6.2.1.tgz
+</code></pre>
+
+<p>Untar the file:  </p>
+<pre><code>tar xvzf solr-6.2.1.tgz
+</code></pre>
+
+<p>Check that java is installed by typing</p>
+<pre><code class="sh">java --version
+</code></pre>
+
+<p>If not, install it: </p>
+<pre><code class="sh">
+sudo apt-get update
+sudo apt-get install default-jre
+sudo apt-get install default-jdk
+</code></pre>
+
+<p>Now, still within the solr directory, we will start solr and create a new Core called taxo. It will contain all the information for the tree: coordinates of nodes and tips, associated names, zoom level at which they are visible, number of descendants, etc... 
+Start solr:</p>
+<pre><code>bin/solr start
+</code></pre>
+
+<p>When started, create the new core:</p>
+<pre><code>bin/solr create -c taxo
+</code></pre>
+
+<p>This will create a new folder named <code>taxo</code> in <code>server/solr/</code>. 
+You will then have to change some configuration files in this new core. </p>
+<pre><code>cd ~/src/solr-6.2.1/server/solr/taxo/conf
+</code></pre>
+
+<p>and replace the schema.xml by the <strong><em>content</em></strong> of schema.taxo.xml present on Lifemap's GitHub (in <code>Lifemap/OTHER/solr-config/</code>), and solrconfig.xml by the <strong><em>content</em></strong> of solrconfig.taxo.xml. The original names of the files in Solr should be unchanged. Reload solr when you are done: </p>
+<pre><code>~/src/solr-6.2.1/bin/solr restart
+</code></pre>
+
+<p>You are done!</p>
+<h3 id="the-mapnik-stylesheet">The Mapnik stylesheet</h3>
+<p>The stylesheet for Mapnik is an xml file (or list of files) that specifies all the graphical aspects that allow mapnik to transform the database into images: what color, what font, what style for what object at each possible zoom level.
+The current stylesheets (currently used on the main Lifemap maps online) are available in the Lifemap github that you downloaded earlier. It is thus present in</p>
+<pre><code class="sh">~/src/Lifemap/OTHER/style/
+</code></pre>
+
+<p>te file <code>osm.xml</code> (the main stylesheet) refers to many other files that are within the <code>inc</code> folder. One of these files,<code>~/src/Lifemap/OTHER/style/inc/datasource-settings.xml.inc</code> contains the information for Mapnik to connect to the database.</p>
+<p>If you followed all the instructions above for the installation, you should have the following settings. If you changed some of these information (username, password, databse name, etc.), change accordingly.</p>
+<pre><code class="xml">...
+&lt;Parameter name=&quot;type&quot;&gt;postgis&lt;/Parameter&gt;
+&lt;Parameter name=&quot;password&quot;&gt;0000&lt;/Parameter&gt;
+&lt;Parameter name=&quot;host&quot;&gt;localhost&lt;/Parameter&gt;
+&lt;Parameter name=&quot;port&quot;&gt;&lt;/Parameter&gt;
+&lt;Parameter name=&quot;user&quot;&gt;lm&lt;/Parameter&gt;
+&lt;Parameter name=&quot;dbname&quot;&gt;tree&lt;/Parameter&gt;
+...
+</code></pre>
+
+<h3 id="the-renderd-configuration-file">The 'renderd' configuration file</h3>
+<p>This file tells 'renderd' where to find mapnik, where to find the stylesheet and where to write the images generated by mapnik. Edit this file by typing</p>
+<pre><code class="sh">sudo vi /etc/renderd.conf
+</code></pre>
+
+<p>and modify it to make it look like the following. You can change the number of threads used, the location of the stylesheet, etc. if necessary.</p>
+<pre><code>[renderd]
+num_threads=8
+tile_dir=/var/lib/mod_tile
+stats_file=/var/run/renderd/renderd.stats
+
+[mapnik]
+plugins_dir=/usr/lib/mapnik/3.0/input
+font_dir=/usr/share/fonts/truetype
+font_dir_recurse=1
+
+[default]
+URI=/osm_tiles/
+TILEDIR=/var/lib/mod_tile
+XML=/home/lm/src/Lifemap/OTHER/style/osm.xml
+HOST=localhost
+TILESIZE=256
+MINZOOM=0
+MAXZOOM=40
+
+</code></pre>
+
+<h3 id="test-that-everything-works">Test that everything works</h3>
+<p>If everything went well you should be able to run the 'renderd' daemon by typing</p>
+<pre><code>    sudo ~/src/mod_tile/renderd -f
+</code></pre>
+
+<p>the <code>-f</code> option is for running renderd in foreground mode to see what happens.</p>
+<p>If all the installation went well and your database is empty (as it should at this stage), you will see some small errors concerning sql executeQuery failures (because the database is empty) but you SHOULD NOT get the ubuntu header back (lm@ubuntu:~$). This means that the daemon is runnning ok and is waiting for instructions from mod_tile.</p>
+<h3 id="populate-the-database-with-your-tree">Populate the database with your tree</h3>
+<h3 id="explore-the-tree-from-the-web-navigator">Explore the tree from the web navigator</h3>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../virtualmachine/" class="btn btn-neutral" title="Use Lifemap-server virtual machine (easy)"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../virtualmachine/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+# Welcome to Lifemap-server
+
+This document explains you how to use Lifemap-server for visualizing your own (huge) trees (up to many million species), similar to the Lifemap Tree(s) of Life presented [here](http://lifemap.univ-lyon1.fr) or [here](http://lifemap-ncbi.univ-lyon1.fr) (NCBI version).
+
+*
+The simplest option consists in downloading the Lifemap-server Lifemap-server virtual machine available [here](http://) and follow the instructions for how to install it and upload your tree (in a user-friendly interactive way). 
+
+The other option (for more advanced programmers) consists in [setting up your own Lifemap-server](setup.md). This options should only be preferred if you want to change the visual aspects of the tree, or/and if you want to create a virtual machines forothers to use.
+
+

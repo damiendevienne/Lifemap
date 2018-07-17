@@ -1,0 +1,116 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lifemap Server Download</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <style>
+    .title {
+      text-align:center;
+      font-size: 15pt;
+	  font-family: 'Raleway', sans-serif;
+      color: #A6B0C5;      
+      padding: 35px;
+    }
+    .boite {
+      color: grey;      
+      margin: 15px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      cursor: pointer;
+    }
+    .boite2 {
+      color: grey;      
+      margin: 15px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      padding:20px;
+    }
+
+    .boite:hover{
+    	border: 2px solid #A6B0C5;
+    }
+    .belowbox {
+	  font-family: 'Raleway', sans-serif;
+      color: #A6B0C5;      
+    }
+    .cn {
+      padding: 15px;
+      text-align:center;
+    }
+    .row {
+    	margin:0px;
+    }
+    .home {
+      font-size: 8pt;
+      position: absolute;
+      top:10px;
+      right: 10px;
+      font-family: 'Raleway', sans-serif;
+      color: #A6B0C5;      
+      cursor: pointer;
+    }
+    .footer2 {
+    background: white;
+    border: 1px solid white;
+    text-align:center;
+    color: #ABB6CF;
+    padding: 10px;
+    font-size: 10pt;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .footer2 a{
+    color: #ABB6CF;
+    text-decoration: bold;
+    }
+
+    </style>
+  </head>
+  <body>
+  <div class="home" onclick="window.open('index.html');"><u>Home</u></div>
+    <div class='row title'>
+	    <img src="img/lmserver-title.png" height="60px">
+	    <div style='padding: 15px;'>A virtual machine to explore your own trees</div>
+	  </div>
+    <div class='row'>
+      <div class="col-xs-2"></div>
+      <div class="col-xs-8">
+        <div class="row">
+          <div class='col-xs-4'>
+            <div class='boite' style="padding: 20px;" onclick="window.open('dl/Lifemap-server-1611.zip')">
+	            <img src="img/lm-server-download.png" width="100%">
+	            <div class='cn'><br>
+               Download the Lifemap-server Virtual Machine now (3.6 Go)
+              </div>
+            </div>
+          </div>
+          <div class='col-xs-8'>
+           <div class='boite2 belowbox'> 
+          <div><p><b>Lifemap-server Virtual Machine</b> was created in order for users to be able to explore their own trees, and not only the precomputed Tree(s) of Life available on the <a href="http://lifemap.univ-lyon1.fr">home page</a>. To start using Lifemap-server, simply follow the instructions below.</p><p>Lifemap-server runs on all plateforms (OS,linux,Windows). It only requires a (free) virtualization program to be installed. I recommend using Virtualbox. </p><p>Lifemap-server will run <b>locally</b> on your computer. To be able to share the tree that you created, you will have to put this virtual machine on a public server of your own.</p>
+           </div> 
+          <div class="title">Instructions</div> 
+          <ol>
+          <li>Download and install Virtualbox: <a href="https://www.virtualbox.org/">https://www.virtualbox.org/</a></li>
+          <li>Download the Lifemap-server virtual machine by clicking on the large button on the left.</li>
+          <li>Once done, launch the Virtual Machine with Virtualbox by double-clicking the file you just downloaded.</li>
+          <li>When the virtual machine is running, open your favorite web browser (Chrome or Firefox) and simply type: <span style="color: darkred; font-family: Courrier;" > localhost:5580 </span> in the url bar. </li>
+          <li> That's it! You will see a web page where you can upload a tree file (Newick) and explore the uploaded tree. </li> 
+          </ol>
+          <i>Note that you can change the memory and the number of CPUs that you attribute to the virtual machine. If you want to explore trees with million of leaves, you may consider changing these values. </i>
+          </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-2"></div>
+      </div>
+    <div class="footer navbar-fixed-bottom footer2">
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a>&nbsp;<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Lifemap</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://lbbe.univ-lyon1.fr/-de-Vienne-Damien-.html" property="cc:attributionName" rel="cc:attributionURL">Damien de Vienne / CNRS</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.12.3.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <!-- Latest compiled and minified JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

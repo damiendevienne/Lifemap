@@ -1,0 +1,228 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="icon" type="image/png" href="img/LMicon1.png">
+    <title>Lifemap - Welcome</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <style>
+    .title {
+      text-align:center;
+      font-size: 15pt;
+	  font-family: 'Raleway', sans-serif;
+      color: #A6B0C5;      
+      padding: 35px;
+    }
+    .boite {
+      color: grey;      
+      margin: 15px;
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      cursor: pointer;
+    }
+    .boite:hover{
+    	border: 2px solid #A6B0C5;
+    }
+    .belowbox {
+    font-family: 'Raleway', sans-serif;
+      color: #A6B0C5;      
+    }
+    .details {
+    background: #ABB6CF;
+    font-family: 'Raleway', sans-serif;
+      color: white;      
+    font-size: 10pt;
+    padding: 15px;
+    margin: 15px;
+    margin-top:0px;
+    text-align:center;
+    }
+    .details a{
+      color: white;      
+    text-decoration: underline;
+    }
+
+    .cn {
+      padding: 15px;
+      text-align:center;
+    }
+    .row {
+    	margin:0px;
+    }
+    .home {
+      position: absolute;
+      top:10px;
+      right: 10px;
+      font-size: 8pt;
+      font-family: 'Raleway', sans-serif;
+      color: #A6B0C5;      
+      cursor: pointer;
+    }
+    .topleft {
+      position: absolute;
+      top:10px;
+      left: 10px;
+    }
+
+    #AuthorModal {
+    color: #333;
+    font-family: 'Raleway', sans-serif;
+    }
+    #AuthorModal a {
+    color: #333;
+    font-family: 'Raleway', sans-serif;
+    }
+    .footer2 {
+    background: white;
+    border: 1px solid white;
+    text-align:center;
+    color: #ABB6CF;
+    padding: 10px;
+    font-size: 10pt;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    .footer2 a{
+    color: #ABB6CF;
+    text-decoration: bold;
+    }
+    .spacer {
+    height: 200px;
+    }
+
+    </style>
+	<script type="text/javascript">
+	if (screen.width<=800) {
+		window.location = "http://lifemap.univ-lyon1.fr/mobile.index.html";
+	}
+	</script>
+  </head>
+  <body>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class='home'>
+	<span data-toggle="modal" data-target="#AuthorModal"><u>The author</u></span> |
+	<span onclick="window.open('http://journals.plos.org/plosbiology/article/authors?id=10.1371/journal.pbio.2001624','_blank');"><u>Publication</u></span> |
+	<span onclick="window.open('https://github.com/damiendevienne/Lifemap','_blank');"><u>Lifemap on Github</u></span> |
+	<span onclick="window.open('http://lifemap.univ-lyon1.fr/help','_blank');"><u>Help</u></span>
+</div>
+
+<div class="topleft">
+<div>
+<a href="https://play.google.com/store/apps/details?id=fr.univ_lyon1.lifemapcom&hl=en" target="_blank"><img src="img/playstore.png" width="100px"></a>
+</div>
+<div style="padding-top:5px;">
+<a href="https://itunes.apple.com/us/app/lifemap-tree-of-life/id1318716582?mt=8"><img src="https://linkmaker.itunes.apple.com/assets/shared/badges/fr-fr/appstore-lrg.svg" width="100px;"/> </a>
+</div>
+<hr>
+<div style="padding-top:5px;"><a href="https://twitter.com/share" class="twitter-share-button" data-text="Lifemap: explore the entire Tree of Life!" data-via="lifemap_tol" data-size="large">Tweet</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></div>
+<div style="padding-top:5px;" class="fb-share-button" data-href="http://lifemap.univ-lyon1.fr" data-layout="button" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flifemap.univ-lyon1.fr%2F&amp;src=sdkpreparse">Share</a></div>
+</div>
+<!--MODAL PRESENTING AUTHOR-->
+<!-- Modal -->
+<div id="AuthorModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+	<div class="row">
+	  <div class="col-xs-4">
+	    <img src="img/ddv.png" width="100%">
+	    <p style="font-size:6pt;text-align:center;">&copy; Barbara Portailler</p>
+	  </div>
+	  <div class="col-xs-8">
+	    <div>
+	    <b>Damien M. de Vienne</b> is a CNRS researcher working at the Biometry and Evolutionary Biology Laboratory (<a href="http://lbbe.univ-lyon1.fr">LBBE</a>) in Lyon (France). He developed Lifemap with the technical support of the Informatics Pole of the laboratory, in particular Stéphane Delmotte and Bruno Spataro. 
+	    </div>
+	    <div style="padding-top: 10px; text-align: center; font-size:8pt;">
+	      <a href="https://lbbe.univ-lyon1.fr/-de-Vienne-Damien-.html?lang=en">Web page</a>&nbsp;|&nbsp;<a href="mailto:damien.de-vienne@univ-lyon1.fr">E-mail</a>
+	    </div>
+	  </div>
+	</div>
+      </div>
+      <div class="modal-footer">
+	<div style="text-align:center;">
+	  <img src="https://upload.wikimedia.org/wikipedia/en/thumb/2/2c/CNRS.svg/200px-CNRS.svg.png" height="40px">
+	  <img src="https://upload.wikimedia.org/wikipedia/fr/7/7d/Logo_lbbe.png" height="40px">
+	</div>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+    <div class='row title'>
+	    <img src="img/lm.png" height="60px">
+	    <div style='padding: 15px;'>Exploring the Entire Tree of Life</div>
+	    </div>
+    <div class='row'>
+      <div class="col-sm-3 col-md-2"></div>
+      <div class="col-sm-6 col-md-8">
+        <div class="row">
+          <div class="col-md-4">
+            <div class='boite' onclick="window.open('http://lifemap-otol.univ-lyon1.fr','_blank');">
+	            <img src="img/img3.png" width="100%">
+	            <div class='cn'><img src="img/lm-otol.png" width="100%"></div>
+            </div>
+            <div class='cn belowbox'><p>Tree proposed by <a href="https://tree.opentreeoflife.org">Open Tree of Life</a></p><p>~2.2 Million species</p></div>
+	    <div class="details">This tree results from the <a href='https://blog.opentreeoflife.org/'>'Open Tree of Life'</a> community project that aims at combining phylogenetic data and taxonomic information into a comprehensive Tree of Life. The current version (7.0) contains 2,146,904 tips.</div>
+          </div>
+          <div class='col-md-4'>
+            <div class='boite' onclick="window.open('http://lifemap.univ-lyon1.fr/explore.html','_blank');">
+	            <img src="img/img1.png" width="100%">
+	            <div class='cn'><img src="img/lm-gp.png" width="100%"></div>
+            </div>
+            <div class='cn belowbox'><p>Tree simplified from NCBI taxonomy</p><p>~800,000 species</p></div>
+	    <div class="details">This 'large public' tree is a reduction of the whole NCBI taxonomy. It only shows species (no strains, environmental samples, unidentified species, etc.). It displays a descritption and picture retrieved from Wikipedia when clicking on the tips and nodes. </div>
+          </div>
+          <div class='col-md-4'>
+            <div class='boite' onclick="window.open('http://lifemap-ncbi.univ-lyon1.fr','_blank');">
+	            <img src="img/img2.png" width="100%">
+	            <div class='cn'><img src="img/lm-ncbi.png" width="100%"></div>
+            </div>
+            <div class='cn belowbox'><p>Complete <a href="https://www.ncbi.nlm.nih.gov/taxonomy">NCBI taxonomy</a></p><p>~1.4 Million species</p></div>
+	    <div class="details">The <a href="https://www.ncbi.nlm.nih.gov/taxonomy">NCBI taxonomic tree</a> represents the relationships between all species/strains that have at least one sequence in the NCBI/Entrez database. It is curated and validated by expert taxonomists and is updated regularly. </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+    <div class='row' style="padding: 20px;color: #B3B9CA; font-size: 20pt; text-align: center;">
+      <span class="glyphicon glyphicon-chevron-down" aria-hidden="true"></span>
+    </div>
+    <div class='row'>
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <div class="boite" title = "Installation instructions on next page" style="height: auto;" onclick="window.open('download.html','_blank');">
+        		<div class="cn belowbox">Download the Lifemap-Server Virtual Machine <br><img src="img/lm-server-download.png" height="80px;" style="padding: 10px;"><br>to explore your own trees with Lifemap</div>
+        </div>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+    <div class="row"><div class="spacer">&nbsp;</div></div>
+    <div class="footer navbar-fixed-bottom footer2">
+	<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a>&nbsp;<span xmlns:dct="http://purl.org/dc/terms/" property="dct:title">Lifemap</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://lbbe.univ-lyon1.fr/-de-Vienne-Damien-.html" property="cc:attributionName" rel="cc:attributionURL">Damien de Vienne / CNRS</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
+	<br>
+	If you use Lifemap for your publications, please cite:<br>
+	de Vienne DM (2016) Lifemap: Exploring the Entire Tree of Life. <i>PLOS Biology</i> 14(12): e2001624. doi: 10.1371/journal.pbio.2001624. 			
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.12.3.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <!-- Latest compiled and minified JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

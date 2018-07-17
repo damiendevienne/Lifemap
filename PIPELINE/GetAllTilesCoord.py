@@ -18,6 +18,7 @@ def getXYZ(fi):
 	with open(fi) as f:  
 		for line in f:
 			tmp = line.split(":")
+			print "u"
 			if (len(tmp)>1):
 				key = tmp[0].replace("\"", "").replace(" ","")
 				val = tmp[1].replace("\"", "").replace(" ","").replace(",","").rstrip()

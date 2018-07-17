@@ -18,7 +18,6 @@ def getXYZ(fi):
 	with open(fi) as f:  
 		for line in f:
 			tmp = line.split(":")
-			print "u"
 			if (len(tmp)>1):
 				key = tmp[0].replace("\"", "").replace(" ","")
 				val = tmp[1].replace("\"", "").replace(" ","").replace(",","").rstrip()
@@ -29,7 +28,8 @@ def getXYZ(fi):
 				if (key=='lon'):
 					lon = val;
 					#do stuff
-					if (zoom<=16):
+					if (int(zoom)<=16):
+#						print zoom
 						xy = deg2num(float(lat), float(lon), float(zoom))
 						coo.write("%d %d %s\n" % (xy[0], xy[1],zoom))
 					zoom = False

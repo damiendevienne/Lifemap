@@ -96,8 +96,8 @@ def getTheTrees():
 			if (T.has_key(dad)==False):
 				T[dad] = Tree()
 				T[dad].name = dad
-				T[dad].rank = rank
-				T[dad].rank_FR = RANKS[rank]
+#				T[dad].rank = rank
+#				T[dad].rank_FR = RANKS[rank]
 				T[dad].taxid = dad
 				T[dad].sci_name = ATTR[dad].sci_name
 				T[dad].common_name = ATTR[dad].common_name

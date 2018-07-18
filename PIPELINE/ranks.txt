@@ -26,3 +26,4 @@ parvorder	parvordre
 suborder	sous-ordre
 genus	genre
 order	ordre
+cohort  cohorte

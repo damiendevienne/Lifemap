@@ -37,8 +37,11 @@ def updateDB():
 
 def simplify(arbre):
 	for n in arbre.traverse():
-		if ('Unclassified' in n.sci_name) or ('unclassified' in n.sci_name) or ('uncultured' in n.sci_name) or ('Uncultured' in n.sci_name) or ('unidentified' in n.sci_name) or ('Unidentified' in n.sci_name) or ('environmental' in n.sci_name) or ('sp.' in n.sci_name):
+		if (n.is_leaf==True) and (n.rank=='no rank'):
 			n.detach()
+		else:
+			if ('Unclassified' in n.sci_name) or ('unclassified' in n.sci_name) or ('uncultured' in n.sci_name) or ('Uncultured' in n.sci_name) or ('unidentified' in n.sci_name) or ('Unidentified' in n.sci_name) or ('environmental' in n.sci_name) or ('sp.' in n.sci_name):
+				n.detach()
 	print "Tree HAS BEEN simplified"
 	return arbre
 

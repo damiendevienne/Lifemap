@@ -36,13 +36,18 @@ def updateDB():
 	os.system("unzip -o taxo/TAXREF_INPN_v11.zip -d taxo/")
 
 def simplify(arbre):
+	initialSize = len(arbre)
 	for n in arbre.traverse():
-		if (n.is_leaf==True) and (n.rank=='no rank'):
+		if (n.is_leaf()==True) and (n.rank=='no rank'):
 			n.detach()
 		else:
 			if ('Unclassified' in n.sci_name) or ('unclassified' in n.sci_name) or ('uncultured' in n.sci_name) or ('Uncultured' in n.sci_name) or ('unidentified' in n.sci_name) or ('Unidentified' in n.sci_name) or ('environmental' in n.sci_name) or ('sp.' in n.sci_name):
 				n.detach()
 	print "Tree HAS BEEN simplified"
+	finalSize = len(arbre)
+	diffInSize = (initialSize-finalSize)
+	print  str(diffInSize) + " tips have been removed (" + str(round(float(diffInSize)/float(initialSize)*100, 2)) + '%)'
+	print  "FINAL TREE SIZE: " + str(finalSize)
 	return arbre
 
 

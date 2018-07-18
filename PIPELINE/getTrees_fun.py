@@ -115,6 +115,10 @@ def getTheTrees():
 				T[son].synonym = ATTR[son].synonym
 				T[son].authority = ATTR[son].authority
 				T[son].common_name_FR = ATTR[son].common_name_FR
+			else:
+				if (hasattr(T[son], 'rank')==False):
+					T[son].rank = rank
+					T[son].rank_FR = RANKS[rank]
 			T[dad].add_child(T[son])
 	return T
 

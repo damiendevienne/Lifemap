@@ -1,4 +1,5 @@
 superkingdom	domaine
+subkingdom	sous-domaine
 tribe	tribu
 subgenus	sous-genre
 family	famille
@@ -26,4 +27,4 @@ parvorder	parvordre
 suborder	sous-ordre
 genus	genre
 order	ordre
-cohort  cohorte
+cohort	cohorte

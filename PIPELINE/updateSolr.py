@@ -23,13 +23,17 @@ print '  Solr successfully started\n'
 # 2. Delete old documents  
 print '  (2/4) Deleting Solr docs...\n'
 print '          Deleting taxo...\n'
-delete1 = "curl http://localhost:8983/solr/taxo/update?commit=true -d '<delete><query>*:*</query></delete>'"
+delete1 = "curl http://localhost:8080/solr/taxo/update?commit=true -d '<delete><query>*:*</query></delete>'"
 os.system(delete1)
 print '          Taxo successfully deleted\n'
 print '          Deleting addi...\n'
-delete2 = "curl http://localhost:8983/solr/addi/update?commit=true -d '<delete><query>*:*</query></delete>'"
+delete2 = "curl http://localhost:8080/solr/addi/update?commit=true -d '<delete><query>*:*</query></delete>'"
 os.system(delete2)
 print '          Addi successfully deleted\n'
+print '          Deleting ncbi...\n'
+delete2 = "curl http://localhost:8080/solr/ncbi/update?commit=true -d '<delete><query>*:*</query></delete>'"
+os.system(delete2)
+print '          ncbi successfully deleted\n'
 print '          Restarting Solr...\n'
 os.system(restartsolr)
 print '          Solr successfully restarted\n'
@@ -49,6 +53,12 @@ for i in range(1,4):
     uupadtesolr2 = path2solr + "bin/post -c addi ADDITIONAL.%d.json" % i
     os.system(uupadtesolr2)
     print '          -> Additions %d successfully uploaded.' % i 
+##and add the full NCBI docs
+uupadtesolr3 = path2solr + "bin/post -c ncbi ADDITIONAL.FULLNCBI.json"
+os.system(uupadtesolr2)
+print '          -> Additions FULLNCBI successfully uploaded.'
+
+
 print '        All files successfully uploaded\n'
     
 # 4. Restarting solr 

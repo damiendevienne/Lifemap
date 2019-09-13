@@ -34,16 +34,16 @@ for n in t.traverse():
     addi.write("\t\t\"rank\":\"%s\",\n" % n.rank);
     addi.write("\t\t\"ascend_taxids\":[");
     for k in n.path_taxid[:-1]:
-        addi.write("%s," % k)
-    addi.write("1],\n")   
+        addi.write("\"%s\"," % k)
+    addi.write("\"1\"],\n")   
     addi.write("\t\t\"ascend_sci_names\":[");
     for k in n.path_sci_name[:-1]:
-        addi.write("%s," % k)
-    addi.write("root],\n")   
+        addi.write("\"%s\"," % k)
+    addi.write("\"root\"],\n")   
     addi.write("\t\t\"ascend_ranks\":[");
     for k in n.path_rank[:-1]:
-        addi.write("%s," % k)
-    addi.write("no rank]\n\t},\n")   
+        addi.write("\"%s\"," % k)
+    addi.write("\"no rank\"]\n\t},\n")   
     
 ##remove unwanted last character(,) of json file
 addi.close()

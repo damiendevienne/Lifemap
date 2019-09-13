@@ -31,8 +31,8 @@ delete2 = "curl http://localhost:8080/solr/addi/update?commit=true -d '<delete><
 os.system(delete2)
 print '          Addi successfully deleted\n'
 print '          Deleting ncbi...\n'
-delete2 = "curl http://localhost:8080/solr/ncbi/update?commit=true -d '<delete><query>*:*</query></delete>'"
-os.system(delete2)
+delete3 = "curl http://localhost:8080/solr/ncbi/update?commit=true -d '<delete><query>*:*</query></delete>'"
+os.system(delete3)
 print '          ncbi successfully deleted\n'
 print '          Restarting Solr...\n'
 os.system(restartsolr)
@@ -55,7 +55,7 @@ for i in range(1,4):
     print '          -> Additions %d successfully uploaded.' % i 
 ##and add the full NCBI docs
 uupadtesolr3 = path2solr + "bin/post -c ncbi ADDITIONAL.FULLNCBI.json"
-os.system(uupadtesolr2)
+os.system(uupadtesolr3)
 print '          -> Additions FULLNCBI successfully uploaded.'
 
 

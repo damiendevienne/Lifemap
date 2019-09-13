@@ -30,7 +30,7 @@ addi.write('[\n')
 for n in t.traverse():
     addi.write("\t{\n");
     addi.write("\t\t\"taxid\":\"%s\",\n" % n.taxid);
-    addi.write("\t\t\"sci_name\":\"%s\",\n" % n.sci_name);
+    addi.write("\t\t\"sci_name\":\"%s\",\n" % n.sci_name.replace('"','\\"'));
     addi.write("\t\t\"rank\":\"%s\",\n" % n.rank);
     addi.write("\t\t\"ascend_taxids\":[");
     for k in n.path_taxid[:-1]:
@@ -38,7 +38,7 @@ for n in t.traverse():
     addi.write("\"1\"],\n")   
     addi.write("\t\t\"ascend_sci_names\":[");
     for k in n.path_sci_name[:-1]:
-        addi.write("\"%s\"," % k)
+        addi.write("\"%s\"," % k.replace('"','\\"'))
     addi.write("\"root\"],\n")   
     addi.write("\t\t\"ascend_ranks\":[");
     for k in n.path_rank[:-1]:

@@ -108,7 +108,7 @@ def getTheTrees():
 				T[son] = Tree()
 				T[son].name = son
 				T[son].rank = rank
-				T[son].rank_FR = RANKS[rank]
+#				T[son].rank_FR = RANKS[rank]
 				T[son].taxid = son
 				T[son].sci_name = ATTR[son].sci_name
 				T[son].common_name = ATTR[son].common_name
@@ -118,7 +118,7 @@ def getTheTrees():
 			else:
 				if (hasattr(T[son], 'rank')==False):
 					T[son].rank = rank
-					T[son].rank_FR = RANKS[rank]
+#					T[son].rank_FR = RANKS[rank]
 			T[dad].add_child(T[son])
 	return T
 

@@ -45,16 +45,16 @@ time.sleep(60)
 # 3. Uploading files 
 print '  (3/4) Uploading files to Solr...\n'
 for i in range(1,4):
-    uupadtesolr = path2solr + "bin/post -c taxo TreeFeatures%d.json" % i
+    uupadtesolr = path2solr + "bin/post -c taxo TreeFeatures%d.json -p 8080" % i
     os.system(uupadtesolr)
     print '          -> TreeFeatures %d successfully uploaded.' % i 
 
 for i in range(1,4):
-    uupadtesolr2 = path2solr + "bin/post -c addi ADDITIONAL.%d.json" % i
+    uupadtesolr2 = path2solr + "bin/post -c addi ADDITIONAL.%d.json -p 8080" % i
     os.system(uupadtesolr2)
     print '          -> Additions %d successfully uploaded.' % i 
 ##and add the full NCBI docs
-uupadtesolr3 = path2solr + "bin/post -c ncbi ADDITIONAL.FULLNCBI.json"
+uupadtesolr3 = path2solr + "bin/post -c ncbi ADDITIONAL.FULLNCBI.json -p 8080"
 os.system(uupadtesolr3)
 print '          -> Additions FULLNCBI successfully uploaded.'
 

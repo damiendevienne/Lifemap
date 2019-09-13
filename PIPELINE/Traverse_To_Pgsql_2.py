@@ -80,9 +80,6 @@ if (groupnb=="1"):
 	t.alpha = 30.0;
 	t.ray = 10.0;
 	starti = starti;
-    ##NEW (2019) : here we also decide to detach the whole tree (from root, taxid=1), so that we will have a new solr core to query it.
-    tbig = T['1'].detach()
-    tbig.write(outfile="NCBIWHOLETREE", features = ["name", "taxid", "sci_name","common_name","rank", "authority","synonym","common_name_FR", "rank_FR"], format_root_node=True)
 if (groupnb=="2"):
 	# with open('EUKARYOTES.pkl', 'rb') as input:
 	# 	t = pickle.load(input)

@@ -65,3 +65,4 @@ print '        All files successfully uploaded\n'
 print '  (4/4) Restarting Solr...\n'
 os.system(restartsolr)
 print '        Solr successfully restarted\n'
+qq

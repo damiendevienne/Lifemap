@@ -35,6 +35,11 @@ print '  Getting addditional Bacter info...'
 os.system('python Additional.info.py 3')
 print '  ...Done'
 
+##2.1. Get FULL info from NCBI (new sept 2019)
+os.system('python StoreWholeNcbiInSolr.py')
+print '  ...Done'
+
+
 ## 3. Update Solr informations
 print '  Updating Solr... '
 os.system('python updateSolr.py')

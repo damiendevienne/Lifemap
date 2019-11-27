@@ -37,7 +37,7 @@ def getXYZ(fi):
 					lon = False
 
 getXYZ('TreeFeatures1.json')
-getXYZ('TreeFeatures2.json')
-getXYZ('TreeFeatures3.json')
+#getXYZ('TreeFeatures2.json')
+#getXYZ('TreeFeatures3.json')
 
 coo.close();

@@ -10,7 +10,7 @@
       Lifemap is a tool to explore the tree of life in an interactive manner. It is based on a modification of the NCBI taxonomy and contains around 800,000 species. Each node and (species) in the tree can be clicked on to get information and pictures retrieved from wikipedia. It is also possible to compute the route between taxa or clades in the tree.  
     </description>
 
-    <author href="https://lbbe.univ-lyon1.fr/-de-Vienne-Damien-.html" email="damien.de-vienne@univ-lyon1.fr">
+    <author href="https://lbbe.univ-lyon1.fr/en/annuaire-des-membres/de-vienne-damien" email="damien.de-vienne@univ-lyon1.fr">
         Damien de Vienne 
     </author>
     <!--    <access origin="*" />-->

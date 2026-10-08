@@ -1,9 +1,9 @@
 # THE REPOSITORY OF THE LIFEMAP TREE OF LIFE EXPLORER HAS MOVED
 
-Lifemap* scripts and its dependencies are now hosted under the dedicated GitHub organisation [Lifemap-ToL](https://github.com/Lifemap-ToL) 
+Lifemap* scripts and its dependencies are now hosted under the dedicated GitHub organisation [**Lifemap-ToL**](https://github.com/Lifemap-ToL).
 - **frontend**: https://github.com/Lifemap-ToL/lifemap-front 
 - **backend**: https://github.com/Lifemap-ToL/lifemap-back
-- **multilingual** vernacular names and tawxonomic links: https://github.com/Lifemap-ToL/taxonomy-all
+- **multilingual vernacular names**: https://github.com/Lifemap-ToL/taxonomy-all
 - [**pylifemap**](https://github.com/Lifemap-ToL/pylifemap) (python library for mapping on a Lifemap basemap): https://github.com/Lifemap-ToL/pylifemap
 
 
